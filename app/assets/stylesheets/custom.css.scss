@@ -1,0 +1,42 @@
+$navbar-default-bg: #eee;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  background: url(https://images.unsplash.com/photo-1477001595975-6431309343f0) no-repeat top center;
+  background-size: cover;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 45px;
+  line-height: 56px;
+  letter-spacing: -0.8px;
+}
+
+.home_hero {
+  padding: 5em 0 2em 0;
+}
+
+.brand_text {
+  font-weight: 500;
+  color: #f04d52;
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.navbar-brand {
+  font-weight: 600;
+  color: #f04d52 !important;
+  margin-top: -2px;
+}
+
+.menu_link {
+  font-weight: 500;
+}
