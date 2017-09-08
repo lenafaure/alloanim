@@ -1,5 +1,9 @@
 <h1>User Profile</h1>
 
 <%= @user.email %><br/>
+<%= @user.phone_number %><br/>
+<%= @user.soi_number %><br/>
+<%= @user.circonscription %><br/>
+<%= @user.school %><br/>
 
 <%= link_to "Modifier mon profil", edit_user_registration_path(current_user) %>
