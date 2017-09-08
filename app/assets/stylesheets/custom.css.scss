@@ -6,6 +6,9 @@ $navbar-default-bg: #eee;
 body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
+}
+
+body.home_page {
   background: url(https://images.unsplash.com/photo-1477001595975-6431309343f0) no-repeat top center;
   background-size: cover;
 }

@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.3'
 # Devise Authentication System
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'devise-i18n'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

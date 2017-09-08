@@ -9,7 +9,7 @@ fr:
         current_password: Mot de passe actuel
         current_sign_in_at: 
         current_sign_in_ip: 
-        email: Email
+        email: email
         encrypted_password: 
         failed_attempts: 
         last_sign_in_at: 
@@ -24,7 +24,8 @@ fr:
         sign_in_count: 
         unconfirmed_email: 
         unlock_token: Clé de déblocage
-        updated_at: 
+        updated_at:
+        fullname: Nom complet
     models:
       user: Utilisateur
   devise:
