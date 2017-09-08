@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, :except => [:pages, :home]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # redirect to edit page after sign up
+  # redirect to edit page after sign in
   def after_sign_in_path_for(resource)
-    edit_user_registration_path(current_user)
+    user_path(current_user)
   end
 
   # allow additional parameters
