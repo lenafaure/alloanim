@@ -6,6 +6,8 @@ $navbar-default-bg: #eee;
 /* colors */
 
 $white: #fff;
+$grey-background: #edefed;
+$grey-border: #dce0e0;
 $main-pink: #f04d52;
 $light-pink: lighten($main-pink, 5%);
 
@@ -42,7 +44,7 @@ input:-webkit-autofill {
   -webkit-animation-fill-mode: both;
 }
 
-/* Home */
+  /* Home */
 
 .home_hero {
   padding: 5em 0 2em 0;
@@ -106,6 +108,38 @@ input:-webkit-autofill {
 
 /* end flash messages */
 
+/* forms */
+
+.form-title {
+  font-weight: 300;
+  margin: 1em auto;
+}
+
+.form-heading-title {
+  font-weight: 400;
+  padding: 0.3em 0;
+}
+
+.form-group.required .control-label:after {
+  content:" *";
+  color:red;
+}
+
+.form-flex .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-flex .form-group label {
+  width: 32%;
+  text-align: right;
+  padding-right: 2em;
+  font-weight: 400;
+}
+
+/* end forms */
+
 /* Override bootstrap styles */
 
 .form-group input {
@@ -119,12 +153,10 @@ input:-webkit-autofill {
   box-shadow: none;
 }
 
-.btn-registration-form {
-  width: 100%;
+.btn-registration-form, .btn-edit-form {
   background-color: $main-pink;
   height: 50px;
   color: $white;
-  font-size: 20px;
   font-weight: 300;
   @include transition-duration(.2s);
   &:hover {
@@ -133,9 +165,23 @@ input:-webkit-autofill {
   }
 }
 
+.btn-edit-form {
+  width: 30%;
+}
+
+.btn-registration-form {
+  width: 100%;
+  font-size: 18px;
+}
+
+.panel-default {
+  border-radius: 0px;
+}
+
+.panel-default > .panel-heading {
+  background-color: $grey-background;
+  border-radius: 0px;
+}
+
 /* End override boostrap styles */
 
-.form-title {
-  font-weight: 300;
-  margin: 1em auto;
-}
