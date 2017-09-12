@@ -3,6 +3,14 @@ $navbar-default-bg: #eee;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* colors */
+
+$white: #fff;
+$main-pink: #f04d52;
+$light-pink: lighten($main-pink, 5%);
+
+/* end colors */
+
 body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
@@ -20,6 +28,20 @@ h1 {
   letter-spacing: -0.8px;
 }
 
+/* prevent yellow autofill background in Chrome */
+
+@-webkit-keyframes autofill {
+  to {
+    color: #666;
+    background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+
 /* Home */
 
 .home_hero {
@@ -32,7 +54,7 @@ h1 {
 
 .brand_text {
   font-weight: 500;
-  color: #f04d52;
+  color: $main-pink;
 }
 
 .navbar-default {
@@ -42,7 +64,7 @@ h1 {
 
 .navbar-brand {
   font-weight: 600;
-  color: #f04d52 !important;
+  color: $main-pink !important;
   margin-top: -2px;
 }
 
@@ -83,3 +105,37 @@ h1 {
 }
 
 /* end flash messages */
+
+/* Override bootstrap styles */
+
+.form-group input {
+  border-radius: 0px;
+  height: 50px;
+  box-shadow: none;
+}
+
+.form-group input:focus {
+  border: 1px solid #000;
+  box-shadow: none;
+}
+
+.btn-registration-form {
+  width: 100%;
+  background-color: $main-pink;
+  height: 50px;
+  color: $white;
+  font-size: 20px;
+  font-weight: 300;
+  @include transition-duration(.2s);
+  &:hover {
+    background-color: $light-pink;
+    color: $white;
+  }
+}
+
+/* End override boostrap styles */
+
+.form-title {
+  font-weight: 300;
+  margin: 1em auto;
+}
