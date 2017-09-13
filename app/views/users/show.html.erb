@@ -1,9 +1,27 @@
-<h1>Profil Animateur</h1>
+<div class="row profile-header-layout">
+  <div class="container profile-header-layout_wrapper">
 
-<%= @user.email %><br/>
-<%= @user.phone_number %><br/>
-<%= @user.soi_number %><br/>
-<%= @user.circonscription %><br/>
-<%= @user.school %><br/>
+    <div class="profile-header-layout_side">
+      <img src="http://s3.amazonaws.com/medias.photodeck.com/d4657374-3636-4e55-b014-c2abccf27e2f/20150611_PMV_AirLiquide_7913_DEF_Small_airliquide_medium.jpg">
 
-<%= link_to "Modifier mon profil", edit_user_registration_path(current_user) %>
+    </div>
+
+    <div class="profile-header-layout_main">
+
+      <div class="profile-header-user">
+        <div class="profile-header-user_name">Jane Doe</div>
+        <div class="profile-header-user_age">28 ans</div>
+      </div>
+
+      <%= @user.email %><br/>
+      <%= @user.phone_number %><br/>
+      <%= @user.soi_number %><br/>
+      <%= @user.circonscription %><br/>
+      <%= @user.school %><br/>
+
+      <%= link_to "Modifier mon profil", edit_user_registration_path(current_user) %>
+
+      </div>
+
+  </div>
+</div>

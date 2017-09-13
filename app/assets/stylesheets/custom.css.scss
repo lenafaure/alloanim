@@ -10,6 +10,7 @@ $grey-background: #edefed;
 $grey-border: #dce0e0;
 $main-pink: #f04d52;
 $light-pink: lighten($main-pink, 5%);
+$main-violet: #110329;
 
 /* end colors */
 
@@ -83,6 +84,45 @@ input:-webkit-autofill {
 }
 
 /* End Navigation */
+
+/* Profile Page */
+
+.profile-header-layout {
+  background-color: $main-violet;
+}
+
+.profile-header-layout_wrapper{
+  padding-top: 3em;
+  display: flex;
+}
+
+.profile-header-layout_side {
+  width: 30%;
+  min-height: 330px;
+}
+
+.profile-header-layout_main {
+  padding: 2em;
+  width: 70%;
+  background-color: $white;
+}
+
+.profile-header-layout_side img {
+  width: 100%;
+}
+
+.profile-header-user_name {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.profile-header-user_age{
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+
+/* End Profile Page */
 
 /*flash messages */
 
@@ -185,6 +225,10 @@ input:-webkit-autofill {
 .panel-default > .panel-heading {
   background-color: $grey-background;
   border-radius: 0px;
+}
+
+.navbar {
+  margin-bottom: 0px;
 }
 
 /* End override boostrap styles */
