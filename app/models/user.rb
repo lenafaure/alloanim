@@ -4,11 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessor :password
-
   validates :first_name, presence:true, length: {maximum: 50}
   validates :last_name, presence:true, length: {maximum: 50}
-  validates :phone_number, presence: true, uniqueness: true,on: :update
+  validates :phone_number, presence: true, uniqueness: true, on: :update
   validates :soi_number, presence: true, uniqueness: true, on: :update
   validates :circonscription, presence: true, on: :update
 end
