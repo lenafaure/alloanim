@@ -16,6 +16,14 @@
       </div>
       <div class="panel-body">
         <div class="form-group required">
+          <%= f.label :first_name, 'Prénom', class: 'control-label'%>
+          <%= f.text_field :first_name, class: 'form-control', :required => true %>
+        </div>
+        <div class="form-group required">
+          <%= f.label :first_name, 'Nom', class: 'control-label'%>
+          <%= f.text_field :last_name, class: 'form-control', :required => true %>
+        </div>
+        <div class="form-group required">
           <%= f.label :phone_number, 'Numéro de téléphone', class: 'control-label'%>
           <%= f.text_field :phone_number, class: 'form-control', :required => true %>
         </div>
