@@ -9,19 +9,25 @@
     <div class="profile-header-layout_main">
 
       <div class="profile-header-user">
-        <div class="profile-header-user_name"><%= @user.first_name %> <%= @user.last_name %></div>
+        <div class="profile-header-user_name"><%= @user.first_name %> <%= @user.last_name %> (<%= @user.soi_number %>)</div>
         <div class="profile-header-user_age">28 ans</div>
+        <div class="profile-header-user_phone_number">
+          <i class="fa fa-mobile fa-lg"></i>
+          <span><a href="tel:<%= @user.phone_number %>"><%= @user.phone_number %></a></span>
+        </div>
+        <div class="profile-header-user_circonscription">
+          <i class="fa fa-map-marker fa-lg"></i>
+          <span>Circonscription <%= @user.circonscription %></span>
+        </div>
+
+        <div class="profile-header-user_modify btn btn-lg btn-default">
+          <%= link_to "Modifier mon profil", edit_user_registration_path(current_user) %>
+        </div>
       </div>
 
-      <%= @user.email %><br/>
-      <%= @user.phone_number %><br/>
-      <%= @user.soi_number %><br/>
-      <%= @user.circonscription %><br/>
-      <%= @user.school %><br/>
-
-      <%= link_to "Modifier mon profil", edit_user_registration_path(current_user) %>
-
-      </div>
-
+    </div>
   </div>
+</div>
+
+<div class="row profile-layout_wrapper">
 </div>

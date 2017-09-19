@@ -2,6 +2,7 @@ $navbar-default-bg: #eee;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* colors */
 
@@ -105,10 +106,16 @@ input:-webkit-autofill {
   padding: 2em;
   width: 70%;
   background-color: $white;
+  position: relative;
 }
 
 .profile-header-layout_side img {
   width: 100%;
+}
+
+.profile-header-user i {
+  width: 10px;
+  margin-right: 5px;
 }
 
 .profile-header-user_name {
@@ -119,7 +126,22 @@ input:-webkit-autofill {
 .profile-header-user_age{
   font-size: 16px;
   font-weight: 500;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.profile-header-user_phone_number, .profile-header-user_circonscription {
+  font-weight: 400;
+  margin-bottom: .4em;
+}
+
+.profile-header-user_modify {
+  position: absolute;
+  bottom: 2em;
+}
+
+.profile-layout_wrapper {
+  height: 600px;
+  background-color: #ededed;
 }
 
 /* End Profile Page */
