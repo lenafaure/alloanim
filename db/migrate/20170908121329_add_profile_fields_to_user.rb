@@ -4,5 +4,6 @@ class AddProfileFieldsToUser < ActiveRecord::Migration[5.1]
     add_column :users, :soi_number, :string
     add_column :users, :circonscription, :string
     add_column :users, :school, :string
+
   end
 end
