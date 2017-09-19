@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170919080116) do
 
-  create_table "animator_profiles", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.text "id_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_animator_profiles_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -35,10 +25,9 @@ ActiveRecord::Schema.define(version: 20170919080116) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "animator_profile_id"
     t.string "phone_number"
     t.string "soi_number"
-    t.integer "circonscription"
+    t.string "circonscription"
     t.string "school"
     t.string "first_name"
     t.string "last_name"

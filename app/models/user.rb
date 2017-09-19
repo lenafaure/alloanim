@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, uniqueness: true, on: :update
   validates :soi_number, presence: true, uniqueness: true, on: :update
   validates :circonscription, presence: true, on: :update
+
 end
