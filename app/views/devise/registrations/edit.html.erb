@@ -61,6 +61,10 @@
       </div>
       <div class="panel-body">
         <div class="form-group">
+          <%= f.label :avatar, 'Photo' %>
+          <%= f.file_field :avatar, class: 'form-control' %>
+        </div>
+        <div class="form-group">
           <%= f.label :school, 'Ecole' %>
           <%= f.text_field :school, class: 'form-control' %>
         </div>

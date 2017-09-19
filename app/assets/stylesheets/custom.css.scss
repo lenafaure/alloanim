@@ -32,6 +32,28 @@ h1 {
   letter-spacing: -0.8px;
 }
 
+.btn-aaa {
+  padding: 15px;
+  color: $white;
+  font-weight: 300;
+  @include transition-duration(.2s);
+  &:hover {
+    background-color: $light-pink;
+    color: $white;
+  }
+  .btn-pink {
+    background-color: $main-pink;
+  }
+}
+
+.btn-pink {
+  background-color: #f04d52;
+}
+
+.aaa-img-circle {
+  border-radius: 50%;
+}
+
 /* prevent yellow autofill background in Chrome */
 
 @-webkit-keyframes autofill {
@@ -46,7 +68,23 @@ input:-webkit-autofill {
   -webkit-animation-fill-mode: both;
 }
 
-  /* Home */
+/* End prevent yellow autofill background in Chrome */
+
+
+/* Avatars */
+
+.avatar-small {
+  width: 25px;
+  height: 25px;
+}
+
+.avatar-full {
+  height: 100%;
+}
+
+/* End avatars */
+
+/* Home */
 
 .home_hero {
   padding: 5em 0 2em 0;

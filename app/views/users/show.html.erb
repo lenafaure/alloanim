@@ -2,7 +2,7 @@
   <div class="container profile-header-layout_wrapper">
 
     <div class="profile-header-layout_side">
-      <img src="http://s3.amazonaws.com/medias.photodeck.com/d4657374-3636-4e55-b014-c2abccf27e2f/20150611_PMV_AirLiquide_7913_DEF_Small_airliquide_medium.jpg">
+      <%= image_tag @user.avatar.url(:medium), class: '' %>
 
     </div>
 
@@ -20,8 +20,8 @@
           <span><%= @user.circonscription %></span>
         </div>
 
-        <div class="profile-header-user_modify btn btn-lg btn-default">
-          <%= link_to "Modifier mon profil", edit_user_registration_path(current_user) %>
+        <div class="profile-header-user_modify">
+          <%= link_to "Modifier mon profil", edit_user_registration_path(current_user), :class => "btn btn-aaa btn-pink" %>
         </div>
       </div>
 
