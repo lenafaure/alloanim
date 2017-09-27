@@ -1,6 +1,6 @@
 <% @users = User.all %>
 <% @users.each do |user| %>
-    <%= user.email %><br/>
+    <strong><%= user.first_name %> <%= user.last_name %></strong><br/>
     <% user.availabilities.each do |availability| %>
         <%= availability.date.to_date %> <%= availability.time_slot %></br>
     <% end %>

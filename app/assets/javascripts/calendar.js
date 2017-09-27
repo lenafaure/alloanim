@@ -248,7 +248,7 @@
 }();
 
 !function() {
-
+    /* Send localstorage data to controller on validate */
     var validate_availabilities = document.querySelector('#calendar_validate');
 
     function onAvailabilityValidate() {
@@ -264,4 +264,5 @@
     }
 
     validate_availabilities.addEventListener('click', onAvailabilityValidate);
+
 }();

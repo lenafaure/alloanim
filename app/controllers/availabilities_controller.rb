@@ -25,8 +25,7 @@ class AvailabilitiesController < ApplicationController
       @availability = current_user.availabilities.create(booked_slots)
     end
 
-    redirect_to @availability.user, notice: "Success! "
-
+    redirect_to @availability.user, notice: "Vos modifications ont bien été enregistrées"
   end
 
   private
