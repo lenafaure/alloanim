@@ -244,7 +244,25 @@
     ];
 
     var calendar = new Calendar('#calendar', time_slots);
-    console.log(calendar);
 
+}();
 
+!function() {
+
+    var validate_availabilities = document.querySelector('#calendar_validate');
+
+    function onAvailabilityValidate() {
+        var JsonLocalStorageObj = JSON.stringify(localStorage);
+        console.log(JsonLocalStorageObj);
+        $.ajax({
+            url: "/availabilities",
+            type: "POST",
+            data: { availability: {date: "ma_date", time_slot: "mon_slot"} },
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    }
+
+    validate_availabilities.addEventListener('click', onAvailabilityValidate);
 }();
