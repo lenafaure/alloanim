@@ -5,7 +5,7 @@ Rails.application.routes.draw do
              :path_names=>{:sign_in=>'login', :sign_out=>'logout', :edit=>'profile'},
              :controllers=>{:registrations=>'registrations'}
 
-  resources :users, only: [:index, :show, :edit, :update], do
+  resources :users, only: [:index, :show, :edit, :update] do
     resources :availabilities, only: [:create]
   end
   resources :circonscriptions
