@@ -1,4 +1,8 @@
 <% @users = User.all %>
 <% @users.each do |user| %>
     <%= user.email %><br/>
+    <% user.availabilities.each do |availability| %>
+        <%= availability.date.to_date %> <%= availability.time_slot %></br>
+    <% end %>
+    <br/>
 <% end %>

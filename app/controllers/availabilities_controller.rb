@@ -11,6 +11,9 @@ class AvailabilitiesController < ApplicationController
   end
 
   def create
+    # drop records before saving new set
+    Availability.where(user_id: current_user.id).destroy_all
+
     @availabilities = params[:availability]
 
     @availabilities.each do |index, availability|
