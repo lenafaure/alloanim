@@ -252,14 +252,13 @@
     var validate_availabilities = document.querySelector('#calendar_validate');
 
     function onAvailabilityValidate() {
-        var JsonLocalStorageObj = JSON.stringify(localStorage);
+        var JsonLocalStorageObj = localStorage["availablities"];
         console.log(JsonLocalStorageObj);
         $.ajax({
             url: "/availabilities",
             type: "POST",
-            data: { availability: {date: "ma_date", time_slot: "mon_slot"} },
+            data: {availability : JSON.parse(JsonLocalStorageObj)},
             success: function (data) {
-                console.log(data);
             }
         });
     }

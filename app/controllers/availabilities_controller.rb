@@ -11,8 +11,19 @@ class AvailabilitiesController < ApplicationController
   end
 
   def create
-    @availability = current_user.availabilities.create(availability_params)
-    redirect_to @availability.user, notice: "Success! " + @availability.date + @availability.time_slot
+    @availabilities = params[:availability]
+
+    @availabilities.each do |index, availability|
+      booked_slots = {};
+      availability.each do |value|
+        booked_slots[:date] = availability[0]
+        booked_slots[:time_slot] = availability[1]
+      end
+      @availability = current_user.availabilities.create(booked_slots)
+    end
+
+    redirect_to @availability.user, notice: "Success! "
+
   end
 
   private
