@@ -5,7 +5,9 @@ Rails.application.routes.draw do
              :path_names=>{:sign_in=>'login', :sign_out=>'logout', :edit=>'profile'},
              :controllers=>{:registrations=>'registrations'}
 
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update], do
+    resources :availabilities, only: [:create]
+  end
   resources :circonscriptions
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
