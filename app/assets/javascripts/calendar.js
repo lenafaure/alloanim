@@ -2,7 +2,7 @@
  * Created by lenafaure on 20/09/2017.
  */
 
-!function() {
+function init() {
 
     var today = moment();
 
@@ -10,7 +10,7 @@
         this.el = document.querySelector(selector);
         this.time_slots = time_slots;
         this.current = moment().startOf('week');
-        this.selection = JSON.parse(localStorage.getItem('availablities')) || [];
+        this.selection = JSON.parse(localStorage.getItem('availabilities')) || [];
         this.draw_calendar();
     }
 
@@ -122,13 +122,13 @@
     Calendar.prototype.draw_time_slot = function(day, element) {
         var self = this;
 
-        var selected_slots = localStorage.getItem('availablities');
+        var selected_slots = localStorage.getItem('availabilities');
         var today_time_slot = this.time_slots.find(function(element) {
             return element.weekday == day.day();
         });
 
         if(today_time_slot) {
-            today_time_slot.slots.forEach(function(ts) {
+            today_time_slot.slots.forEach(function(ts)  {
                 var ts_span = createElement('div', 'time-slot', ts, 'data-event', ts);
 
                 if(selected_slots){
@@ -177,7 +177,7 @@
             this.selection.push(element_data);
         }
 
-        localStorage.setItem('availablities', JSON.stringify(this.selection));
+        localStorage.setItem('availabilities', JSON.stringify(this.selection));
     }
 
     // A function to create html elements
@@ -195,11 +195,29 @@
         return html_element;
     }
 
+    // Send localstorage data to controller on validate
+    var validate_availabilities = document.querySelector('#calendar_validate');
+
+    function onAvailabilityValidate() {
+        var JsonLocalStorageObj = localStorage["availabilities"];
+        $.ajax({
+            url: "/availabilities",
+            type: "POST",
+            data: {availability : JSON.parse(JsonLocalStorageObj)},
+            success: function (data) {
+            }
+        });
+    }
+
+    validate_availabilities.addEventListener('click', onAvailabilityValidate);
+
+
     window.Calendar = Calendar;
+    build_calendar();
 
-}();
+};
 
-!function() {
+function build_calendar() {
     var time_slots = [
         {   weekday: 1,
             slots:
@@ -243,26 +261,22 @@
         }
     ];
 
+
+    // Populate Localstorage with database entries
+    var persisted_availabilities = document.querySelector('#calendar').getAttribute('data-persisted');
+    var user_availabilities_array = [];
+
+    JSON.parse(persisted_availabilities).forEach(function(availability){
+        var user_time_slot = [];
+        user_time_slot.push(availability.date);
+        user_time_slot.push(availability.time_slot);
+        user_availabilities_array.push(user_time_slot);
+    });
+
+    localStorage.removeItem('availabilities');
+    localStorage.setItem('availabilities', JSON.stringify(user_availabilities_array));
+
     var calendar = new Calendar('#calendar', time_slots);
+};
 
-}();
-
-!function() {
-    /* Send localstorage data to controller on validate */
-    var validate_availabilities = document.querySelector('#calendar_validate');
-
-    function onAvailabilityValidate() {
-        var JsonLocalStorageObj = localStorage["availablities"];
-        console.log(JsonLocalStorageObj);
-        $.ajax({
-            url: "/availabilities",
-            type: "POST",
-            data: {availability : JSON.parse(JsonLocalStorageObj)},
-            success: function (data) {
-            }
-        });
-    }
-
-    validate_availabilities.addEventListener('click', onAvailabilityValidate);
-
-}();
+init();

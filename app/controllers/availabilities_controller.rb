@@ -14,11 +14,12 @@ class AvailabilitiesController < ApplicationController
     # drop records before saving new set
     Availability.where(user_id: current_user.id).destroy_all
 
+    # retrieve availabilities array from localStorage
     @availabilities = params[:availability]
 
     @availabilities.each do |index, availability|
       booked_slots = {};
-      availability.each do |value|
+      availability.each do |slot|
         booked_slots[:date] = availability[0]
         booked_slots[:time_slot] = availability[1]
       end
@@ -32,6 +33,5 @@ class AvailabilitiesController < ApplicationController
   def availability_params
     params.require(:availability).permit(:date, :time_slot);
   end
-
 
 end

@@ -1,3 +1,5 @@
+<% @availabilities = @user.availabilities %>
+
 <div class="profile-header-layout">
   <div class="container profile-header-layout_wrapper">
 
@@ -30,6 +32,6 @@
 </div>
 
 <div class="profile-layout_wrapper">
-  <div id="calendar"></div>
+  <div id="calendar" data-persisted='<%= raw @availabilities.to_json %>'></div>
   <div id="calendar_validate" class="btn-pink btn-aaa">Valider</div>
 </div>
