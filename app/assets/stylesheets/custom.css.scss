@@ -37,17 +37,22 @@ h1 {
   color: $white;
   font-weight: 300;
   @include transition-duration(.2s);
-  &:hover {
-    background-color: $light-pink;
-    color: $white;
-  }
-  .btn-pink {
+  &.btn-pink {
     background-color: $main-pink;
+    &:hover {
+      background-color: $light-pink;
+      color: $white;
+    }
   }
 }
 
+.btn-right {
+  width: 300px;
+  margin: 1em auto;
+}
+
 .btn-pink {
-  background-color: #f04d52;
+  background-color: $main-pink;
 }
 
 .aaa-img-circle {

@@ -79,7 +79,7 @@ function init() {
     Calendar.prototype.current_week = function() {
         var clone = this.current.clone();
 
-        while(clone.week() === this.current.week()) {
+        while(clone.week() === this.current.week() && clone.day() !== 6) {
             clone.add('days', 1);
             this.draw_day(clone);
         }

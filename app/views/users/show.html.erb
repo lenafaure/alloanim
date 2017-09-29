@@ -32,6 +32,11 @@
 </div>
 
 <div class="profile-layout_wrapper">
-  <div id="calendar" data-persisted='<%= raw @availabilities.to_json %>'></div>
-  <div id="calendar_validate" class="btn-pink btn-aaa">Valider</div>
+  <div class="container">
+    <div id="calendar" data-persisted='<%= raw @availabilities.to_json %>'></div>
+    <div id="calendar_validate" >
+      <div class="btn btn-success btn-aaa btn-right">Valider</div>
+    </div>
+  </div>
 </div>
+
