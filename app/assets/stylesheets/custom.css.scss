@@ -249,6 +249,23 @@ input:-webkit-autofill {
   height: 40px;
 }
 
+#user_search {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4em;
+}
+
+#user_search div {
+  flex: 1 1 0;
+}
+
+#user_search div input {
+  width: 100%;
+}
+
+.user-profile {
+  padding: 1em ;
+}
 /* end forms */
 
 /* Override bootstrap styles */

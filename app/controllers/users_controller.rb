@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
-  before_action :search
+  before_action :search,  only: [:index]
 
   # GET /users
   # GET /users.json
