@@ -16,7 +16,7 @@
     <% end %>
   </div>
   <% @user_availabilities.each do |user| %>
-      <div class="panel panel-default user-profile"> <%= image_tag avatar_url(current_user), class: 'aaa-img-circle avatar-small' %>
+      <div class="panel panel-default user-profile"> <%= image_tag avatar_url(user), class: 'aaa-img-circle avatar-small' %>
         <strong><%= user.first_name %> <%= user.last_name %></strong>
         <div><a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></div>
         <div><%= link_to 'Voir le profil', user_path(user) %></div>
