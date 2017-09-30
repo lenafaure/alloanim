@@ -105,7 +105,7 @@ function init() {
             var day_name = createElement('div', 'day-name', day.locale('fr').format('ddd'));
             var day_number = createElement('div', 'day-number', day.format('DD'));
             var day_month = createElement('div', 'day-month', day.locale('fr').format('MMM'));
-            var day_slot = createElement('div', 'day-slot', '', 'data-date', day.format());
+            var day_slot = createElement('div', 'day-slot', '', 'data-date', day.format('YYYY-MM-DD'));
 
             if(day.day() <= 5) {
                 this.draw_time_slot(day, day_slot);
@@ -132,7 +132,7 @@ function init() {
                 var ts_span = createElement('div', 'time-slot', ts, 'data-event', ts);
 
                 if(selected_slots){
-                    if(selected_slots.indexOf(JSON.stringify([day.format(), ts])) != -1 ){
+                    if(selected_slots.indexOf(JSON.stringify([day.format('YYYY-MM-DD'), ts])) != -1 ){
                         ts_span.className = "time-slot selected";
                     }
                 }

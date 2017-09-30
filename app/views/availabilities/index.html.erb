@@ -1,6 +1,3 @@
-<% @availabilities = Availability.all %>
-<% @availabilities.each do |availability| %>
-    <%= availability.user.first_name %><br/>
-    <%= availability.date %><br/>
-    <%= availability.time_slot %><br/>
+<%= @user_availabilities.each do |availability| %>
+    <%= availability.date  %>
 <% end %>

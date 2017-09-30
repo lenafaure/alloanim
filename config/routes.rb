@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   # root page of the application
   root 'pages#home'
 
+  get '/search' => 'pages#search'
 end

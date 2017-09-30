@@ -29,6 +29,7 @@ class AvailabilitiesController < ApplicationController
     redirect_to @availability.user, notice: "Vos modifications ont bien été enregistrées"
   end
 
+
   private
   def availability_params
     params.require(:availability).permit(:date, :time_slot);

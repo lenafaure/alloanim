@@ -26,6 +26,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 # Paperclip
 gem 'paperclip', '~> 5.0.0'
+# Ransack search
+gem 'ransack'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

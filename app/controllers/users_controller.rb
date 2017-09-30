@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
+  before_action :search
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+      @users = User.all
   end
 
   # # GET /users/1
@@ -43,4 +44,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:password, :email)
   end
 
+
+  def search
+    @search = User.ransack(params[:q])
+    @user_availabilities = @search.result(distinct: true).includes(:availabilities)
+  end
 end
