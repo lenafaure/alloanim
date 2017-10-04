@@ -5,7 +5,7 @@
   <div class="col-md-12">
     <div class="form-group form-users-search">
       <%= search_form_for @search do |f| %>
-          <div><%= f.text_field :availabilities_date_cont, id: 'availability-date', class: 'form-control', placeholder: 'Date'%></div>
+          <div><%= f.text_field :availabilities_date_cont, id: 'availability-date', class: 'form-control', placeholder: 'Date', :required => true %></div>
           <div><%= f.select :availabilities_time_slot_cont, options_for_select(
               [
                   ["Interclasse", "Interclasse"],
@@ -23,32 +23,33 @@
     <div class="user-profile_filters_wrapper">Filtres</div>
   </div>
   <div class="col-md-9">
-    <% @user_availabilities.each do |user| %>
+    <% if @user_availabilities.exists? %>
 
-        <div class="panel panel-default user-profile">
-          <div class="user-profile_image"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
-          <div class="user-profile_desc">
-            <%= link_to user_path(user), target: :_blank do %>
-              <div class="user-profile_desc_username"><%= user.first_name %> <%= user.last_name %></div>
-            <% end %>
-            <div><i class="fa fa-mobile fa-lg"></i> <a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></div>
-            <div class="user-profile_degree"><span class="label label-warning">Bafa</span></div>
-          </div>
-          <div class="user-profile_tags">
-            <span class="label label-info">Elementaire</span>
-            <span class="label label-info">Maternelle</span>
-            <span class="label label-success">Jeux d'extérieur</span>
-
-          </div>
-        </div>
-
-        <!--
-        <% user.availabilities.each do |availability| %>
-            <%= availability.date.to_date %> <%= availability.time_slot %></br>
+        <% if request.query_string.present?  %>
+        <div class="availability_presence">Animateurs disponibles le <%= params[:q][:availabilities_date_cont].to_time.strftime('%m/%d/%Y') %>, <%= params[:q][:availabilities_time_slot_cont] %> : </div>
         <% end %>
-        -->
-        <br/>
-    <% end %>
+      <% @user_availabilities.each do |user| %>
+
+          <div class="panel panel-default user-profile">
+            <div class="user-profile_image"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
+            <div class="user-profile_desc">
+              <%= link_to user_path(user), target: :_blank do %>
+                <div class="user-profile_desc_username"><%= user.first_name %> <%= user.last_name %></div>
+              <% end %>
+              <div><i class="fa fa-mobile fa-lg"></i> <a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></div>
+              <div class="user-profile_degree"><span class="label label-warning">Bafa</span></div>
+            </div>
+            <div class="user-profile_tags">
+              <span class="label label-info">Elementaire</span>
+              <span class="label label-info">Maternelle</span>
+              <span class="label label-success">Jeux d'extérieur</span>
+
+            </div>
+          </div>
+          <% end %>
+      <% else %>
+        <div class="availability_presence">Pas d'animateur disponible le <%= params[:q][:availabilities_date_cont].to_time.strftime('%m/%d/%Y') %>, <%= params[:q][:availabilities_time_slot_cont] %>  </div>
+      <% end %>
   </div>
 </div>
 
