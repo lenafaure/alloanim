@@ -1,35 +1,55 @@
 
 <div class="container">
 
-  <div class="form-group form-users-search">
-    <%= search_form_for @search do |f| %>
-        <div><%= f.text_field :availabilities_date_cont, id: 'availability-date', class: 'form-control', placeholder: 'Date'%></div>
-        <div><%= f.select :availabilities_time_slot_cont, options_for_select(
-            [
-                ["Interclasse", "Interclasse"],
-                ["Centre de Loisirs", "Centre de Loisirs"],
-                ["Goûter / Etude", "Goûter / Etude"],
-                ["TAP", "TAP"]
-            ]
-        ), {include_blank: false}, {class: 'form-control'} %></div>
-        <%= f.submit t('.submit', default: 'Chercher'), class: 'btn btn-edit-form' %>
+
+  <div class="col-md-12">
+    <div class="form-group form-users-search">
+      <%= search_form_for @search do |f| %>
+          <div><%= f.text_field :availabilities_date_cont, id: 'availability-date', class: 'form-control', placeholder: 'Date'%></div>
+          <div><%= f.select :availabilities_time_slot_cont, options_for_select(
+              [
+                  ["Interclasse", "Interclasse"],
+                  ["Centre de Loisirs", "Centre de Loisirs"],
+                  ["Goûter / Etude", "Goûter / Etude"],
+                  ["TAP", "TAP"]
+              ]
+          ), {include_blank: false}, {class: 'form-control'} %></div>
+          <%= f.submit t('.submit', default: 'Chercher'), class: 'btn btn-edit-form' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-3 ">
+    <div class="user-profile_filters_wrapper">Filtres</div>
+  </div>
+  <div class="col-md-9">
+    <% @user_availabilities.each do |user| %>
+
+        <div class="panel panel-default user-profile">
+          <div class="user-profile_image"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
+          <div class="user-profile_desc">
+            <%= link_to user_path(user), target: :_blank do %>
+              <div class="user-profile_desc_username"><%= user.first_name %> <%= user.last_name %></div>
+            <% end %>
+            <div><i class="fa fa-mobile fa-lg"></i> <a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></div>
+            <div class="user-profile_degree"><span class="label label-warning">Bafa</span></div>
+          </div>
+          <div class="user-profile_tags">
+            <span class="label label-info">Elementaire</span>
+            <span class="label label-info">Maternelle</span>
+            <span class="label label-success">Jeux d'extérieur</span>
+
+          </div>
+        </div>
+
+        <!--
+        <% user.availabilities.each do |availability| %>
+            <%= availability.date.to_date %> <%= availability.time_slot %></br>
+        <% end %>
+        -->
+        <br/>
     <% end %>
   </div>
-  <% @user_availabilities.each do |user| %>
-      <div class="panel panel-default user-profile"> <%= image_tag avatar_url(user), class: 'aaa-img-circle avatar-small' %>
-        <strong><%= user.first_name %> <%= user.last_name %></strong>
-        <div><a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></div>
-        <div><%= link_to 'Voir le profil', user_path(user) %></div>
-      </div>
-
-      <!--
-      <% user.availabilities.each do |availability| %>
-          <%= availability.date.to_date %> <%= availability.time_slot %></br>
-      <% end %>
-      -->
-      <br/>
-  <% end %>
-
 </div>
 
 <script>

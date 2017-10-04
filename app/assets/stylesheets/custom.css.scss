@@ -263,9 +263,39 @@ input:-webkit-autofill {
   width: 100%;
 }
 
-.user-profile {
-  padding: 1em ;
+.user-profile_filters_wrapper {
+  height: 800px;
+  background-color: #110329;
+  color: $white;
+  padding: 2em;
 }
+
+.user-profile {
+  display: flex;
+}
+
+.user-profile_desc_username {
+  font-weight: 400;
+  font-size: 30px;
+  color: #000;
+}
+
+.user-profile_desc {
+  padding: 1em;
+}
+
+.user-profile_tags {
+  width: 30%;
+  padding: 1em;
+  margin-left: auto;
+  font-size: 1.5em;
+}
+
+.user-profile_degree {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
 /* end forms */
 
 /* Override bootstrap styles */

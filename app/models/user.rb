@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :soi_number, presence: true, uniqueness: true, on: :update
   validates :circonscription, presence: true, on: :update
 
-  has_attached_file :avatar, styles: { medium: "600x600#", thumb: "100x100>" }, default_url: "/assets/placeholder.jpg"
+  has_attached_file :avatar, styles: { medium: "200x200#", thumb: "150x150#" }, default_url: "/assets/placeholder.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
