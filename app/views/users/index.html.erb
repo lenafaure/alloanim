@@ -3,7 +3,7 @@
 
   <div class="form-group form-users-search">
     <%= search_form_for @search do |f| %>
-        <div id=""><%= f.text_field :availabilities_date_cont, id: 'availability-date', placeholder: 'Date'%></div>
+        <div><%= f.text_field :availabilities_date_cont, id: 'availability-date', class: 'form-control', placeholder: 'Date'%></div>
         <div><%= f.select :availabilities_time_slot_cont, options_for_select(
             [
                 ["Interclasse", "Interclasse"],
@@ -22,7 +22,6 @@
         <div><%= link_to 'Voir le profil', user_path(user) %></div>
       </div>
 
-
       <!--
       <% user.availabilities.each do |availability| %>
           <%= availability.date.to_date %> <%= availability.time_slot %></br>
@@ -39,7 +38,6 @@
           dateFormat: 'yy-mm-dd',
           monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
           dayNamesMin: ['D','L','M','M','J','V','S'],
-
       })
   })
 </script>
