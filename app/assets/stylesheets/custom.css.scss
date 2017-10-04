@@ -284,8 +284,13 @@ input:-webkit-autofill {
   padding: 1em;
 }
 
+.user-profile_image img {
+  width: 150px;
+  height: 150px;
+}
+
 .user-profile_tags {
-  width: 30%;
+  width: 40%;
   padding: 1em;
   margin-left: auto;
   font-size: 1.5em;
