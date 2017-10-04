@@ -3,7 +3,7 @@
 
   <div class="form-group form-users-search">
     <%= search_form_for @search do |f| %>
-        <div><%= f.date_field :availabilities_date_cont %></div>
+        <div id=""><%= f.text_field :availabilities_date_cont, id: 'availability-date', placeholder: 'Date'%></div>
         <div><%= f.select :availabilities_time_slot_cont, options_for_select(
             [
                 ["Interclasse", "Interclasse"],
@@ -32,3 +32,14 @@
   <% end %>
 
 </div>
+
+<script>
+  $(function(){
+      $('#availability-date').datepicker({
+          dateFormat: 'yy-mm-dd',
+          monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+          dayNamesMin: ['D','L','M','M','J','V','S'],
+
+      })
+  })
+</script>

@@ -28,6 +28,8 @@ gem 'font-awesome-rails'
 gem 'paperclip', '~> 5.0.0'
 # Ransack search
 gem 'ransack'
+# jQuery UI
+gem 'jquery-ui-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
