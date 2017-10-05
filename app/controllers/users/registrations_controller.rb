@@ -1,5 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include Accessible
+  skip_before_action :check_user, only: [:edit, :update]
+
 
   protected
   def update_resource(resource, params)
