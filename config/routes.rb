@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
 
+  devise_for :centers,
+             :path=>'centers',
+             :path_names=>{:sign_in=>'login', :edit=>'profile'},
+             :controllers=>{
+                 :registrations=>'centers/registrations',
+                 :sessions=>'centers/sessions'
+             }
   devise_for :users,
              :path=>'',
              :path_names=>{:sign_in=>'login', :sign_out=>'logout', :edit=>'profile'},
-             :controllers=>{:registrations=>'registrations'}
+             :controllers=>{
+                 :registrations=>'users/registrations',
+                 :sessions=>'users/sessions'
+             }
 
   resources :users, only: [:index, :show, :edit, :update]
+  resources :centers
   resources :availabilities
   resources :circonscriptions
 

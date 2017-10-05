@@ -1,4 +1,5 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
+  include Accessible
 
   protected
   def update_resource(resource, params)
