@@ -16,15 +16,9 @@ class ApplicationController < ActionController::Base
   def current_ability
     if user_signed_in?
       @current_ability ||= Ability.new(current_user)
-
     else
       @current_ability ||= CenterAbility.new(current_center)
-
     end
-
   end
-
-
-
 
 end

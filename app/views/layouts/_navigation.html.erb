@@ -16,7 +16,7 @@
      <% if (user_signed_in? || center_signed_in?) %>
        <% if can? :read, User %>
         <ul class="nav navbar-nav">
-          <li><%= link_to 'Animateurs', users_path, method: :get %></li>
+          <li><%= link_to "Recherche d'animateurs", users_path, method: :get %></li>
         </ul>
        <% end %>
        <!-- <form class="navbar-form navbar-left">
