@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :centers,
-             :path=>'centers',
+             :path=>'recruteur',
              :path_names=>{:sign_in=>'login', :edit=>'profile'},
              :controllers=>{
                  :registrations=>'centers/registrations',

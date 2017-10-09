@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
   before_action :search,  only: [:index]
+  load_and_authorize_resource
+
 
   # GET /users
   # GET /users.json
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
   # # GET /users/1.json
   def show
     @user = User.find(params[:id]);
+    authorize! :show, @user
   end
 
   # GET /users/1/edit
