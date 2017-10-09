@@ -36,6 +36,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # Define root page when user logged in
+  def current_user_home
+    redirect_to current_user
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
@@ -52,4 +57,5 @@ class UsersController < ApplicationController
     @search = User.ransack(params[:q])
     @user_availabilities = @search.result(distinct: true).includes(:availabilities)
   end
+
 end

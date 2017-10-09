@@ -29,9 +29,9 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if (!user_signed_in? && !center_signed_in?) %>
-          <li class="menu_link"><%= link_to 'Inscription', new_user_registration_path, method: :get %></li>
-          <li class="menu_link"><%= link_to 'Connexion', user_session_path, method: :get %>
-          <li class="menu_link btn btn-info"><%= link_to 'Accès pro', center_session_path, method: :get %></li>
+          <li class="menu_link"><%= link_to "S'inscrire", new_user_registration_path, method: :get %></li>
+          <li class="menu_link"><%= link_to "Se connecter", user_session_path, method: :get %>
+          <li class="menu_link btn btn-pink btn-slim"><%= link_to 'Accès recruteur', center_session_path, method: :get %></li>
         <% else %>
           <% if user_signed_in? %>
             <li class="dropdown">
@@ -51,7 +51,7 @@
           <% else if center_signed_in? %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <button><%= current_center.email %></button>
+                <%= current_center.email %> (REV)
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">

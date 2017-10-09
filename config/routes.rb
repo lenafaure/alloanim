@@ -7,6 +7,7 @@ Rails.application.routes.draw do
                  :registrations=>'centers/registrations',
                  :sessions=>'centers/sessions'
              }
+
   devise_for :users,
              :path=>'',
              :path_names=>{:sign_in=>'login', :sign_out=>'logout', :edit=>'profile'},
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
                  :registrations=>'users/registrations',
                  :sessions=>'users/sessions'
              }
+
+  authenticated :users do
+    root to: 'users#current_user_home'
+  end
 
   resources :users, only: [:index, :show, :edit, :update]
   resources :centers
