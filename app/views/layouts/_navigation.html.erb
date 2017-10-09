@@ -13,35 +13,55 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Animateurs', users_path, method: :get %></li>
-      </ul>
-     <!-- <form class="navbar-form navbar-left">
-       <div class="form-group">
-         <input type="text" class="form-control" placeholder="Search">
-       </div>
-       <button type="submit" class="btn btn-default">Submit</button>
-     </form> -->
+     <% if (user_signed_in? || center_signed_in?) %>
+       <% if can? :read, User %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Recherche d'animateurs", users_path, method: :get %></li>
+        </ul>
+       <% end %>
+       <!-- <form class="navbar-form navbar-left">
+         <div class="form-group">
+           <input type="text" class="form-control" placeholder="Search">
+         </div>
+         <button type="submit" class="btn btn-default">Submit</button>
+       </form> -->
+     <% end %>
 
       <ul class="nav navbar-nav navbar-right">
-        <% if (!user_signed_in?) %>
-          <li class="menu_link"><%= link_to 'Inscription', new_user_registration_path, method: :get %></li>
-          <li class="menu_link"><%= link_to 'Connexion', user_session_path, method: :get %></li>
+        <% if (!user_signed_in? && !center_signed_in?) %>
+          <li class="menu_link"><%= link_to "S'inscrire", new_user_registration_path, method: :get %></li>
+          <li class="menu_link"><%= link_to "Se connecter", user_session_path, method: :get %>
+          <li class="menu_link btn btn-pink btn-slim"><%= link_to 'Accès recruteur', center_session_path, method: :get %></li>
         <% else %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag avatar_url(current_user), class: 'aaa-img-circle avatar-small' %>
-              <% if current_user.first_name.present? %>
-                  <%= current_user.first_name %>
-                  <span class="caret"></span>
-              <% end %>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><%= link_to 'Mon profil', user_path(current_user) %></a></li>
-              <li role="separator" class="divider"></li>
-              <li class="menu_link"><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag avatar_url(current_user), class: 'aaa-img-circle avatar-small' %>
+                <% if current_user.first_name.present? %>
+                    <%= current_user.first_name %>
+                    <span class="caret"></span>
+                <% end %>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><%= link_to 'Mon profil', user_path(current_user) %></a></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          <% else if center_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <%= current_center.email %> (REV)
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><%= link_to 'Mon Centre de Loisirs', center_path(current_center) %></a></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Déconnexion', destroy_center_session_path, method: :delete %></li>
+              </ul>
+            </li>
+           <% end %>
+        <% end %>
       <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

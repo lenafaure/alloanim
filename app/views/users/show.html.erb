@@ -22,9 +22,11 @@
           <span><%= @user.circonscription %></span>
         </div>
 
+        <% if user_signed_in? %>
         <div class="profile-header-user_modify">
           <%= link_to "Modifier mon profil", edit_user_registration_path(current_user), :class => "btn btn-aaa btn-pink" %>
         </div>
+        <% end %>
       </div>
 
     </div>
@@ -34,8 +36,12 @@
 <div class="profile-layout_wrapper">
   <div class="container">
     <div id="calendar" data-persisted='<%= raw @availabilities.to_json %>'></div>
-    <div id="calendar_validate" >
-      <div class="btn btn-success btn-aaa btn-right">Valider</div>
-    </div>
+
+      <div id="calendar_validate" >
+        <% if user_signed_in? %>
+        <div class="btn btn-success btn-aaa btn-right">Valider</div>
+        <% end %>
+      </div>
+
   </div>
 </div>

@@ -12,6 +12,8 @@ gem 'rails', '~> 5.1.3'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'devise-i18n'
+# CanCanCan Authoriztion system
+gem 'cancancan', '~> 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

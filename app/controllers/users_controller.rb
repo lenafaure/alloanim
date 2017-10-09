@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
   before_action :search,  only: [:index]
+  load_and_authorize_resource
+
 
   # GET /users
   # GET /users.json
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
   # # GET /users/1.json
   def show
     @user = User.find(params[:id]);
+    authorize! :show, @user
   end
 
   # GET /users/1/edit
@@ -33,6 +36,11 @@ class UsersController < ApplicationController
     end
   end
 
+  # Define root page when user logged in
+  def current_user_home
+    redirect_to current_user
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
@@ -49,4 +57,5 @@ class UsersController < ApplicationController
     @search = User.ransack(params[:q])
     @user_availabilities = @search.result(distinct: true).includes(:availabilities)
   end
+
 end
