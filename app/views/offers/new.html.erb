@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="col-md-6 col-sm-12 col-md-offset-3">
+    <h2 class="form-title text-center">Créer une nouvelle offre</h2>
+
+    <%= form_for @offer do |f| %>
+        <div class="form-group">
+          <label>Date</label>
+          <div><%= f.text_field :date, id: 'availability-date', class: 'form-control', placeholder: 'Date', :required => true %></div>
+          <label>Créneau horaire</label>
+          <div><%= f.select :time_slot, options_for_select(
+              [
+                  ["Interclasse", "Interclasse"],
+                  ["Centre de Loisirs", "Centre de Loisirs"],
+                  ["Goûter / Etude", "Goûter / Etude"],
+                  ["TAP", "TAP"]
+              ]
+          ), {include_blank: false}, {class: 'form-control'} %>
+          </div>
+
+          <label>Diplôme</label>
+          <div><%= f.select :diploma, options_for_select(
+              [
+                  ["Aucun", "Aucun"],
+                  ["Bafa", "Bafa"],
+                  ["Autre", "Autre"]
+              ]
+          ), {include_blank: false}, {class: 'form-control'} %>
+          </div>
+        <label>Nombre d'animateurs pour cette offre</label>
+        <div><%= f.number_field :offer_number, class: 'form-control', placeholder: 'Nombre de postes', :required => true %></div>
+
+        <%= f.submit t('.submit', default: "Créer l'offre"), class: 'btn btn-edit-form' %>
+
+        </div>
+  <% end %>
+
+  </div>
+
+</div>
+
+<script>
+    $(function(){
+        $('#availability-date').datepicker({
+            dateFormat: 'yy-mm-dd',
+            monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+            dayNamesMin: ['D','L','M','M','J','V','S'],
+        })
+    })
+</script>
