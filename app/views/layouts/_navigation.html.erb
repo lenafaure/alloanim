@@ -20,6 +20,11 @@
           <li><%= link_to "Créer une offre", new_offer_path, method: :get %></li>
         </ul>
        <% end %>
+       <% if can? :read, Offer %>
+           <ul class="nav navbar-nav">
+             <li><%= link_to "Voir les offres", offers_path, method: :get %></li>
+           </ul>
+       <% end %>
        <!-- <form class="navbar-form navbar-left">
          <div class="form-group">
            <input type="text" class="form-control" placeholder="Search">
@@ -56,7 +61,7 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#"><%= link_to 'Mon Centre de Loisirs', center_path(current_center) %></a></li>
+                <li><a href="#"><%= link_to 'Mon Profil', center_path(current_center) %></a></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Déconnexion', destroy_center_session_path, method: :delete %></li>
               </ul>
