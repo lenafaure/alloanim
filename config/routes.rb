@@ -16,14 +16,11 @@ Rails.application.routes.draw do
                  :sessions=>'users/sessions'
              }
 
-  authenticated :users do
-    root to: 'users#current_user_home'
-  end
-
   resources :users, only: [:index, :show, :edit, :update]
   resources :centers
   resources :availabilities
   resources :circonscriptions
+  resources :offers
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

@@ -142,6 +142,16 @@ input:-webkit-autofill {
   color: $white !important;
 }
 
+.create_offer {
+  display: flex !important;
+  align-items: center;
+  color: $main-pink;
+}
+
+.create_offer > a {
+  color: $main-pink !important;
+}
+
 /* End Navigation */
 
 /* Profile Page */
@@ -262,6 +272,10 @@ input:-webkit-autofill {
 
 .form-flex .form-group input, .form-flex .form-group select {
   height: 40px;
+}
+
+.form-panel_wrapper {
+  margin-top: 3em;
 }
 
 #user_search {

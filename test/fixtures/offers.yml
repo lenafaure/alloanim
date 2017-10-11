@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  time_slot: MyString
+  diploma: MyString
+  offer_number: 1
+
+two:
+  date: MyString
+  time_slot: MyString
+  diploma: MyString
+  offer_number: 1
