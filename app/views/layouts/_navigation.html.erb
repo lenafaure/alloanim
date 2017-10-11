@@ -8,7 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'AlloAlloAnim', root_path ,class: 'navbar-brand' %>
+      <% if (user_signed_in? || center_signed_in?) %>
+        <% if user_signed_in? %>
+          <%= link_to 'AlloAlloAnim', offers_path ,class: 'navbar-brand' %>
+        <% end %>
+        <% if center_signed_in? %>
+          <%= link_to 'AlloAlloAnim', users_path ,class: 'navbar-brand' %>
+        <% end %>
+      <% else %>
+        <%= link_to 'AlloAlloAnim', root_path ,class: 'navbar-brand' %>
+      <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
