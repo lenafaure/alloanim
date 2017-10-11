@@ -23,7 +23,6 @@
             <td><%= offer.time_slot %></td>
             <td><%= offer.diploma %></td>
             <td><%= offer.center.email %></td>
-            <td><%= link_to 'Modifier', edit_offer_path(offer) %> <%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
