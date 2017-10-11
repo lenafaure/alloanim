@@ -17,7 +17,6 @@
        <% if can? :read, User %>
         <ul class="nav navbar-nav">
           <li><%= link_to "Recherche d'animateurs", users_path, method: :get %></li>
-          <li><%= link_to "Créer une offre", new_offer_path, method: :get %></li>
         </ul>
        <% end %>
        <% if can? :read, Offer %>
@@ -55,6 +54,7 @@
               </ul>
             </li>
           <% else if center_signed_in? %>
+            <li class="menu_link create_offer"><i class="fa fa-lg fa-plus-square"></i><%= link_to "Créer une offre", new_offer_path, method: :get %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= current_center.email %> (REV)

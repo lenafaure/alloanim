@@ -142,6 +142,16 @@ input:-webkit-autofill {
   color: $white !important;
 }
 
+.create_offer {
+  display: flex !important;
+  align-items: center;
+  color: $main-pink;
+}
+
+.create_offer > a {
+  color: $main-pink !important;
+}
+
 /* End Navigation */
 
 /* Profile Page */

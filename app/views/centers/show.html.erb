@@ -11,7 +11,6 @@
         <th>Date</th>
         <th>Créneau</th>
         <th>Diplôme requis</th>
-        <th>Créé par</th>
       </tr>
       </thead>
       <% @center.offers.each do |offer| %>
@@ -20,7 +19,6 @@
             <td><%= offer.date %></td>
             <td><%= offer.time_slot %></td>
             <td><%= offer.diploma %></td>
-            <td><%= offer.center.email %></td>
             <td><%= link_to 'Modifier', edit_offer_path(offer) %> <%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>
