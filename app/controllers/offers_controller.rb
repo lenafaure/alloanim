@@ -4,7 +4,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all
+    @offers = Offer.all.order(:date).where('date >= ?', DateTime.now.to_date)
   end
 
   # GET /offers/1
