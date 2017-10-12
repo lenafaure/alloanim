@@ -46,6 +46,15 @@ h1 {
   }
 }
 
+.btn-pink {
+  background-color: $main-pink;
+  color: $white;
+  &:hover {
+    background-color: $light-pink;
+    color: $white;
+  }
+}
+
 .btn-slim {
   padding: 0px;
   &:hover {
@@ -292,10 +301,9 @@ input:-webkit-autofill {
   width: 100%;
 }
 
-.user-profile_filters_wrapper {
+.filters_wrapper {
   height: 800px;
-  background-color: #110329;
-  color: $white;
+  background-color: #F8F8FA;
   padding: 2em;
 }
 
@@ -336,7 +344,68 @@ input:-webkit-autofill {
   margin-bottom: 1.5em;
 }
 
-/* end forms */
+.offers-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offer-desc {
+  display: flex;
+}
+
+.offer-desc_school {
+  background-color: $main-violet;
+  color: $white;
+  height: 120px;
+  padding: 15px;
+  width: 250px;
+  position: relative;
+}
+
+.offer-desc_school_name {
+  font-weight: 600;
+  font-size: 18px;
+  padding-bottom: 0.5em;
+}
+
+.offer-desc_school_address {
+  position: absolute;
+  bottom: 1em;
+}
+
+.offer-desc_date {
+  padding: 15px;
+  width: 300px;
+}
+
+.offer-desc_date_day {
+
+}
+
+.offer-desc_date_day {
+  font-weight: 400;
+  font-size: 18px;
+  padding-bottom: 1em;
+}
+
+.offer-desc_date_time_slot {
+  font-size: 14px;
+}
+
+.offer-desc_date_urgent {
+  font-size: 14px;
+}
+
+.offer-tags_diploma {
+  font-size: 14px;
+}
+
+.offer-tags, .offer-apply {
+  padding: 1em;
+}
+
+/* end forms */s
 
 /* Override bootstrap styles */
 
