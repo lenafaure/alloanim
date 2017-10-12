@@ -18,7 +18,7 @@
             </div>
             <div class="offer-desc_date">
               <div class="offer-desc_date_day">
-                <div><i class="fa fa-calendar-o "></i> <%= l offer.date.to_date, format: :long %></div>
+                <div><i class="fa fa-calendar-o "></i> <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></div>
 
               </div>
               <div class="offer-desc_date_time_slot label label-info"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>

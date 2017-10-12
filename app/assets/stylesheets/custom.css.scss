@@ -18,6 +18,7 @@ $main-violet: #110329;
 body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
+  height: 100%;
 }
 
 body.home_page {
@@ -302,7 +303,7 @@ input:-webkit-autofill {
 }
 
 .filters_wrapper {
-  height: 800px;
+  height: 500px;
   background-color: #F8F8FA;
   padding: 2em;
 }
