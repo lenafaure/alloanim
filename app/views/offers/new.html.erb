@@ -59,7 +59,9 @@
             dateFormat: 'yy-mm-dd',
             monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
             dayNamesMin: ['D','L','M','M','J','V','S'],
-            minDate: 0
+            minDate: 0,
+            beforeShowDay: $.datepicker.noWeekends,
+            firstDay: 1
         })
     })
 </script>
