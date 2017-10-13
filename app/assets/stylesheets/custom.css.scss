@@ -302,9 +302,16 @@ input:-webkit-autofill {
   width: 100%;
 }
 
+.filters_title {
+  background-color: #d9d7dd;
+  padding: 15px;
+  font-weight: 400;
+  font-size: 16px;
+}
+
 .filters_wrapper {
   height: 500px;
-  background-color: #F8F8FA;
+  background-color: #e7e5e9;
   padding: 2em;
 }
 

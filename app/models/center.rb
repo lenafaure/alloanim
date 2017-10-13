@@ -5,5 +5,6 @@ class Center < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :offers
+  has_many :school
 
 end
