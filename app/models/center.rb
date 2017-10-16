@@ -5,6 +5,10 @@ class Center < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :offers
-  has_many :school
+  has_many :schools
+
+  validates :first_name, presence:true, length: {maximum: 50}
+  validates :last_name, presence:true, length: {maximum: 50}
+  validates :circonscription, presence: true
 
 end

@@ -37,6 +37,16 @@
               <%= f.text_field :soi_number, class: 'form-control', :required => true %>
             </div>
             <div class="form-group required">
+              <%= f.label :diploma, 'Diplôme', class: 'control-label' %>
+              <%= f.select :diploma, options_for_select(
+                  [
+                      ["Bafa", "Bafa"],
+                      ["Bafa en cours", "Bafa en cours"],
+                      ["Aucun", "Aucun"]
+                  ]
+              ), {include_blank: false}, {class: 'form-control'} %>
+            </div>
+            <div class="form-group required">
               <%= f.label :circonscription, 'Circonscription', class: 'control-label' %>
               <%= f.select :circonscription, options_for_select(
                   [
@@ -49,7 +59,7 @@
                       ["CAS 16 17", "CAS 16 17"],
                       ["CASPE 18", "CASPE 18"],
                       ["CASPE 19", "CASPE 19"],
-                      ["CASPE 20", "CASPE 20"],
+                      ["CASPE 20", "CASPE 20"]
                   ]
               ), {include_blank: false}, {class: 'form-control'} %>
             </div>

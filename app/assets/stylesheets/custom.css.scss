@@ -413,6 +413,14 @@ input:-webkit-autofill {
   padding: 1em;
 }
 
+.form-double-field {
+  display: flex;
+}
+
+.form-double-field :first-child {
+  margin-right: 10px;
+}
+
 /* end forms */
 
 /* Override bootstrap styles */
