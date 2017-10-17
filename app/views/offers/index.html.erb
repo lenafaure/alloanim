@@ -44,7 +44,12 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Vacation du <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %>, <%= offer.time_slot %></h4>
+                    <h4 class="modal-title" id="myModalLabel">Vacation du <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %>
+                      <% if offer.date.to_date == DateTime.now.to_date %> <span class="offer-desc_date_urgent label label-danger"><i class="fa fa-exclamation fa-lg"></i> Urgent</span>
+                      <% end %>
+                    </h4>
+                    <div class="offer-desc_date_time_slot label label-info"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>
+
                   </div>
                   <div class="modal-body">
                     <h5>Appeler le Centre de Loisirs de l'école <%= offer.school %> pour postuler</h5>
