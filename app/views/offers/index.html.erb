@@ -36,9 +36,29 @@
           </div>
           <% if user_signed_in? %>
             <div class="offer-apply">
-              <div class="btn btn-pink">Postuler</div>
+              <div class="btn btn-pink" data-toggle="modal" data-target="#center-<%= offer.id %>">Postuler</div>
             </div>
-          <% end %>
+            <!-- Modal -->
+            <div class="modal fade" id="center-<%= offer.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Vacation du <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %>, <%= offer.time_slot %></h4>
+                  </div>
+                  <div class="modal-body">
+                    <h5>Appeler le Centre de Loisirs de l'école <%= offer.school %> pour postuler</h5>
+                    <div>
+                      <%= offer.center.first_name %> <%= offer.center.last_name %> : <a href="tel:<%= offer.center.phone_number %>"><%= offer.center.phone_number %></a>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% end %>
         </div>
     <% end %>
 

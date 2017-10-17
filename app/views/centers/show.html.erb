@@ -3,6 +3,7 @@
     <h2>Mes infos</h2>
     <div><%= @center.first_name %> <%= @center.last_name %></div>
     <div><%= @center.email %></div>
+    <div><%= @center.phone_number %></div>
     <div><%= @center.circonscription %></div>
     <h2>Mes offres</h2>
 
@@ -18,7 +19,7 @@
       <% @center.offers.each do |offer| %>
           <tr>
             <td>Richomme Elem</td>
-            <td><%= offer.date %></td>
+            <td><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></td>
             <td><%= offer.time_slot %></td>
             <td><%= offer.diploma %></td>
             <td><%= link_to 'Modifier', edit_offer_path(offer) %> <%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
