@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include Accessible
-  skip_before_action :check_user, only: [:edit, :update]
+  skip_before_action :check_user, only: [:edit, :update, :destroy]
   before_action :configure_sign_up_params, only: [:create, :update]
 
   protected
