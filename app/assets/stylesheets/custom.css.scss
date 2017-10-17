@@ -481,6 +481,13 @@ select:not([multiple]) {
   margin-bottom: 0px;
 }
 
+.notification-badge {
+  position: absolute;
+  right: -8px;
+  top: 17px;
+  border-radius: 10px;
+}
+
 /* End override boostrap styles */
 
 /* Media Queries */

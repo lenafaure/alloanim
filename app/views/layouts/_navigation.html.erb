@@ -30,8 +30,12 @@
        <% end %>
        <% if can? :read, Offer %>
            <ul class="nav navbar-nav">
-             <li><%= link_to "Voir les offres dans ma circonscription", offers_path, method: :get %></li>
+             <li><%= link_to "Voir les offres dans ma circonscription", offers_path, method: :get %>
+               <span class="label label-info notification-badge"><%= @offers.count %></span>
+             </li>
+
            </ul>
+
        <% end %>
        <!-- <form class="navbar-form navbar-left">
          <div class="form-group">
