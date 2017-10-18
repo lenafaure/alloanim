@@ -1,6 +1,10 @@
 class SchoolsController < ApplicationController
   before_action :set_school, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @schools = School.all
+  end
+
   def new
     @school = School.new
   end

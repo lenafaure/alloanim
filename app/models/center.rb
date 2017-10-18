@@ -13,4 +13,8 @@ class Center < ApplicationRecord
   validates :phone_number, presence: true, uniqueness: true
   validates :circonscription, presence: true
 
+  def rev_full_name
+    "#{first_name} #{last_name}"
+  end
+
 end

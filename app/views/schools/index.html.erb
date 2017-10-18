@@ -1,0 +1,6 @@
+<% @schools.each do |school| %>
+  <%= school.name %><br />
+  <%= school.address %><br />
+  <%= school.circonscription %><br />
+  <%= school.center.rev_full_name %><br /><br />
+<% end %>

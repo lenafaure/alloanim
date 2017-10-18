@@ -8,13 +8,8 @@
       <div class="panel-body">
           <%= form_for @offer do |f| %>
             <div class="form-group">
-              <%= f.label :school, 'Ecole', class: 'control-label'%>
-              <%= f.select :school, options_for_select(
-                  [
-                      ["Richomme Elem", "Richomme Elem"],
-                      ["Richomme Mater", "Richomme Mater"]
-                  ]
-              ), {include_blank: false}, {class: 'form-control'} %>
+              <%= f.label :school_id, 'Ecole', class: 'control-label'%>
+              <%= f.collection_select :school_id, current_center.schools, :id, :name, {}, { class: 'form-control' } %>
             </div>
             <div class="form-group">
               <%= f.label :date, 'Date', class: 'control-label'%>

@@ -1,10 +1,21 @@
 <div class="container">
-  <div class="col-md-12">
+  <div class="col-md-6">
     <h2>Mes infos</h2>
-    <div><%= @center.first_name %> <%= @center.last_name %></div>
+    <div><strong><%= @center.first_name %> <%= @center.last_name %></strong></div>
     <div><%= @center.email %></div>
     <div><%= @center.phone_number %></div>
     <div><%= @center.circonscription %></div>
+  </div>
+  <div class="col-md-6">
+    <h2>Mes écoles</h2>
+
+    <% @center.schools.each do |school| %>
+      <div><strong><%= school.name %></strong></div>
+      <div><%= school.address %></div>
+      <br />
+    <% end %>
+  </div>
+  <div class="col-md-12">
     <h2>Mes offres</h2>
 
     <table class="table table-striped table-hover">
@@ -18,7 +29,7 @@
       </thead>
       <% @center.offers.each do |offer| %>
           <tr>
-            <td>Richomme Elem</td>
+            <td><%= offer.school.name %></td>
             <td><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></td>
             <td><%= offer.time_slot %></td>
             <td><%= offer.diploma %></td>
