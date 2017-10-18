@@ -4,7 +4,7 @@
 
     <div>Adresse: <%= @school.address %></div>
     <div>Circonscription: <%= @school.circonscription %></div>
-    <div>Rev: <%= @center.email %></div>
+    <div>Rev: <%= @center.rev_full_name %> /  <a href="tel:<%= @center.phone_number %>"><%= @center.phone_number %></a></div>
     <br/><br/>
     <div><%= image_tag "ecole_richomme.png", style: 'height:auto;width:100%;'%></div>
   </div>

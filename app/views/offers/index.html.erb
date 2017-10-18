@@ -14,8 +14,10 @@
         <div class="panel panel-default offers-list">
           <div class="offer-desc">
             <div class="offer-desc_school">
-              <div class="offer-desc_school_name"><%= offer.school.name %></div>
-              <div class="offer-desc_school_address"><%= offer.school.address %></div>
+              <%= link_to school_path(offer.school) do %>
+                <div class="offer-desc_school_name"><%= offer.school.name.titleize %></div>
+                <div class="offer-desc_school_address"><%= offer.school.address %></div>
+            <% end %>
             </div>
             <div class="offer-desc_date">
               <div class="offer-desc_date_day">
