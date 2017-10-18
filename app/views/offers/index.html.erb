@@ -14,7 +14,8 @@
         <div class="panel panel-default offers-list">
           <div class="offer-desc">
             <div class="offer-desc_school">
-              <div class="offer-desc_school_name"><%= offer.school %></div>
+              <div class="offer-desc_school_name">
+                <%= offer.school %></div>
               <div class="offer-desc_school_address">9 Rue Richomme, 75018 Paris</div>
             </div>
             <div class="offer-desc_date">
@@ -54,7 +55,8 @@
                   <div class="modal-body">
                     <h5>Appeler le Centre de Loisirs de l'école <%= offer.school %> pour postuler</h5>
                     <div>
-                      <%= offer.center.first_name %> <%= offer.center.last_name %> (REV): <a href="tel:<%= offer.center.phone_number %>"><%= offer.center.phone_number %></a>
+                      <div><%= offer.center.first_name %> <%= offer.center.last_name %> (REV): </div>
+                      <a href="tel:<%= offer.center.phone_number %>"><%= offer.center.phone_number %></a>
                     </div>
                   </div>
                   <div class="modal-footer">
