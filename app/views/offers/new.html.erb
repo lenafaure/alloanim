@@ -1,12 +1,11 @@
 <div class="container">
-
   <div class="col-md-8 col-sm-12 col-md-offset-2 form-flex form-panel_wrapper">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="form-heading-title">Créer une nouvelle offre de vacation animateur</div>
-      </div>
-      <div class="panel-body">
-          <%= form_for @offer do |f| %>
+      <%= form_for @offer do |f| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="form-heading-title">Créer une nouvelle offre de vacation animateur</div>
+          </div>
+          <div class="panel-body">
             <div class="form-group">
               <%= f.label :school_id, 'Ecole', class: 'control-label'%>
               <%= f.collection_select :school_id, current_center.schools, :id, :name, {}, { class: 'form-control' } %>

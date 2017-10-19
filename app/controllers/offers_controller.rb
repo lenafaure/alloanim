@@ -28,24 +28,21 @@ class OffersController < ApplicationController
     @offer.center = current_center
 
       if @offer.save
-         redirect_to offers_url, notice: 'Offer was successfully created.'
+         redirect_to offers_url, notice: "L'Offre a été créée avec succès"
       else
         render :new
       end
-
   end
 
   # PATCH/PUT /offers/1
   # PATCH/PUT /offers/1.json
   def update
-    respond_to do |format|
-      if @offer.update(offer_params)
-        format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @offer }
-      else
-        format.html { render :edit }
-        format.json { render json: @offer.errors, status: :unprocessable_entity }
-      end
+    logger.info current_center.inspect
+    @offer.center = current_center
+    if @offer.update(offer_params)
+      redirect_to center_path(current_center), notice: "L'Offre a été modifiée avec succès"
+    else
+      render :edit
     end
   end
 
@@ -67,6 +64,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:date, :time_slot, :diploma, :school_id, :offer_number);
+      params.require(:offer).permit(:date, :time_slot, :diploma, :offer_number, :school_id, :center_id);
     end
 end
