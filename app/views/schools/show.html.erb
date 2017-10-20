@@ -1,11 +1,19 @@
 <div class="container">
-  <div class="col-md-12">
+  <div class="col-md-4">
     <h2>Ecole <%= @school.name %></h2>
 
     <div>Adresse: <%= @school.address %></div>
     <div>Circonscription: <%= @school.circonscription %></div>
     <div>Rev: <%= @center.rev_full_name %> /  <a href="tel:<%= @center.phone_number %>"><%= @center.phone_number %></a></div>
+
+  </div>
+  <div class="col-md-8">
     <br/><br/>
-    <div><%= image_tag "ecole_richomme.png", style: 'height:auto;width:100%;'%></div>
+    <iframe
+      width="100%"
+      height="400"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAsexoLxRETLc1xOzZUkGv_hHRrXq5C6TA&q=<%= @school.address %>&zoom=15" allowfullscreen>
+    </iframe>
   </div>
 </div>

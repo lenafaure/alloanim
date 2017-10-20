@@ -11,7 +11,9 @@
     <h2>Mes écoles</h2>
 
     <% @center.schools.each do |school| %>
-      <div><strong><%= school.name %></strong></div>
+      <%= link_to school_path(school) do %>
+        <div><strong><%= school.name %></strong></div>
+      <% end %>
       <div><%= school.address %></div>
       <br />
     <% end %>
