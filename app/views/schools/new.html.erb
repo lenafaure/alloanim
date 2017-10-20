@@ -1,12 +1,12 @@
 <div class="container">
 
   <div class="col-md-8 col-sm-12 col-md-offset-2 form-flex form-panel_wrapper">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="form-heading-title">Créer une nouvelle école</div>
-      </div>
-      <div class="panel-body">
-        <%= form_for @school do |f| %>
+      <%= form_for @school do |f| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="form-heading-title">Créer une nouvelle école</div>
+          </div>
+          <div class="panel-body">
             <div class="form-group">
               <%= f.label :name, "Nom de l'Ecole", class: 'control-label', :required => true %>
               <%= f.text_field :name, placeholder: 'Ex: Richomme Elem 9', class: 'form-control' %>
@@ -27,9 +27,9 @@
               <%= f.label :center_id, 'Responsable du Centre de Loisirs', class: 'control-label'%>
               <%= f.collection_select :center_id, Center.all, :id, :rev_full_name, {}, { class: 'form-control' } %>
             </div>
-            </div> <!-- .panel-body -->
-            </div> <!-- .panel -->
-            <%= f.submit t('.submit', default: "Créer l'école"), class: 'btn btn-edit-form' %>
+          </div> <!-- .panel-body -->
+          </div> <!-- .panel -->
+          <%= f.submit t('.submit', default: "Créer l'école"), class: 'btn btn-edit-form' %>
         <% end %> <!-- form -->
-        </div>
+    </div>
 </div>
