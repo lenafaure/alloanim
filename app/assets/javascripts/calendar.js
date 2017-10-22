@@ -1,6 +1,7 @@
 /**
  * Created by lenafaure on 20/09/2017.
  */
+$( document ).on('turbolinks:load', function(){
 
 function init() {
     var today = moment();
@@ -96,7 +97,7 @@ function init() {
 
     Calendar.prototype.draw_day = function(day) {
 
-        if (!this.get_day_class(day).includes('other')) {
+        if (this.get_day_class(day).indexOf('other') == -1) {
 
             var day_wrapper = createElement('div', this.get_day_class(day));
             var day_name = createElement('div', 'day-name', day.locale('fr').format('ddd'));
@@ -282,7 +283,7 @@ function build_calendar() {
 };
 
 
-$( document ).on('turbolinks:load', function(){
+
     init();
 });
 
