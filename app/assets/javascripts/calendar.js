@@ -205,7 +205,7 @@ function init() {
     Calendar.prototype.select_time_slot = function(element) {
         var element_data = [element.parentNode.getAttribute('data-date'),element.getAttribute('data-event')];
 
-        if(element.className.includes('selected')) {
+        if(element.className.indexOf('selected') != -1) {
             element.className = "time-slot";
 
             // Find and remove element in selections array
