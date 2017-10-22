@@ -3,7 +3,6 @@
  */
 
 function init() {
-
     var today = moment();
 
     function Calendar(selector, time_slots) {
@@ -54,7 +53,6 @@ function init() {
 
     Calendar.prototype.draw_week = function() {
         var self = this;
-
         if(this.week){
             this.old_week = this.week;
             this.old_week.className = 'week out ' + (self.next ? 'next' : 'prev');
@@ -78,7 +76,6 @@ function init() {
 
     Calendar.prototype.current_week = function() {
         var clone = this.current.clone();
-
         while(clone.week() === this.current.week() && clone.day() !== 6) {
             clone.add('days', 1);
             this.draw_day(clone);
@@ -209,7 +206,9 @@ function init() {
         });
     }
 
-    validate_availabilities.addEventListener('click', onAvailabilityValidate);
+    if (validate_availabilities) {
+        validate_availabilities.addEventListener('click', onAvailabilityValidate);
+    }
 
 
     window.Calendar = Calendar;
@@ -263,20 +262,27 @@ function build_calendar() {
 
 
     // Populate Localstorage with database entries
-    var persisted_availabilities = document.querySelector('#calendar').getAttribute('data-persisted');
-    var user_availabilities_array = [];
+    if(document.querySelector('#calendar')) {
+        var persisted_availabilities = document.querySelector('#calendar').getAttribute('data-persisted');
+        var user_availabilities_array = [];
+    }
 
-    JSON.parse(persisted_availabilities).forEach(function(availability){
-        var user_time_slot = [];
-        user_time_slot.push(availability.date);
-        user_time_slot.push(availability.time_slot);
-        user_availabilities_array.push(user_time_slot);
-    });
-
+    if(persisted_availabilities) {
+        JSON.parse(persisted_availabilities).forEach(function (availability) {
+            var user_time_slot = [];
+            user_time_slot.push(availability.date);
+            user_time_slot.push(availability.time_slot);
+            user_availabilities_array.push(user_time_slot);
+        });
+    }
     localStorage.removeItem('availabilities');
     localStorage.setItem('availabilities', JSON.stringify(user_availabilities_array));
 
     var calendar = new Calendar('#calendar', time_slots);
 };
 
-init();
+
+$( document ).on('turbolinks:load', function(){
+    init();
+});
+
