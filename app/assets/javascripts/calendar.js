@@ -3,7 +3,7 @@
  */
 $( document ).on('turbolinks:load', function(){
 
-// Array polyfill for IE
+// Array polyfill for IE: find
 if (!Array.prototype.find) {
     Object.defineProperty(Array.prototype, 'find', {
         value: function(predicate) {
@@ -48,7 +48,7 @@ if (!Array.prototype.find) {
     });
 }
 
-// Array polyfill findIndex
+// Array polyfill for IE: findIndex
     if (!Array.prototype.findIndex) {
         Object.defineProperty(Array.prototype, 'findIndex', {
             value: function(predicate) {

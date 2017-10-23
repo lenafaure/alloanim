@@ -10,13 +10,13 @@
       </button>
       <% if (user_signed_in? || center_signed_in?) %>
         <% if user_signed_in? %>
-          <%= link_to 'AlloAlloAnim', offers_path ,class: 'navbar-brand' %>
+          <%= link_to 'AlloAnim', offers_path ,class: 'navbar-brand' %>
         <% end %>
         <% if center_signed_in? %>
-          <%= link_to 'AlloAlloAnim', users_path ,class: 'navbar-brand' %>
+          <%= link_to 'AlloAnim', users_path ,class: 'navbar-brand' %>
         <% end %>
       <% else %>
-        <%= link_to 'AlloAlloAnim', root_path ,class: 'navbar-brand' %>
+        <%= link_to 'AlloAnim', root_path ,class: 'navbar-brand' %>
       <% end %>
     </div>
 

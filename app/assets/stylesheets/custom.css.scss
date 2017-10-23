@@ -12,6 +12,9 @@ $grey-border: #dce0e0;
 $main-pink: #f04d52;
 $light-pink: lighten($main-pink, 5%);
 $main-violet: #110329;
+$tealish: #20bed1;
+$butterscotch: rgb(252, 197, 78);
+$urgent: #d9534f;
 
 /* end colors */
 
@@ -96,6 +99,31 @@ h1 {
 input:-webkit-autofill {
   -webkit-animation-name: autofill;
   -webkit-animation-fill-mode: both;
+}
+
+.badge {
+  border-radius: 2px;
+  padding: 5px 15px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 700;
+  white-space: normal;
+}
+
+.tealish {
+  background-color: $tealish;
+}
+
+.tealish-font {
+  color: $tealish;
+}
+
+.butterscotch {
+  background-color: $butterscotch;
+}
+
+.urgent {
+  background-color: $urgent;
 }
 
 /* End prevent yellow autofill background in Chrome */
@@ -352,10 +380,14 @@ input:-webkit-autofill {
   margin-bottom: 1.5em;
 }
 
-.offers-list {
+.offers-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.offer-apply {
+  opacity: 0;
 }
 
 .offer-desc {
@@ -387,18 +419,15 @@ input:-webkit-autofill {
 }
 
 .offer-desc_date {
-  padding: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
   width: 300px;
 }
 
 .offer-desc_date_day {
-
-}
-
-.offer-desc_date_day {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 18px;
-  padding-bottom: 1em;
+  padding-bottom: 0.2em;
 }
 
 .offer-desc_date_time_slot {
@@ -413,8 +442,12 @@ input:-webkit-autofill {
   font-size: 14px;
 }
 
-.offer-tags, .offer-apply {
+.offer-apply {
   padding: 1em;
+}
+
+.offer-tags {
+  padding-top: 0.8em;
 }
 
 .form-double-field {
@@ -423,6 +456,16 @@ input:-webkit-autofill {
 
 .form-double-field :first-child {
   margin-right: 10px;
+}
+
+.offer-call-school {
+  text-align: center;
+  font-weight: 400;
+}
+
+.offer-call-number {
+  padding: 10px;
+  font-size: 20px;
 }
 
 /* end forms */

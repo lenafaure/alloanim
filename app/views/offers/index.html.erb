@@ -11,7 +11,7 @@
 
     <% @offers.each do |offer| %>
 
-        <div class="panel panel-default offers-list">
+        <div class="panel panel-default offers-item">
           <div class="offer-desc">
             <div class="offer-desc_school">
               <%= link_to school_path(offer.school) do %>
@@ -24,18 +24,20 @@
                 <div><i class="fa fa-calendar-o "></i> <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></div>
 
               </div>
-              <div class="offer-desc_date_time_slot label label-info"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>
+              <div class="offer-desc_date_time_slot badge tealish"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>
               <% if offer.date.to_date == DateTime.now.to_date %>
-                  <div class="offer-desc_date_urgent label label-danger"><i class="fa fa-exclamation fa-lg"></i> Urgent</div>
+                  <div class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</div>
               <% end %>
+              <div class="offer-tags">
+                <div class="offer-tags_diploma <%= offer.diploma != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
+                  <i class="fa fa-graduation-cap fa-lg"></i> <%= offer.diploma %>
+                </div>
+              </div>
             </div>
+
           </div>
 
-          <div class="offer-tags">
-            <div class="offer-tags_diploma <%= offer.diploma=="Bafa" ? "label label-warning" : "label label-default" %>">
-              <%= offer.diploma %>
-            </div>
-          </div>
+
           <% if user_signed_in? %>
             <div class="offer-apply">
               <div class="btn btn-pink" data-toggle="modal" data-target="#center-<%= offer.id %>">Postuler</div>
@@ -43,21 +45,24 @@
             <!-- Modal -->
             <div class="modal fade" id="center-<%= offer.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content offer-call-school">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Vacation du <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %>
-                      <% if offer.date.to_date == DateTime.now.to_date %> <span class="offer-desc_date_urgent label label-danger"><i class="fa fa-exclamation fa-lg"></i> Urgent</span>
-                      <% end %>
                     </h4>
-                    <div class="offer-desc_date_time_slot label label-info"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>
-
+                    <div class="offer-desc_date_time_slot badge tealish"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>
+                    <span class="offer-tags_diploma <%= offer.diploma=="Bafa" ? "badge butterscotch" : "badge" %>">
+                      <i class="fa fa-graduation-cap fa-lg"></i> <%= offer.diploma %>
+                    </span>
+                    <% if offer.date.to_date == DateTime.now.to_date %> <span class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</span>
+                    <% end %>
                   </div>
                   <div class="modal-body">
-                    <h5>Appeler le Centre de Loisirs de l'école <%= offer.school.name %> pour postuler</h5>
+                    <h4>Appelez directement le Centre de Loisirs pour postuler</h4>
+                    <div>Ecole <%= offer.school.name.titleize %></div>
                     <div>
-                      <div><%= offer.center.first_name %> <%= offer.center.last_name %> (REV): </div>
-                      <a href="tel:<%= offer.center.phone_number %>"><%= offer.center.phone_number %></a>
+                    <div><%= offer.center.first_name %> <%= offer.center.last_name %> </div>
+                    <div class="offer-call-number"><i class="fa fa-phone fa-lg tealish-font"></i> <a class="tealish-font" href="tel:<%= offer.center.phone_number %>"><%= offer.center.phone_number %></a></div>
                     </div>
                   </div>
                   <div class="modal-footer">
@@ -72,3 +77,15 @@
 
   </div>
 </div>
+
+<script>
+
+  $(".offers-item")
+      .mouseenter(function() {
+          $(this).children(".offer-apply").css("opacity", "1");
+      })
+      .mouseleave(function() {
+          $(this).children(".offer-apply").css("opacity", "0");
+      })
+
+</script>
