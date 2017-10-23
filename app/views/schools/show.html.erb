@@ -1,10 +1,15 @@
 <div class="container">
   <div class="col-md-4">
     <h2>Ecole <%= @school.name.titleize %></h2>
-
-    <div>Adresse: <%= @school.address %></div>
-    <div>Circonscription: <%= @school.circonscription %></div>
-    <div>Rev: <%= @center.rev_full_name %> /  <a href="tel:<%= @center.phone_number %>"><%= @center.phone_number %></a></div>
+    <h4><%= @school.circonscription %></h4>
+    <h5 class="school-desc_address"><%= @school.address %></h5>
+    <div class="school-desc_rev">
+      <div>Responsable du Centre de Loisirs:</div>
+      <div class="school-desc_rev_info">
+        <div><i class="fa fa-user fa-lg"></i> <%= @center.rev_full_name %> </div>
+        <div><i class="fa fa-phone fa-lg"></i><a href="tel:<%= @center.phone_number %>"> <%= @center.phone_number %></a></div>
+      </div>
+    </div>
 
   </div>
   <div class="col-md-8">

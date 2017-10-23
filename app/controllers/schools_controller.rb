@@ -12,6 +12,7 @@ class SchoolsController < ApplicationController
   def show
     @school = School.find(params[:id])
     @center = Center.find(@school.center_id)
+    @offers = Offer.all.where('school_id', @school.id)
   end
 
   def create

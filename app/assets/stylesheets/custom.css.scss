@@ -468,6 +468,26 @@ input:-webkit-autofill {
   font-size: 20px;
 }
 
+.school-desc_address {
+  padding-top: 1em;
+}
+
+.school-desc_rev {
+  padding-top: 1em;
+}
+
+.school-desc_rev_info {
+  padding: 0.5em 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5em;
+  color: $main-pink;
+}
+
+.school-desc_rev_info a {
+  color: $main-pink;
+}
+
 /* end forms */
 
 /* Override bootstrap styles */
