@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   # # GET /users/1.json
   def show
     @user = User.find(params[:id]);
+    @matches = User.offer_matches(@user)
     authorize! :show, @user
   end
 
