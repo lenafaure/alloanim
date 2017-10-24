@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    can [:update, :edit, :show], User, :id => user.id
+    can [:update, :edit, :show, :matching_offers], User, :id => user.id
     can :read, Offer
 
     # Define abilities for the passed in user here. For example:

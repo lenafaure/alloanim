@@ -16,7 +16,9 @@ Rails.application.routes.draw do
                  :sessions=>'users/sessions'
              }
 
-  resources :users
+  resources :users do
+    get :matching_offers
+  end
   resources :centers
   resources :availabilities
   resources :circonscriptions

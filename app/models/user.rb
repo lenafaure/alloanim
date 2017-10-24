@@ -25,6 +25,7 @@ class User < ApplicationRecord
                               .joins(:user)
                               .select('date', 'time_slot')
                               .where(user_id: current_user.id)
+                              .order(:date)
 
     matches = []
 
@@ -37,6 +38,7 @@ class User < ApplicationRecord
       if !check_conditions.empty?
         matches.push(check_conditions)
       end
+
     end
 
     return matches

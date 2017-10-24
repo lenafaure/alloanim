@@ -13,8 +13,6 @@ class UsersController < ApplicationController
   # # GET /users/1
   # # GET /users/1.json
   def show
-    @user = User.find(params[:id]);
-    @matches = User.offer_matches(@user)
     authorize! :show, @user
   end
 
@@ -40,6 +38,11 @@ class UsersController < ApplicationController
   # Define root page when user logged in
   def current_user_home
     redirect_to current_user
+  end
+
+  def matching_offers
+    @user = User.find(params[:user_id])
+    @matches = User.offer_matches(@user)
   end
 
   private
