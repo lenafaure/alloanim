@@ -18,8 +18,7 @@ class User < ApplicationRecord
 
   # Matching Offers & User
   def self.offer_matches(current_user)
-
-    offers = Offer.all
+    offers = Offer.all.where('date >= ?', DateTime.now.to_date)
     user_diploma = current_user.try(:diploma)
     user_availabilities = Availability
                               .joins(:user)
@@ -38,11 +37,9 @@ class User < ApplicationRecord
       if !check_conditions.empty?
         matches.push(check_conditions)
       end
-
     end
 
     return matches
-
   end
 
 end

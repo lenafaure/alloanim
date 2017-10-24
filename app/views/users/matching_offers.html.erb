@@ -1,0 +1,12 @@
+<div class="container">
+
+    <h2>Mes Matchings (<%= @matches.count %>)</h2>
+    <% @matches.each do |matching_offer| %>
+
+      <strong><%= l matching_offer[0].date.to_date, format: '%A' %> <%= l matching_offer[0].date.to_date, format: :long %></strong><br/>
+        <%= matching_offer[0].time_slot %><br/>
+        <%= matching_offer[0].diploma %><br/><br/>
+
+    <% end %>
+
+</div>
