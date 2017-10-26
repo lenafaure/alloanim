@@ -30,11 +30,12 @@
             <% if can? :read, Offer %>
                   <li><%= link_to "Toutes les offres", offers_path, method: :get %>
                   </li>
+            <% end %>
                 <% if @matches.present? %>
                   <li><%= link_to "Mes matchings", user_matching_offers_path(current_user.id), method: :get %>        <span class="label label-info notification-badge"> <%= @matches.count %></span>
                   </li>
                 <% end %>
-            <% end %>
+
         <% end %>
         <% if (!user_signed_in? && !center_signed_in?) %>
           <li class="menu_link"><%= link_to "S'inscrire", new_user_registration_path, method: :get %></li>
