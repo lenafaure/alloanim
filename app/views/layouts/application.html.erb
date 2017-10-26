@@ -15,6 +15,9 @@
 
   <body class="<%= current_page?(root_path) ? 'home_page' : '' %>" >
 
+    <% if (user_signed_in? || center_signed_in? ) %>
+  <a href="https://goo.gl/forms/H8aAClPBJB7qNRWE3" class="feedback-form" target=_blank">Feedback</a>
+     <% end %>
     <%= render 'layouts/navigation' %>
 
 
