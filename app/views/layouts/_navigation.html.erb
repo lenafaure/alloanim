@@ -10,7 +10,7 @@
       </button>
       <% if (user_signed_in? || center_signed_in?) %>
         <% if user_signed_in? %>
-          <%= link_to 'AlloAnim', offers_path ,class: 'navbar-brand' %>
+          <%= link_to 'AlloAnim', user_matching_offers_path(current_user.id),class: 'navbar-brand' %>
         <% end %>
         <% if center_signed_in? %>
           <%= link_to 'AlloAnim', users_path ,class: 'navbar-brand' %>
@@ -22,19 +22,45 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+
+     <% if center_signed_in? %>
+         <ul class="nav navbar-nav">
+           <% if can? :read, User %>
+               <li>
+                 <%= link_to users_path, method: :get do %>
+                     <i class="fa fa-lg fa-search"></i>
+                     Rechercher un animateur
+                 <% end %>
+               </li>
+           <% end %>
+         </ul>
+    <% end %>
+
+     <ul class="nav navbar-nav navbar-right">
         <% if (user_signed_in? || center_signed_in?) %>
-            <% if can? :read, User %>
-                  <li><%= link_to "Recherche d'animateurs", users_path, method: :get %></li>
-            <% end %>
             <% if can? :read, Offer %>
-                  <li><%= link_to "Toutes les offres", offers_path, method: :get %>
-                  </li>
+                <li><%= link_to "Offres en cours", offers_path, method: :get %>
+                </li>
             <% end %>
-                <% if @matches.present? %>
-                  <li><%= link_to "Mes matchings", user_matching_offers_path(current_user.id), method: :get %>        <span class="label label-info notification-badge"> <%= @matches.count %></span>
-                  </li>
-                <% end %>
+            <% if user_signed_in? %>
+                <li class="menu_link btn btn-turquoise btn-slim nav_action">
+                  <%= link_to user_path(current_user, :anchor => "calendar"), method: :get do %>
+                      <i class="fa fa-calendar"></i>
+                      <span>Remplir mes dispos</span>
+                  <% end %>
+                </li>
+                <li class="menu_link">
+                  <%= link_to (user_matching_offers_path(current_user.id)) do %>
+                    Mes matchings
+                      <% if @matches.present? %>
+                        <span class="badge notification-badge"> <%= @matches.count %></span>
+                      <% else %>
+                          <span class="badge empty-badge"> <i class="fa fa-question "></i></span>
+                      <% end %>
+                  <%end %>
+                </li>
+
+            <% end %>
 
         <% end %>
         <% if (!user_signed_in? && !center_signed_in?) %>
@@ -46,19 +72,24 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= image_tag avatar_url(current_user), class: 'aaa-img-circle avatar-small' %>
-                <% if current_user.first_name.present? %>
-                    <%= current_user.first_name %>
+                <% if current_user.first_name.present? && current_user.last_name.present?%>
+                    <%= current_user.first_name %> <%= current_user.last_name %>
                     <span class="caret"></span>
                 <% end %>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#"><%= link_to 'Mon profil', user_path(current_user) %></a></li>
+                <li><%= link_to 'Mon profil', user_path(current_user) %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
           <% else if center_signed_in? %>
-            <li class="menu_link create_offer"><i class="fa fa-lg fa-plus-square"></i><%= link_to "Créer une offre", new_offer_path, method: :get %></li>
+            <li class="menu_link btn btn-turquoise btn-slim nav_action">
+              <%= link_to new_offer_path, method: :get do %>
+                  <i class="fa fa-plus"></i>
+                    <span>Créer une ofre</span>
+              <% end %>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <%= current_center.first_name %> <%= current_center.last_name %> (REV)

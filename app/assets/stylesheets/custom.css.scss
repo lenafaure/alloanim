@@ -15,6 +15,8 @@ $main-violet: #110329;
 $tealish: #20bed1;
 $butterscotch: rgb(252, 197, 78);
 $urgent: #d9534f;
+$main-turquoise: darkturquoise;
+$light-turquoise: lighten($main-turquoise, 5%);
 
 /* end colors */
 
@@ -39,7 +41,7 @@ h1 {
 .btn-aaa {
   padding: 15px;
   color: $white;
-  font-weight: 300;
+  font-weight: 500;
   @include transition-duration(.2s);
   &.btn-pink {
     background-color: $main-pink;
@@ -59,15 +61,23 @@ h1 {
   }
 }
 
-.btn-slim {
-  padding: 0px;
+.btn-turquoise {
+  background-color: $main-turquoise;
+  color: $white;
   &:hover {
-    background-color: $light-pink;
+    background-color: $light-turquoise;
     color: $white;
   }
 }
 
-.navbar-default .navbar-nav .btn-pink > a{
+.btn-slim {
+  padding: 0px;
+  &:hover {
+    color: $white;
+  }
+}
+
+.navbar-default .navbar-nav .btn > a{
   color: $white;
   &:hover {
     color: $white;
@@ -170,24 +180,28 @@ input:-webkit-autofill {
   font-weight: 600;
   color: $main-pink !important;
   margin-top: -2px;
+  margin-left: 6px !important;
+}
+
+.navbar li {
+  font-weight: 500;
 }
 
 .menu_link {
-  font-weight: 500;
+  margin-top: 2px;
 }
 
 .home_page .menu_link a {
   color: $white !important;
 }
 
-.create_offer {
-  display: flex !important;
-  align-items: center;
-  color: $main-pink;
+.open > a{
+  background-color: transparent !important;
 }
 
-.create_offer > a {
-  color: $main-pink !important;
+.nav_action {
+  display: flex !important;
+  align-items: center;
 }
 
 /* End Navigation */
@@ -547,11 +561,21 @@ select:not([multiple]) {
   margin-bottom: 0px;
 }
 
-.notification-badge {
+.notification-badge, .empty-badge {
   position: absolute;
-  right: -8px;
-  top: 18px;
+  right: -2px;
+  top: 6px;
   border-radius: 10px;
+}
+
+.badge.notification-badge {
+  padding: 3px 7px;
+  background-color: $main-pink;
+}
+
+.badge.empty-badge {
+  padding: 3px 7px;
+  background-color: $main-violet;
 }
 
 /* End override boostrap styles */

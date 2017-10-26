@@ -37,7 +37,7 @@
 
 <div class="profile-layout_wrapper">
   <div class="container">
-    <div id="calendar" data-persisted='<%= raw @availabilities.to_json %>'></div>
+    <div name="calendar" id="calendar" data-persisted='<%= raw @availabilities.to_json %>'></div>
 
       <div id="calendar_validate" >
         <% if user_signed_in? %>

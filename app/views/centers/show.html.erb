@@ -30,7 +30,7 @@
         <th>Diplôme requis</th>
       </tr>
       </thead>
-      <% @center.offers.each do |offer| %>
+      <% @center.offers.order("date desc").each do |offer| %>
           <tr>
             <td><%= offer.school.name %></td>
             <td><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></td>
