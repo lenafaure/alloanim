@@ -59,7 +59,7 @@
                       <% if @matches.present? %>
                         <span class="badge notification-badge"> <%= @matches.count %></span>
                       <% else %>
-                          <span class="badge empty-badge"> <i class="fa fa-question "></i></span>
+                          <span class="badge empty-badge"> <i class="fa fa-info "></i></span>
                       <% end %>
                   <%end %>
                 </li>
@@ -91,7 +91,7 @@
             <li class="menu_link btn btn-turquoise btn-slim nav_action">
               <%= link_to new_offer_path, method: :get do %>
                   <i class="fa fa-plus"></i>
-                    <span>Créer une ofre</span>
+                    <span>Créer une offre</span>
               <% end %>
             </li>
             <li class="dropdown">
