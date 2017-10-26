@@ -8,16 +8,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <% if (user_signed_in? || center_signed_in?) %>
-        <% if user_signed_in? %>
-          <%= link_to 'AlloAnim', user_matching_offers_path(current_user.id),class: 'navbar-brand' %>
+      <div>
+        <% if (user_signed_in? || center_signed_in?) %>
+          <% if user_signed_in? %>
+            <%= link_to 'AlloAnim', user_matching_offers_path(current_user.id),class: 'navbar-brand' %>
+          <% end %>
+          <% if center_signed_in? %>
+            <%= link_to 'AlloAnim', users_path ,class: 'navbar-brand' %>
+          <% end %>
+        <% else %>
+          <%= link_to 'AlloAnim', root_path ,class: 'navbar-brand' %>
         <% end %>
-        <% if center_signed_in? %>
-          <%= link_to 'AlloAnim', users_path ,class: 'navbar-brand' %>
-        <% end %>
-      <% else %>
-        <%= link_to 'AlloAnim', root_path ,class: 'navbar-brand' %>
-      <% end %>
+        <span class="beta-brand">beta</span>
+      </div>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,7 +50,7 @@
                 <li class="menu_link btn btn-turquoise btn-slim nav_action">
                   <%= link_to user_path(current_user, :anchor => "calendar"), method: :get do %>
                       <i class="fa fa-calendar"></i>
-                      <span>Remplir mes dispos</span>
+                      <span>Remplir mes disponibilités</span>
                   <% end %>
                 </li>
                 <li class="menu_link">
@@ -66,7 +70,7 @@
         <% if (!user_signed_in? && !center_signed_in?) %>
           <li class="menu_link"><%= link_to "S'inscrire", new_user_registration_path, method: :get %></li>
           <li class="menu_link"><%= link_to "Se connecter", user_session_path, method: :get %>
-          <li class="menu_link btn btn-pink btn-slim"><%= link_to 'Accès recruteur', center_session_path, method: :get %></li>
+          <li class="btn btn-pink btn-slim"><%= link_to 'Accès recruteur', center_session_path, method: :get %></li>
         <% else %>
           <% if user_signed_in? %>
             <li class="dropdown">
