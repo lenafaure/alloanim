@@ -5,7 +5,6 @@
     <h2>Mes matchings (<%= @matches.count %>)</h2>
 
     <% if @matches.count == 0 %>
-
       <div class="availability_presence">Vous n'avez pas encore de matching avec des offres de vacation!</div>
       <div class="availability_presence">Remplissez vite vos disponibilités pour voir vos matchings et permettre aux Centres de Loisirs de vous contacter: </div>
       <%= link_to user_path(current_user, :anchor => "calendar"), method: :get do %>
@@ -43,7 +42,6 @@
               </div>
 
             </div>
-
 
             <% if user_signed_in? %>
                 <div class="offer-apply">

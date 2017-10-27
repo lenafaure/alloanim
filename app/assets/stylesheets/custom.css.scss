@@ -603,7 +603,7 @@ select:not([multiple]) {
 .feedback-form {
   position: fixed;
   top: 10em;
-  left: -35px;
+  left: -40px;
   -ms-transform: rotate(90deg); /* IE 9 */
   -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
   transform: rotate(90deg);
@@ -616,7 +616,7 @@ select:not([multiple]) {
   border-radius: 4px;
 }
 
-.feedback-form:hover {
+.feedback-form:hover, .feedback-form:active {
   background-color: $main-pink;
   color: $main-violet;
   text-decoration: none;
