@@ -622,6 +622,10 @@ select:not([multiple]) {
   text-decoration: none;
 }
 
+#videoModal .modal-dialog{
+  width: 800px;
+}
+
 /* End override boostrap styles */
 
 /* Media Queries */
