@@ -15,7 +15,7 @@
 
   <body  >
 
-    <div class="<%= current_page?(root_path) ? 'home_page' : '' %>">
+    <div class="<%= current_page?(root_path) ? 'home_page' : 'main_wrapper' %>">
     <% if (user_signed_in? || center_signed_in? ) %>
       <a href="https://goo.gl/forms/H8aAClPBJB7qNRWE3" class="feedback-form" target=_blank">Feedback</a>
      <% end %>
@@ -24,7 +24,6 @@
 
     <%= render 'layouts/messages' %>
     <%= yield %>
-
 
     </div>
     <%= render 'layouts/footer' %>

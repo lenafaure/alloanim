@@ -32,6 +32,10 @@ body {
   height: 800px;
 }
 
+.main_wrapper {
+  padding-bottom: 6em;
+}
+
 h1 {
   font-weight: 300;
   font-size: 45px;
@@ -626,6 +630,7 @@ select:not([multiple]) {
   width: 100%;
   text-align: left;
   padding: 55px 50px;
+  margin-top: -2px;
 }
 
 .footer-distributed .footer-left,
