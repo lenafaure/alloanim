@@ -13,10 +13,11 @@
 
   </head>
 
-  <body class="<%= current_page?(root_path) ? 'home_page' : '' %>" >
+  <body  >
 
+    <div class="<%= current_page?(root_path) ? 'home_page' : '' %>">
     <% if (user_signed_in? || center_signed_in? ) %>
-  <a href="https://goo.gl/forms/H8aAClPBJB7qNRWE3" class="feedback-form" target=_blank">Feedback</a>
+      <a href="https://goo.gl/forms/H8aAClPBJB7qNRWE3" class="feedback-form" target=_blank">Feedback</a>
      <% end %>
     <%= render 'layouts/navigation' %>
 
@@ -24,7 +25,8 @@
     <%= render 'layouts/messages' %>
     <%= yield %>
 
-    <%= render 'layouts/footer' %>
 
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
