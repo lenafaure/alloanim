@@ -35,7 +35,11 @@
             <td><%= offer.school.name %></td>
             <td><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></td>
             <td><%= offer.time_slot %></td>
-            <td><%= offer.diploma %></td>
+            <td>
+              <% offer.diplomas.each do |diploma|  %>
+                <%= diploma.name %>
+              <% end %>
+            </td>
             <td><%= link_to 'Modifier', edit_offer_path(offer) %> <%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
       <% end %>

@@ -26,6 +26,8 @@ gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Font-awesome
 gem 'font-awesome-rails'
+# Bootstrap multiselect
+gem 'bootstrap-multiselect-rails'
 # Paperclip
 gem 'paperclip', '~> 5.0.0'
 # Ransack search

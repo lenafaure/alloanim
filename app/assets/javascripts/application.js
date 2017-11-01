@@ -15,5 +15,6 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require rails-ujs
+//= require bootstrap-multiselect
 //= require_tree .
 

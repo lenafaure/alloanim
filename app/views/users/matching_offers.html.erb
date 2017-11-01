@@ -35,9 +35,10 @@
                     <div class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</div>
                 <% end %>
                 <div class="offer-tags">
-                  <div class="offer-tags_diploma <%= offer[0].diploma != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
-                    <i class="fa fa-graduation-cap fa-lg"></i> <%= offer[0].diploma %>
-                  </div>
+                  <% offer[0].diplomas.each do |diploma|  %>
+                      <div class="offer-tags_diploma <%= diploma.name != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
+                        <i class="fa fa-graduation-cap fa-lg"></i><%= diploma.name %></div>
+                  <% end %>
                 </div>
               </div>
 
@@ -56,8 +57,11 @@
                         <h4 class="modal-title" id="myModalLabel">Vacation du <%= l offer[0].date.to_date, format: '%A' %> <%= l offer[0].date.to_date, format: :long %>
                         </h4>
                         <div class="offer-desc_date_time_slot badge tealish"><i class="fa fa-clock-o fa-lg"></i> <%= offer[0].time_slot %></div>
-                        <span class="offer-tags_diploma <%= offer[0].diploma=="Bafa" ? "badge butterscotch" : "badge" %>">
-                        <i class="fa fa-graduation-cap fa-lg"></i> <%= offer[0].diploma %>
+                        <span class="offer-tags_diploma">
+                          <% offer[0].diplomas.each do |diploma|  %>
+                    <div class="offer-tags_diploma <%= diploma.name != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
+                      <i class="fa fa-graduation-cap fa-lg"></i><%= diploma.name %></div>
+                <% end %>
                       </span>
                         <% if offer[0].date.to_date == DateTime.now.to_date %> <span class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</span>
                         <% end %>

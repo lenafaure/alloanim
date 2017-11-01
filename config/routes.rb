@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :diplomas
   devise_for :centers,
              :path=>'recruteur',
              :path_names=>{:sign_in=>'login', :edit=>'profile'},

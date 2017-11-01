@@ -24,9 +24,10 @@
                   <div class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</div>
               <% end %>
               <div class="offer-tags">
-                <div class="offer-tags_diploma <%= offer.diploma != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
-                  <i class="fa fa-graduation-cap fa-lg"></i> <%= offer.diploma %>
-                </div>
+                <% offer.diplomas.each do |diploma|  %>
+                    <div class="offer-tags_diploma <%= diploma.name != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
+                      <i class="fa fa-graduation-cap fa-lg"></i><%= diploma.name %></div>
+                <% end %>
               </div>
             </div>
 

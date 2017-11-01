@@ -27,13 +27,20 @@
             </div>
             <div class="form-group">
               <%= f.label :diploma, 'Diplôme requis', class: 'control-label'%>
-              <%= f.select :diploma, options_for_select(
-                  [
-                      ["Bafa", "Bafa"],
-                      ["Bafa en cours", "Bafa en cours"],
-                      ["Aucun diplôme", "Aucun diplôme"]
-                  ]
-              ), {include_blank: false}, {class: 'form-control'} %>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Choisir un ou plusieurs diplômes
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <%= f.collection_check_boxes :diploma_ids, Diploma.all, :id, :name do |b| %>
+
+                      <li><%= b.check_box %>
+                        <%= b.label %></li>
+
+                <% end %>
+                  </ul>
+                </div>
             </div>
             <div class="form-group">
               <%= f.label :offer_number, 'Nombre de postes à pourvoir', class: 'control-label'%>
