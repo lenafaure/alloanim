@@ -25,7 +25,10 @@ class User < ApplicationRecord
                               .where(user_id: current_user.id)
                               .order(:date)
     offers = Offer.all.where('date >= ?', DateTime.now.to_date)
-    offers_diploma = Diploma.find_by(name: user_diploma).offers
+
+    if offers.exists?
+      offers_diploma = Diploma.find_by(name: user_diploma).offers
+    end
 
     matches = []
 
