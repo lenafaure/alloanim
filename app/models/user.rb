@@ -37,7 +37,6 @@ class User < ApplicationRecord
       if !check_conditions.empty?
         matches.push(check_conditions)
       end
-
     end
 
     return matches
