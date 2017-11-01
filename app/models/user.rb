@@ -28,18 +28,19 @@ class User < ApplicationRecord
 
     if offers.exists?
       offers_diploma = Diploma.find_by(name: user_diploma).offers
-    end
 
-    matches = []
+      matches = []
 
-    user_availabilities.each do |user_availability|
-      check_conditions = offers_diploma
-                   .where(date: user_availability.date)
-                   .where(time_slot: user_availability.time_slot)
+      user_availabilities.each do |user_availability|
+        check_conditions = offers_diploma
+                     .where(date: user_availability.date)
+                     .where(time_slot: user_availability.time_slot)
 
-      if !check_conditions.empty?
-        matches.push(check_conditions)
+        if !check_conditions.empty?
+          matches.push(check_conditions)
+        end
       end
+
     end
 
     return matches
