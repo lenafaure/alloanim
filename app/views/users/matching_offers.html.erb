@@ -20,22 +20,22 @@
           <div class="panel panel-default offers-item">
             <div class="offer-desc">
               <div class="offer-desc_school">
-                <%= link_to school_path(offer[0].school) do %>
-                    <div class="offer-desc_school_name"><%= offer[0].school.name.titleize %></div>
-                    <div class="offer-desc_school_address"><%= offer[0].school.address %></div>
+                <%= link_to school_path(offer.school) do %>
+                    <div class="offer-desc_school_name"><%= offer.school.name.titleize %></div>
+                    <div class="offer-desc_school_address"><%= offer.school.address %></div>
                 <% end %>
               </div>
               <div class="offer-desc_date">
                 <div class="offer-desc_date_day">
-                  <div><i class="fa fa-calendar-o "></i> <%= l offer[0].date.to_date, format: '%A' %> <%= l offer[0].date.to_date, format: :long %></div>
+                  <div><i class="fa fa-calendar-o "></i> <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></div>
 
                 </div>
-                <div class="offer-desc_date_time_slot badge tealish"><i class="fa fa-clock-o fa-lg"></i> <%= offer[0].time_slot %></div>
-                <% if offer[0].date.to_date == DateTime.now.to_date %>
+                <div class="offer-desc_date_time_slot badge tealish"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>
+                <% if offer.date.to_date == DateTime.now.to_date %>
                     <div class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</div>
                 <% end %>
                 <div class="offer-tags">
-                  <% offer[0].diplomas.each do |diploma|  %>
+                  <% offer.diplomas.each do |diploma|  %>
                       <div class="offer-tags_diploma <%= diploma.name != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
                         <i class="fa fa-graduation-cap fa-lg"></i><%= diploma.name %></div>
                   <% end %>
@@ -46,32 +46,32 @@
 
             <% if user_signed_in? %>
                 <div class="offer-apply">
-                  <div class="btn btn-pink" data-toggle="modal" data-target="#center-<%= offer[0].id %>">Postuler</div>
+                  <div class="btn btn-pink" data-toggle="modal" data-target="#center-<%= offer.id %>">Postuler</div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="center-<%= offer[0].id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal fade" id="center-<%= offer.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content offer-call-school">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Vacation du <%= l offer[0].date.to_date, format: '%A' %> <%= l offer[0].date.to_date, format: :long %>
+                        <h4 class="modal-title" id="myModalLabel">Vacation du <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %>
                         </h4>
-                        <div class="offer-desc_date_time_slot badge tealish"><i class="fa fa-clock-o fa-lg"></i> <%= offer[0].time_slot %></div>
+                        <div class="offer-desc_date_time_slot badge tealish"><i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %></div>
                         <span class="offer-tags_diploma">
-                          <% offer[0].diplomas.each do |diploma|  %>
+                          <% offer.diplomas.each do |diploma|  %>
                     <div class="offer-tags_diploma <%= diploma.name != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
                       <i class="fa fa-graduation-cap fa-lg"></i><%= diploma.name %></div>
                 <% end %>
                       </span>
-                        <% if offer[0].date.to_date == DateTime.now.to_date %> <span class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</span>
+                        <% if offer.date.to_date == DateTime.now.to_date %> <span class="offer-desc_date_urgent badge urgent"><i class="fa fa-exclamation fa-lg"></i> Urgent</span>
                         <% end %>
                       </div>
                       <div class="modal-body">
                         <h4>Appelez directement le Centre de Loisirs pour postuler</h4>
-                        <div>Ecole <%= offer[0].school.name.titleize %></div>
+                        <div>Ecole <%= offer.school.name.titleize %></div>
                         <div>
-                          <div><%= offer[0].center.first_name %> <%= offer[0].center.last_name %> </div>
-                          <div class="offer-call-number"><i class="fa fa-phone fa-lg tealish-font"></i> <a class="tealish-font" href="tel:<%= offer[0].center.phone_number %>"><%= offer[0].center.phone_number %></a></div>
+                          <div><%= offer.center.first_name %> <%= offer.center.last_name %> </div>
+                          <div class="offer-call-number"><i class="fa fa-phone fa-lg tealish-font"></i> <a class="tealish-font" href="tel:<%= offer.center.phone_number %>"><%= offer.center.phone_number %></a></div>
                         </div>
                       </div>
                       <div class="modal-footer">

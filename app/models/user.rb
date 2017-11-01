@@ -27,8 +27,9 @@ class User < ApplicationRecord
     offers = Offer.all.where('date >= ?', DateTime.now.to_date)
 
     if offers.exists? && !user_diploma.nil?
-      offers_diploma = Diploma.find_by(name: user_diploma).offers
+      offers_diploma = offers.includes(:diplomas).where(diplomas: {name: user_diploma})
 
+      puts offers_diploma.inspect
       matches = []
 
       user_availabilities.each do |user_availability|
@@ -36,8 +37,11 @@ class User < ApplicationRecord
                      .where(date: user_availability.date)
                      .where(time_slot: user_availability.time_slot)
 
+
         if !check_conditions.empty?
-          matches.push(check_conditions)
+          check_conditions.each do |match|
+            matches.push(match)
+          end
         end
       end
 
