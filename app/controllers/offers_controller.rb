@@ -38,7 +38,6 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1
   # PATCH/PUT /offers/1.json
   def update
-    logger.info current_center.inspect
     @offer.center = current_center
     if @offer.update(offer_params)
       redirect_to center_path(current_center), notice: "L'Offre a été modifiée avec succès"

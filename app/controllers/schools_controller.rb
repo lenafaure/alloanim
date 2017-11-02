@@ -9,6 +9,9 @@ class SchoolsController < ApplicationController
     @school = School.new
   end
 
+  def edit
+  end
+
   def show
     @school = School.find(params[:id])
     @center = Center.find(@school.center_id)
@@ -20,6 +23,14 @@ class SchoolsController < ApplicationController
       redirect_to school_path(@school), notice: 'School was successfully created.'
     else
      render 'new'
+    end
+  end
+
+  def update
+    if @school.update(school_params)
+      redirect_to schools_path(@school), notice: "L'Ecole a été modifiée avec succès"
+    else
+      render :edit
     end
   end
 
