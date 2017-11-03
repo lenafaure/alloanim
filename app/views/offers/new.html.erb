@@ -33,12 +33,12 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <%= f.collection_check_boxes :diploma_ids, Diploma.all, :id, :name do |b| %>
-
-                      <li><%= b.check_box %>
-                        <%= b.label %></li>
-
-                <% end %>
+                    <%= f.collection_check_boxes :diploma_ids, Diploma.all, :id, :name do |b| %>
+                      <li>
+                        <%= b.check_box %>
+                        <%= b.label %>
+                      </li>
+                    <% end %>
                   </ul>
                 </div>
             </div>

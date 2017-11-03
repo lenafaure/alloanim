@@ -344,6 +344,41 @@ input:-webkit-autofill {
   margin-top: 3em;
 }
 
+
+.form-panel_wrapper .dropdown {
+  width: 100%;
+  margin-left: -1px;
+}
+
+.form-panel_wrapper .dropdown .dropdown-toggle{
+  width: 100%;
+  text-align: left;
+  height: 40px;
+  border-radius: 0px;
+  font-weight: 300;
+}
+
+.form-panel_wrapper .dropdown .dropdown-toggle .caret{
+  position: absolute;
+  top: 19px;
+  right: 8px;
+}
+
+.form-panel_wrapper .dropdown .btn{
+  padding: .5em;
+}
+
+.form-panel_wrapper .dropdown-menu {
+  width: 100%;
+  padding: 1em;
+}
+
+.form-panel_wrapper .dropdown input{
+  height: 20px;
+  margin-right: 10px;
+}
+
+
 #user_search {
   display: flex;
   justify-content: space-between;
@@ -811,6 +846,11 @@ select:not([multiple]) {
   .form-flex .form-group label {
     width: 32%;
     text-align: right;
+    padding-right: 2em;
+  }
+
+  .form-flex .form-group .dropdown label {
+    text-align: left;
     padding-right: 2em;
   }
 
