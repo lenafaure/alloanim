@@ -34,6 +34,8 @@ gem 'paperclip', '~> 5.0.0'
 gem 'ransack'
 # jQuery UI
 gem 'jquery-ui-rails'
+# AWS for image storing on Heroku
+gem 'aws-sdk', '< 2.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
