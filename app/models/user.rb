@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence:true, length: {maximum: 50}
   validates :last_name, presence:true, length: {maximum: 50}
   validates :phone_number, presence: true, uniqueness: true, on: :update
-  validates :soi_number, presence: true, uniqueness: true, on: :update, length: {maximum: 7}, numericality: { only_integer: true }
+  validates :soi_number, presence: true, uniqueness: true, on: :update, length: {is: 7}, numericality: { only_integer: true }
   validates :circonscription, presence: true, on: :update
   validates :diploma, presence: true, on: :update
 
