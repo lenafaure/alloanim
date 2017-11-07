@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :users do
     get :matching_offers
   end
+  get '/animateurs' => 'users#manage'
   resources :centers
   resources :availabilities
   resources :circonscriptions

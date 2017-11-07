@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="col-md-12">
+    <h2>Tous les Animateurs (<%= @users.count %>)</h2>
+    <% @users.each do |animateur| %>
+        <div style="border: 1px solid lightslategray; padding: 10px; margin-bottom: 15px;">
+          <div style="display: flex">
+            <div>
+              <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
+              <%= animateur.email %> <br />
+              <%= animateur.circonscription %><br />
+            </div>
+          </div>
+          <%= link_to 'Modifier', edit_user_path(animateur) %>
+          <%= link_to 'Supprimer', animateur, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+    <% end %>
+  </div>
+</div>

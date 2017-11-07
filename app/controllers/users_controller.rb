@@ -7,7 +7,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-      @users = User.all
+    @users = User.all
+  end
+
+  def manage
+    @users = User.all
+    render :animateurs
   end
 
   # # GET /users/1
@@ -35,6 +40,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to animateurs_url, notice: "L'élément a bien été supprimé" }
+      format.json { head :no_content }
+    end
+  end
+
   # Define root page when user logged in
   def current_user_home
     redirect_to current_user
@@ -53,7 +66,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:password, :email)
+    params.require(:user).permit(:password, :email, :first_name, :last_name, :soi_number, :phone_number, :circonscription, :diploma)
   end
 
 
