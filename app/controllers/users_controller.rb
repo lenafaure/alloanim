@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.order('created_at DESC')
+    @users = User.all
   end
 
   def manage
-    @users = User.all
+    @users = User.all.order('created_at DESC')
     render :animateurs
   end
 
