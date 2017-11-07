@@ -2,6 +2,10 @@ class CentersController < ApplicationController
   before_action :set_center, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
+  def index
+    @centers = Center.all.order('created_at DESC')
+  end
+
   def show
   end
 
