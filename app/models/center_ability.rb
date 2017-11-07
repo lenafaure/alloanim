@@ -6,6 +6,7 @@ class CenterAbility
     can :read, User
     can :manage, Offer #remove asap
     can :show, Center, :id => center.id
+    can :manage, Center
     cannot :update, User
   end
 end

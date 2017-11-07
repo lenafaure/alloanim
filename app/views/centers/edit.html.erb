@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="col-md-8 col-sm-12 col-md-offset-2 form-flex form-panel_wrapper">
+    <%= form_for @center do |f| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="form-heading-title">Modifier le profil du REV</div>
+          </div>
+          <div class="panel-body">
+            <div class="form-group required">
+              <%= f.label :email, 'Email', class: 'control-label'%>
+              <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Adresse e-mail' %>
+            </div>
+            <div class="form-group required">
+              <%= f.label :first_name, 'Prénom', class: 'control-label'%>
+              <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom' %>
+            </div>
+            <div class="form-group required">
+              <%= f.label :last_name, 'Nom', class: 'control-label'%>
+              <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom' %>
+            </div>
+            <div class="form-group required">
+              <%= f.label :phone_number, 'Numéro de tél.', class: 'control-label'%>
+              <%= f.text_field :phone_number, class: 'form-control', placeholder: 'Numéro de téléphone' %>
+            </div>
+            <div class="form-group required">
+              <%= f.label :circonscription, 'Circonscription', class: 'control-label'%>
+              <%= f.select :circonscription, options_for_select(
+                  [
+                      ["Circonscription", "Circonscription"],
+                      ["CASPE 1 2 3 4", "CASPE 1 2 3 4"],
+                      ["CASPE 5 13", "CASPE 5 13"],
+                      ["CASPE 6 14", "CASPE 6 14"],
+                      ["CASPE 7 15", "CASPE 7 15"],
+                      ["CASPE 8 9 10", "CASPE 8 9 10"],
+                      ["CASPE 11 12", "CASPE 11 12"],
+                      ["CAS 16 17", "CAS 16 17"],
+                      ["CASPE 18", "CASPE 18"],
+                      ["CASPE 19", "CASPE 19"],
+                      ["CASPE 20", "CASPE 20"],
+                  ]
+              ), {include_blank: false}, {class: 'form-control'} %>
+            </div>
+          </div>
+        </div>
+        <%= f.submit t('.sign_up', default: 'Modifier le profil'), class: 'btn btn-edit-form' %>
+    <% end %>
+  </div>
+</div>

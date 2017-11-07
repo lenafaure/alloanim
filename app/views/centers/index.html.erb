@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="col-md-12">
+      <% @centers.each do |center| %>
+        <div style="border: 1px solid lightslategray; padding: 10px; margin-bottom: 15px;">
+          <div style="display: flex">
+            <div>
+              <strong><%= center.first_name %> <%= center.last_name %></strong><br />
+              <%= center.email %> <br />
+              <%= center.circonscription %><br />
+            </div>
+            <div style="margin-left: 20px;">Ecoles:
+              <% center.schools.each do |school| %>
+              <div><%= school.name.titleize %></div>
+              <% end %>
+            </div>
+          </div>
+          <%= link_to 'Modifier', edit_center_path(center) %>
+          <%= link_to 'Supprimer', center, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+  </div>
+</div>
