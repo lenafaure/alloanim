@@ -15,6 +15,11 @@
               <div><%= school.name.titleize %></div>
               <% end %>
             </div>
+            <div style="margin-left: 20px;">Offres:
+              <% center.offers.each do |offer| %>
+                  <div><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %> - <%= offer.time_slot %></div>
+              <% end %>
+            </div>
           </div>
           <%= link_to 'Modifier', edit_center_path(center) %>
           <%= link_to 'Supprimer', center, method: :delete, data: { confirm: 'Are you sure?' } %>

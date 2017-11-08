@@ -46,7 +46,6 @@ class User < ApplicationRecord
       end
 
     end
-
     return matches
   end
 
