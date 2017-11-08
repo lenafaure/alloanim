@@ -20,19 +20,21 @@ $light-turquoise: lighten($main-turquoise, 5%);
 
 /* end colors */
 
+/* main styles */
+
 body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   height: 100%;
 }
 
-.home_page {
+.home {
   background: image-url('children_paris.jpg') no-repeat ;
   background-size: cover;
   height: 800px;
 }
 
-.main_wrapper {
+.main-wrapper {
   padding-bottom: 6em;
 }
 
@@ -226,25 +228,10 @@ input:-webkit-autofill {
   background-color: $main-violet;
 }
 
-.profile-header-layout_wrapper{
-  padding-top: 3em;
-  display: flex;
-}
-
-.profile-header-layout_side {
-  width: 30%;
-  min-height: 330px;
-}
-
 .profile-header-layout_main {
   padding: 2em;
-  width: 70%;
   background-color: $white;
   position: relative;
-}
-
-.profile-header-layout_side img {
-  width: 100%;
 }
 
 .profile-header-user i {
@@ -268,14 +255,6 @@ input:-webkit-autofill {
   margin-bottom: .4em;
 }
 
-.profile-header-user_modify {
-  position: absolute;
-  bottom: 2em;
-}
-
-.profile-layout_wrapper {
-  height: 600px;
-}
 
 /* End Profile Page */
 
@@ -830,8 +809,48 @@ select:not([multiple]) {
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
+@media only screen and (max-width : 767px) {
 
+  .profile-header-layout_side, .profile-header-layout_main {
+    text-align: center;
+  }
+
+  .profile-header-layout_side img {
+    border-radius: 100%;
+    padding: 20px;
+  }
+
+  .day {
+    border-radius: 4px;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+}
+
+@media only screen and (min-width : 768px) {
+  .profile-header-layout_wrapper{
+    padding-top: 3em;
+    display: flex;
+  }
+
+  .profile-header-layout_side {
+    width: 30%;
+    min-height: 330px;
+  }
+
+  .profile-header-layout_main {
+    width: 70%;
+  }
+
+  .profile-header-layout_side img {
+    width: 100%;
+  }
+
+  .profile-header-user_modify {
+    position: absolute;
+    bottom: 2em;
+  }
 }
 
 /* Medium Devices, Desktops */

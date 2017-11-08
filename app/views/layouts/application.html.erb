@@ -21,21 +21,16 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
-  <body  >
-
-    <div class="<%= current_page?(root_path) ? 'home_page' : 'main_wrapper' %>">
+  <body>
+    <div class="<%= current_page?(root_path) ? 'home' : 'main-wrapper' %>">
     <% if (user_signed_in? || center_signed_in? ) %>
-      <a href="https://goo.gl/forms/H8aAClPBJB7qNRWE3" class="feedback-form" target=_blank">Feedback</a>
-     <% end %>
+      <a href="https://goo.gl/forms/H8aAClPBJB7qNRWE3" class="feedback-form hidden-xs" target=_blank">Feedback</a>
+    <% end %>
     <%= render 'layouts/navigation' %>
-
-
     <%= render 'layouts/messages' %>
     <%= yield %>
-
     </div>
     <%= render 'layouts/footer' %>
   </body>

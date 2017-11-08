@@ -1,4 +1,3 @@
-<% @availabilities = @user.availabilities %>
 <div class="profile-header-layout">
   <div class="container profile-header-layout_wrapper">
 
@@ -7,7 +6,6 @@
     </div>
 
     <div class="profile-header-layout_main">
-
       <div class="profile-header-user">
         <div class="profile-header-user_name"><%= @user.first_name.titleize %> <%= @user.last_name.upcase %></div>
         <div class="profile-header-user_age">SOI: <%= @user.soi_number %></div>
@@ -38,12 +36,10 @@
 <div class="profile-layout_wrapper">
   <div class="container">
     <div name="calendar" id="calendar" data-persisted='<%= raw @availabilities.to_json %>'></div>
-
       <div id="calendar_validate" >
         <% if user_signed_in? %>
         <div class="btn btn-success btn-aaa btn-right">Valider</div>
         <% end %>
       </div>
-
   </div>
 </div>
