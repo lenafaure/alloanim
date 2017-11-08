@@ -6,7 +6,9 @@
         <div style="border: 1px solid lightslategray; padding: 10px; margin-bottom: 15px;">
           <div style="display: flex">
             <div>
-              <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
+              <%= link_to user_path(animateur), target: :_blank do %>
+                <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
+              <% end %>
               <%= animateur.email %> <br />
               <%= animateur.circonscription %><br />
             </div>
