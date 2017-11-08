@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :circonscription, presence: true, on: :update
   validates :diploma, presence: true, on: :update
 
-  has_attached_file :avatar, styles: { medium: "200x200#", thumb: "150x150#" }, default_url: "/assets/placeholder.jpg"
+  has_attached_file :avatar, styles: { medium: "200x200#", thumb: "150x150#" }, default_url: "/assets/profile_default.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   # Matching Offers & User
