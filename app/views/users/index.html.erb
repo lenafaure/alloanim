@@ -34,7 +34,7 @@
             <div class="user-profile_image"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
             <div class="user-profile_desc">
               <%= link_to user_path(user), target: :_blank do %>
-                <div class="user-profile_desc_username"><%= user.first_name %> <%= user.last_name %></div>
+                <div class="user-profile_desc_username"><%= user.first_name.titleize %> <%= user.last_name.upcase %></div>
               <% end %>
               <div><i class="fa fa-mobile fa-lg"></i> <a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></div>
               <div class="user-profile_degree"><span class="label label-warning"><%= user.diploma %></span></div>
