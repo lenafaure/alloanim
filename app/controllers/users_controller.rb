@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
   end
 
   def manage
@@ -73,7 +72,7 @@ class UsersController < ApplicationController
 
   def search
     @search = User.ransack(params[:q])
-    @user_availabilities = @search.result(distinct: true).includes(:availabilities)
+    @user_availabilities = @search.result(distinct: true).includes(:availabilities).order('last_name ASC')
   end
 
 end
