@@ -25,12 +25,9 @@ class ApplicationController < ActionController::Base
   def completed_profile
     if user_signed_in?
       if (current_user.soi_number.blank? || current_user.phone_number.blank? || current_user.diploma.blank?)
-        puts "can't be blank"
         redirect_to edit_user_path(current_user), alert: "Votre profil doit être complété"
       end
     end
   end
-
-
 
 end
