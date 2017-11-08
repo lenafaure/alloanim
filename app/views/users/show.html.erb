@@ -9,7 +9,7 @@
     <div class="profile-header-layout_main">
 
       <div class="profile-header-user">
-        <div class="profile-header-user_name"><%= @user.first_name %> <%= @user.last_name %></div>
+        <div class="profile-header-user_name"><%= @user.first_name.titleize %> <%= @user.last_name.upcase %></div>
         <div class="profile-header-user_age">SOI: <%= @user.soi_number %></div>
         <div class="profile-header-user_phone_number">
           <i class="fa fa-mobile fa-lg"></i>
