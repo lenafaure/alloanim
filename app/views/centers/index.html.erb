@@ -3,26 +3,28 @@
   <div class="col-md-12">
     <h2>Tous les REV (<%= @centers.count %>)</h2>
       <% @centers.each do |center| %>
-        <div style="border: 1px solid lightslategray; padding: 10px; margin-bottom: 15px;">
-          <div style="display: flex">
-            <div>
+        <div class="col-md-12" style="border: 1px solid lightslategray; padding: 10px; margin-bottom: 15px;">
+            <div class="col-md-3">
               <strong><%= center.first_name %> <%= center.last_name %></strong><br />
               <%= center.email %> <br />
+              <%= center.phone_number %> <br />
               <%= center.circonscription %><br />
             </div>
-            <div style="margin-left: 20px;">Ecoles:
+            <div class="col-md-3">
+              Ecoles:
               <% center.schools.each do |school| %>
               <div><%= school.name.titleize %></div>
               <% end %>
             </div>
-            <div style="margin-left: 20px;">Offres:
+            <div class="col-md-6">Offres:
               <% center.offers.each do |offer| %>
                   <div><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %> - <%= offer.time_slot %></div>
               <% end %>
             </div>
+          <div class="col-md-12">
+            <%= link_to 'Modifier', edit_center_path(center) %>
+            <%= link_to 'Supprimer', center, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
-          <%= link_to 'Modifier', edit_center_path(center) %>
-          <%= link_to 'Supprimer', center, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       <% end %>
   </div>
