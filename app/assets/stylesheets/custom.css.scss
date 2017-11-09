@@ -422,70 +422,52 @@ input:-webkit-autofill {
   margin-bottom: 1.5em;
 }
 
-.offers-item {
+.offer {
+  border: 1px solid #ddd;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 5px 0;
 }
 
-.offer-desc {
-  display: flex;
-}
-
-.offer-desc_school {
+.offer-school {
+  flex-wrap: wrap;
   background-color: $main-violet;
   color: $white;
-  height: 120px;
   padding: 15px;
-  width: 250px;
   position: relative;
 }
 
-.offer-desc_school a {
+.offer-school a {
   color: $white;
 }
 
-.offer-desc_school_name {
+.offer-school-name {
   font-weight: 600;
   font-size: 18px;
   padding-bottom: 0.5em;
 }
 
-.offer-desc_school_address {
-  position: absolute;
-  bottom: 1em;
+.offer-content {
+  padding: 15px;
 }
 
-.offer-desc_date {
-  padding-top: 15px;
-  padding-left: 15px;
-  width: 500px;
-}
-
-.offer-desc_date_day {
+.offer-content-date {
   font-weight: 500;
   font-size: 18px;
   padding-bottom: 0.2em;
 }
 
-.offer-desc_date_time_slot {
-  font-size: 14px;
+.offer-tags {
+  padding-top: 0.8em;
 }
 
-.offer-desc_date_urgent {
-  font-size: 14px;
-}
-
-.offer-tags_diploma {
+.offer-content-timeslot, .offer-content-urgent, .offer-tags-diploma   {
   font-size: 14px;
 }
 
 .offer-apply {
-  padding: 1em;
-}
-
-.offer-tags {
-  padding-top: 0.8em;
+  align-self: center;
+  padding: 15px;
 }
 
 .form-double-field {
@@ -823,6 +805,19 @@ select:not([multiple]) {
     padding: 10px;
   }
 
+  .offer {
+    flex-direction: column;
+  }
+
+  .offer-apply {
+    width: 100%;
+  }
+
+  .offer-apply .btn-pink {
+    width: 100%;
+    padding: 10px;
+  }
+
 }
 
 @media only screen and (min-width : 768px) {
@@ -848,6 +843,24 @@ select:not([multiple]) {
     position: absolute;
     bottom: 2em;
   }
+
+  .offer {
+    height: 120px;
+  }
+
+  .offer-school {
+    width: 250px;
+  }
+
+  .offer-school-address {
+    position: absolute;
+    bottom: 15px;
+  }
+
+  .offer-apply {
+    margin-left: auto;
+  }
+
 }
 
 /* Medium Devices, Desktops */
