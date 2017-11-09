@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
-  before_action :search,  only: [:index]
+  before_action :search, only: [:index]
   skip_before_action :completed_profile, only: [:edit, :update]
   load_and_authorize_resource
 
