@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="col-md-12">
     <h2>Rechercher un animateur disponible:</h2>
     <div class="form-group form-users-search">
@@ -22,6 +21,7 @@
     <div class="filters_title">Filtrer la recherche</div>
     <div class="filters_wrapper">En construction</div>
   </div> -->
+
   <div class="col-md-12">
     <% if @user_availabilities.exists? %>
 
@@ -30,16 +30,16 @@
         <% end %>
       <% @user_availabilities.each do |user| %>
 
-          <div class="panel panel-default user-profile">
-            <div class="user-profile_image"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
-            <div class="user-profile_desc">
+          <div class="user-profile">
+            <div class="user-profile-picture"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
+            <div class="user-profile-content">
               <%= link_to user_path(user), target: :_blank do %>
-                <div class="user-profile_desc_username"><%= user.first_name.titleize %> <%= user.last_name.upcase %></div>
+                <div class="user-profile-content-username"><%= user.first_name.titleize %> <%= user.last_name.upcase %></div>
               <% end %>
               <div><i class="fa fa-mobile fa-lg"></i> <a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></div>
-              <div class="user-profile_degree"><span class="label label-warning"><%= user.diploma %></span></div>
+              <div class="user-profile-degree"><span class="label label-warning"><%= user.diploma %></span></div>
             </div>
-            <div class="user-profile_tags">
+            <div class="user-profile-tags">
               <span class="label label-info">Elementaire</span>
               <span class="label label-info">Maternelle</span>
               <span class="label label-success">Jeux d'extérieur</span>
