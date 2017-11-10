@@ -461,7 +461,11 @@ input:-webkit-autofill {
   padding-top: 0.8em;
 }
 
-.offer-content-timeslot, .offer-content-urgent, .offer-tags-diploma   {
+.offer-tags-diploma {
+  margin-bottom: 5px;
+}
+
+.offer-content-timeslot, .offer-content-urgent, .offer-tags-diploma {
   font-size: 14px;
 }
 
