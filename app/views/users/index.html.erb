@@ -29,7 +29,8 @@
         <div class="availability_presence">Animateurs disponibles le <%= l params[:q][:availabilities_date_cont].to_date, format: :long %>, <%= params[:q][:availabilities_time_slot_cont] %> : </div>
         <% end %>
       <% @user_availabilities.each do |user| %>
-
+        <!-- Remove and create namespace -->
+         <% if user.circonscription == current_center.circonscription %>
           <div class="user-profile">
             <div class="user-profile-picture"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
             <div class="user-profile-content">
@@ -46,6 +47,7 @@
             </div>
           </div>
           <% end %>
+        <% end %>
       <% else %>
         <div class="availability_presence">Pas d'animateur disponible le <%= l params[:q][:availabilities_date_cont].to_date, format: :long  %>, <%= params[:q][:availabilities_time_slot_cont] %>  </div>
       <% end %>
