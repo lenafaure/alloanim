@@ -1,6 +1,47 @@
 require 'test_helper'
 
-class OffersControllerTest < ActionDispatch::IntegrationTest
+class OffersControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+  def setup
+    @center = centers(:one)
+    sign_in @center
+    @offer = offers(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should show offer" do
+    get :show, params: {id: @offer.id}
+    assert_response :success
+  end
+
+=begin
+  test "should create offer" do
+    assert_difference('Offer.count') do
+      post :create, params: { offer:
+      { date: "2017-11-15",
+        time_slot: "TAP",
+        offer_number: 1,
+        center_id: 1,
+        school_id: 1,
+        diplomas: [diplomas(:one), diplomas(:two)]
+      }
+    }
+    end
+
+    assert_redirected_to :show, params: {id: @offer.id}
+  end
+=end
+
 =begin
   setup do
     @offer = offers(:one)
