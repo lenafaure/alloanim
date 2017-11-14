@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: MyString
-  time_slot: MyString
-  diploma: MyString
+  date: "2017-11-14"
+  time_slot: "Interclasse"
   offer_number: 1
+  center_id: 1
+  school_id: 1
+  diplomas: one, two
 
 two:
-  date: MyString
-  time_slot: MyString
-  diploma: MyString
+  date: "2017-11-15"
+  time_slot: "TAP"
   offer_number: 1
+  center_id: 1
+  school_id: 1
+  diplomas: one, two
