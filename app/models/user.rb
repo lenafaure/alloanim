@@ -17,6 +17,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   # Matching Offers & User
+  # Ajouter Matching seulement par circoncription
   def self.offer_matches(current_user)
     user_diploma = current_user.try(:diploma)
     user_availabilities = Availability
