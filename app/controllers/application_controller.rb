@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
 
   # before any action performed by this controller, verify if the user is authenticated
   devise_group :person, contains: [:user, :center]
-  before_action :authenticate_person!, :except => [:pages, :home]
+  #testing
+  #before_action :authenticate_person!, :except => [:pages, :home]
   before_action :matching_notification, :except => [:pages, :home]
   before_action :completed_profile
 

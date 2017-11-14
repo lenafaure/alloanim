@@ -61,8 +61,9 @@ group :development, :test do
   gem 'sqlite3'
   # rspec
   gem 'rspec-rails', '~> 3.6'
-  # Factory Girl
-  gem 'factory_girl', '~> 4.5'
+  gem 'rails-controller-testing'
+  # Factory Bot
+  gem 'factory_bot_rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
