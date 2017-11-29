@@ -8,7 +8,17 @@
 
   <div class="col-md-9 col-sm-12 form-flex">
 
-    <%= form_for @user do |f| %>
+    <%= form_for @user, :html => {'data-toggle' => 'validator'}  do |f| %>
+
+        <% if @user.errors.any? %>
+            <div class="alert alert-alert">
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
         <div class="panel panel-default devise-bs">
           <div class="panel-heading">
             <div class="form-heading-title">Obligatoire</div>
@@ -31,6 +41,7 @@
             <div class="form-group required">
               <%= f.label :phone_number, 'Numéro de téléphone', class: 'control-label'%>
               <%= f.text_field :phone_number, class: 'form-control', :required => true %>
+              <div class="help-block with-errors"></div>
             </div>
             <div class="form-group required">
               <%= f.label :soi_number, 'Numéro S.O.I', class: 'control-label' %>
