@@ -9,12 +9,20 @@ class User < ApplicationRecord
   validates :first_name, presence:true, length: {maximum: 50}
   validates :last_name, presence:true, length: {maximum: 50}
   validates :phone_number, presence: true, uniqueness: true, on: :update
+  validates :birthday, presence: true, uniqueness: true, on: :update
   validates :soi_number, presence: true, uniqueness: true, on: :update, length: {is: 7}, numericality: { only_integer: true }
   validates :circonscription, presence: true, on: :update
   validates :diploma, presence: true, on: :update
 
   has_attached_file :avatar, styles: { medium: "200x200#", thumb: "150x150#" }, default_url: "/assets/profile_default.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+  def self.age(current_user)
+    user_birthdate = current_user.birthday
+    user_age = Time.current.year - user_birthdate.year
+    return user_age
+  end
+
 
   # Matching Offers & User
   # Ajouter Matching seulement par circoncription

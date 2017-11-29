@@ -24,7 +24,9 @@
             </div>
             <div class="form-group required">
               <%= f.label :birthday, 'Date de Naissance', class: 'control-label'%>
-              <%= f.text_field :birthday, class: 'form-control', id: 'birthday-date', placeholder: 'Date', :required => true %>
+              <div class="select-date">
+              <%= f.date_select :birthday, start_year: Time.current.year-16, end_year: 1950, class: 'form-control', id: 'birthday-date', placeholder: 'Date', :required => true %>
+              </div>
             </div>
             <div class="form-group required">
               <%= f.label :phone_number, 'Numéro de téléphone', class: 'control-label'%>
@@ -48,9 +50,7 @@
               <%= f.label :circonscription, 'Circonscription', class: 'control-label' %>
               <%= f.select :circonscription, options_for_select(
                   [
-                      ["CASPE 6 14", "CASPE 6 14"],
-                      ["CAS 16 17", "CAS 16 17"],
-                      ["CASPE 18", "CASPE 18"]
+                      ["CASPE 6 14", "CASPE 6 14"]
                   ]
               ), {include_blank: false}, {class: 'form-control'} %>
             </div>
@@ -62,13 +62,3 @@
   </div>
 
 </div>
-
-<script>
-    $(function(){
-        $('#birthday-date').datepicker({
-            dateFormat: 'yy-mm-dd',
-            monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
-            dayNamesMin: ['D','L','M','M','J','V','S'],
-        })
-    })
-</script>

@@ -315,6 +315,23 @@ input:-webkit-autofill {
   font-weight: 400;
 }
 
+.form-group .select-date {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group .select-date select{
+  width: 100%;
+  box-shadow: none;
+  background-color: transparent;
+  border: 1px solid #ccc;
+}
+
+.form-group .select-date select:nth-of-type(2){
+  margin: 0 10px;
+}
+
 .form-flex .form-group input, .form-flex .form-group select {
   height: 40px;
 }
@@ -627,7 +644,7 @@ select:not([multiple]) {
   box-sizing: border-box;
   width: 100%;
   text-align: left;
-  padding: 55px 50px;
+  padding: 35px 50px;
   margin-top: -2px;
 }
 
@@ -640,7 +657,17 @@ select:not([multiple]) {
 
 /* Footer left */
 
+.footer-logo-mairie {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.footer-logo-mairie img {
+  width: 100%;
+}
+
 .footer-distributed .footer-left{
+  margin-top: 15px;
   width: 30%;
 }
 
@@ -715,6 +742,7 @@ select:not([multiple]) {
 /* Footer Right */
 
 .footer-distributed .footer-right{
+  margin-top: 15px;
   width: 30%;
 }
 
