@@ -68,9 +68,8 @@
 
         <% end %>
         <% if (!user_signed_in? && !center_signed_in?) %>
-          <li class="menu_link"><%= link_to "S'inscrire", new_user_registration_path, method: :get %></li>
-          <li class="menu_link"><%= link_to "Se connecter", user_session_path, method: :get %>
-          <li class="btn btn-pink btn-slim"><%= link_to 'Accès recruteur', center_session_path, method: :get %></li>
+           <li class="menu-bnt btn btn-slim btn-violet"><%= link_to 'Je suis Animateur', user_session_path, method: :get %></li>
+          <li class="menu-btn btn btn-slim btn-pink"><%= link_to 'Je cherche un Animateur', center_session_path, method: :get %></li>
         <% else %>
           <% if user_signed_in? %>
             <li class="dropdown">

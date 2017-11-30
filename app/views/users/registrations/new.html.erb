@@ -2,7 +2,7 @@
 
   <div class="col-md-6 col-sm-12 col-md-offset-3">
     <%= bootstrap_devise_error_messages! %>
-    <h2 class="form-title text-center">S'inscrire</h2>
+    <h2 class="form-title text-center">S'inscrire (Animateur)</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f| %>
         <div class="form-group">
           <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Adresse e-mail' %>
@@ -17,9 +17,9 @@
         <div class="form-group">
           <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirmer le mot de passe' %>
         </div>
-        <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-registration-form' %>
+        <%= f.submit t('.sign_up', default: 'Insription'), class: 'btn btn-registration-form' %>
     <% end %>
-    <%= render 'devise/shared/links' %>
+    <h4 class="sign-links text-center">Vous avez déjà un compte ? <%= link_to "Se connecter", user_session_path, method: :get %></h4>
   </div>
 
 </div>

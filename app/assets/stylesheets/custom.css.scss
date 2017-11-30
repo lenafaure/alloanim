@@ -12,6 +12,7 @@ $grey-border: #dce0e0;
 $main-pink: #f04d52;
 $light-pink: lighten($main-pink, 5%);
 $main-violet: #110329;
+$light-violet: lighten($main-violet, 5%);
 $tealish: #20bed1;
 $butterscotch: rgb(252, 197, 78);
 $urgent: #d9534f;
@@ -73,6 +74,15 @@ h1 {
   color: $white;
   &:hover {
     background-color: $light-turquoise;
+    color: $white;
+  }
+}
+
+.btn-violet {
+  background-color: $main-violet;
+  color: $white;
+  &:hover {
+    background-color: $light-violet;
     color: $white;
   }
 }
@@ -218,6 +228,10 @@ input:-webkit-autofill {
 .nav_action {
   display: flex !important;
   align-items: center;
+}
+
+.menu-btn {
+  margin-left: 10px;
 }
 
 /* End Navigation */
@@ -528,6 +542,10 @@ input:-webkit-autofill {
 
 .school-desc_rev_info a {
   color: $main-pink;
+}
+
+.sign-links {
+  margin-top: 40px;
 }
 
 /* end forms */

@@ -1,19 +1,9 @@
 <div class="container">
   <div class="col-md-10 col-md-offset-1">
-    <h2>Mes matchings (<%= @matches.count %>)</h2>
+    <% if @matches.present? %>
+      <h2>Mes matchings (<%= @matches.count %>)</h2>
 
-    <% if @matches.count == 0 %>
-      <div class="availability_presence">Vous n'avez pas encore de matching avec des offres de vacation!</div>
-      <div class="availability_presence">Remplissez vite vos disponibilités pour voir vos matchings et permettre aux Centres de Loisirs de vous contacter: </div>
-      <%= link_to user_path(current_user, :anchor => "calendar"), method: :get do %>
-          <div class="btn btn-aaa btn-turquoise">
-            <i class="fa fa-calendar"></i>
-            <span>Remplir mes disponibilités</span>
-          </div>
-      <% end %>
-    <% else %>
-    <% @matches.each do |offer| %>
-
+      <% @matches.each do |offer| %>
       <div class="offer">
         <div class="offer-school">
           <%= link_to school_path(offer.school) do %>
@@ -81,6 +71,18 @@
       </div>
     <% end %>
 
-    <% end %>
+    <% else %>
+
+      <h2>Mes matchings (0)</h2>
+      <div class="availability_presence">Vous n'avez pas encore de matching avec des offres de vacation!</div>
+      <div class="availability_presence">Remplissez vite vos disponibilités pour voir vos matchings et permettre aux Centres de Loisirs de vous contacter: </div>
+      <%= link_to user_path(current_user, :anchor => "calendar"), method: :get do %>
+          <div class="btn btn-aaa btn-turquoise">
+            <i class="fa fa-calendar"></i>
+            <span>Remplir mes disponibilités</span>
+          </div>
+      <% end %>
+
+    <% end%>
   </div>
 </div>

@@ -16,9 +16,9 @@
               <% end %>
             </div>
         <% end %>
-        <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-registration-form' %>
+        <%= f.submit  t('.sign_in', default: 'Se connecter'), class: 'btn btn-registration-form' %>
     <% end %>
-    <%= render 'devise/shared/links' %>
+    <h4 class="sign-links text-center">Vous n'avez pas encore de compte ? <%= link_to "Inscription", new_user_registration_path, method: :get %></h4>
   </div>
 
 </div>
