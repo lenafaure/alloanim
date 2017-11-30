@@ -8,7 +8,7 @@
 
   <div class="col-md-9 col-sm-12 form-flex">
 
-    <%= form_for @user, :html => {'data-toggle' => 'validator'}  do |f| %>
+    <%= form_for @user do |f| %>
 
         <% if @user.errors.any? %>
             <div class="alert alert-alert">
