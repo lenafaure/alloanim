@@ -841,6 +841,10 @@ select:not([multiple]) {
 /* Small Devices, Tablets */
 @media only screen and (max-width : 767px) {
 
+  .menu-btn {
+    margin: 5px 10px;
+  }
+
   .profile-header-layout_side, .profile-header-layout_main {
     text-align: center;
   }

@@ -10,7 +10,7 @@ class Center < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence:true, length: {maximum: 50}
   validates :last_name, presence:true, length: {maximum: 50}
-  validates :phone_number, presence: true, uniqueness: true
+  validates :phone_number, presence: true, length: {is: 10}, uniqueness: true, numericality: {only_integer: true}
   validates :circonscription, presence: true
 
   def rev_full_name
