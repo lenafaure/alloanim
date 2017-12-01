@@ -38,7 +38,6 @@ class User < ApplicationRecord
     if offers.exists? && !user_diploma.nil?
       offers_diploma = offers.includes(:diplomas).where(diplomas: {name: user_diploma})
 
-      puts offers_diploma.inspect
       matches = []
 
       user_availabilities.each do |user_availability|
@@ -55,7 +54,9 @@ class User < ApplicationRecord
       end
 
     end
+
     return matches
+
   end
 
 end
