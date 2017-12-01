@@ -9,7 +9,9 @@ require 'rspec/rails'
 require 'devise'
 
 RSpec.configure do |config|
-  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.include FactoryBot::Syntax::Methods
+  config.include Devise::TestHelpers, type: :controller
+  config.include Warden::Test::Helpers
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
