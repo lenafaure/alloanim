@@ -12,12 +12,13 @@
         <% if devise_mapping.rememberable? %>
             <div class="checkbox">
               <%= f.label :remember_me do %>
-                  <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
+                  <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Se souvenir de moi') %>
               <% end %>
             </div>
         <% end %>
         <%= f.submit  t('.sign_in', default: 'Se connecter'), class: 'btn btn-registration-form' %>
     <% end %>
+    <div class="forgotten-password text-center"><%= link_to "Mot de passe oublié?", new_center_password_path %></div>
     <h4 class="sign-links text-center">Vous n'avez pas encore de compte ? <%= link_to "Inscription", new_center_registration_path, method: :get %></h4>
   </div>
 
