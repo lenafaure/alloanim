@@ -678,8 +678,8 @@
                               <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #FFFFFF;border: 1px none #F04D52;">
                                 <tbody><tr>
                                   <td valign="top" class="mcnTextContent" style="padding: 18px;color: #110329;font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;font-weight: normal;text-align: center;">
-                                    <div style="text-align: center;"><strong><span style="font-size:15px"><%= l offer.date.to_date, format: '%A' %><%= l offer.date.to_date, format: :long %>, <%= offer.time_slot %></span></strong><br>
-                                      <%= offer.school.name.titleize %> (<%= offer.school.address %>)</div>
+                                    <div style="text-align: center;"><strong><span style="font-size:15px"><%= l offer.date.to_date, format: '%A' %><%= l offer.date.to_date, format: :long %>,</span> <span style="font-size:15px; color:#f04d52"><%= offer.time_slot %></span></strong><br>
+                                    Ecole <%= offer.school.name.titleize %> (<%= offer.school.address %>)</div>
 
                                   </td>
                                 </tr>
@@ -707,7 +707,7 @@
                           <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;">
                               <%= link_to user_matching_offers_url(@user) do %>
-                              <div class="mcnButton " title="Voir l'offre" href="http://" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Voir l'offre</div>
+                              <div class="mcnButton " title="Voir l'offre" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Voir l'offre</div>
                               <% end %>
                             </td>
                           </tr>
