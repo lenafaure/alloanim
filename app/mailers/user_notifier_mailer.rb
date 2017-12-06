@@ -1,5 +1,5 @@
 class UserNotifierMailer < ApplicationMailer
-  default :from => 'alloanim@futur.paris'
+  default :from => "AlloAnim <alloanim@futur.paris>"
   def send_matches_notification(user)
     @user = user
     @matches = User.offer_matches(@user)
