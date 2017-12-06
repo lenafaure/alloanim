@@ -4,8 +4,17 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Thanks for signing up, <%= @user.first_name %>!</h1>
-<p> Thanks for joining and have a great day! Now sign in and do
-  awesome things!</p>
+<h1>Voici vos matchings sur AlloAnim, <%= @user.first_name %>!</h1>
+
+  <% @matches.each do |offer| %>
+
+    <div><%= l offer.date.to_date, format: '%A' %><%= l offer.date.to_date, format: :long %>, <%= offer.time_slot %></div>
+    <div><%= offer.school.name.titleize %></div>
+    <div><%= offer.school.address %></div>
+
+    <div>Voir l'offre</div>
+
+  <% end %>
+
 </body>
 </html>
