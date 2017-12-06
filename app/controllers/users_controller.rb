@@ -58,7 +58,6 @@ class UsersController < ApplicationController
   def matching_offers
     @user = User.find(params[:user_id])
     @matches = User.offer_matches(@user)
-    UserNotifierMailer.send_matches_notification(@user).deliver
   end
 
   private
