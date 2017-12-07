@@ -50,15 +50,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # Define root page when user logged in
-  def current_user_home
-    redirect_to current_user
-  end
-
   def matching_offers
     @user = User.find(params[:user_id])
     @matches = User.offer_matches(@user)
-    #UserNotifierMailer.send_matches_notification(@user).deliver
+    #UserNotifierMailer.send_current_offers(@user).deliver
   end
 
   private

@@ -535,7 +535,7 @@
 <body>
 
 <center>
-<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+  <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
     <tr>
       <td align="center" valign="top" id="bodyCell">
         <!-- BEGIN TEMPLATE // -->
@@ -657,48 +657,48 @@
                     </tbody>
                   </table>
 
-                  <% @matches.each do |offer| %>
+                    <% @offers.each do |offer| %>
 
-                  <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnBoxedTextBlock" style="min-width:100%;">
-                    <!--[if gte mso 9]>
-                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="100%">
-                    <![endif]-->
-                    <tbody class="mcnBoxedTextBlockOuter">
-                    <tr>
-                      <td valign="top" class="mcnBoxedTextBlockInner">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnBoxedTextBlock" style="min-width:100%;">
+                          <!--[if gte mso 9]>
+                          <table align="center" border="0" cellspacing="0" cellpadding="0" width="100%">
+                          <![endif]-->
+                          <tbody class="mcnBoxedTextBlockOuter">
+                          <tr>
+                            <td valign="top" class="mcnBoxedTextBlockInner">
 
-                        <!--[if gte mso 9]>
-                        <td align="center" valign="top" ">
-                        <![endif]-->
-                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnBoxedTextContentContainer">
-                          <tbody><tr>
-
-                            <td style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:18px;">
-
-                              <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #FFFFFF;border: 1px none #F04D52;">
+                              <!--[if gte mso 9]>
+                              <td align="center" valign="top" ">
+                              <![endif]-->
+                              <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnBoxedTextContentContainer">
                                 <tbody><tr>
-                                  <td valign="top" class="mcnTextContent" style="padding: 18px;color: #110329;font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;font-weight: normal;text-align: center;">
-                                    <div style="text-align: center;"><strong><span style="font-size:15px"><%= l offer.date.to_date, format: '%A' %><%= l offer.date.to_date, format: :long %>,</span> <span style="font-size:15px; color:#f04d52"><%= offer.time_slot %></span></strong><br>
-                                    Ecole <%= offer.school.name.titleize %> (<%= offer.school.address %>)</div>
 
+                                  <td style="padding-top:9px; padding-left:18px; padding-bottom:9px; padding-right:18px;">
+
+                                    <table border="0" cellspacing="0" class="mcnTextContentContainer" width="100%" style="min-width: 100% !important;background-color: #FFFFFF;border: 1px none #F04D52;">
+                                      <tbody><tr>
+                                        <td valign="top" class="mcnTextContent" style="padding: 18px;color: #110329;font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;font-weight: normal;text-align: center;">
+                                          <div style="text-align: center;"><strong><span style="font-size:15px"><%= l offer.date.to_date, format: '%A' %><%= l offer.date.to_date, format: :long %>,</span> <span style="font-size:15px; color:#f04d52"><%= offer.time_slot %></span></strong><br>
+                                            Ecole <%= offer.school.name.titleize %> (<%= offer.school.address %>)</div>
+
+                                        </td>
+                                      </tr>
+                                      </tbody></table>
                                   </td>
                                 </tr>
                                 </tbody></table>
+                              <!--[if gte mso 9]>
+                              </td>
+                              <![endif]-->
+
+                              <!--[if gte mso 9]>
+                              </tr>
+                              </table>
+                              <![endif]-->
                             </td>
                           </tr>
-                          </tbody></table>
-                        <!--[if gte mso 9]>
-                        </td>
-                        <![endif]-->
-
-                        <!--[if gte mso 9]>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
+                          </tbody>
+                        </table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
                     <tbody class="mcnButtonBlockOuter">
                     <tr>
                       <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
@@ -707,7 +707,7 @@
                           <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;">
                               <%= link_to user_matching_offers_url(@user) do %>
-                              <div class="mcnButton " title="Voir l'offre" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Voir l'offre</div>
+                                  <div class="mcnButton " title="Voir l'offre" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Voir l'offre</div>
                               <% end %>
                             </td>
                           </tr>
@@ -717,46 +717,46 @@
                     </tr>
                     </tbody>
                   </table>
-                  <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
-                    <tbody class="mcnDividerBlockOuter">
-                    <tr>
-                      <td class="mcnDividerBlockInner" style="min-width:100%; padding:18px;">
-                        <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;">
-                          <tbody><tr>
-                            <td>
-                              <span></span>
-                            </td>
-                          </tr>
-                          </tbody></table>
-                        <!--
-                                        <td class="mcnDividerBlockInner" style="padding: 18px;">
-                                        <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
-                        -->
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
-
-                    <% end %>
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
-                    <tbody class="mcnButtonBlockOuter">
-                    <tr>
-                      <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
-                        <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #F04D52;">
-                          <tbody>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
+                          <tbody class="mcnDividerBlockOuter">
                           <tr>
-                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;">
-                              <%= link_to user_matching_offers_url(@user) do %>
-                              <div class="mcnButton " title="Aller sur AlloAnim" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Aller sur AlloAnim</div>
-                            <% end %>
+                            <td class="mcnDividerBlockInner" style="min-width:100%; padding:18px;">
+                              <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px solid #EAEAEA;">
+                                <tbody><tr>
+                                  <td>
+                                    <span></span>
+                                  </td>
+                                </tr>
+                                </tbody></table>
+                              <!--
+                                              <td class="mcnDividerBlockInner" style="padding: 18px;">
+                                              <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
+                              -->
                             </td>
                           </tr>
                           </tbody>
                         </table>
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table></td>
+
+                    <% end %>
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
+                      <tbody class="mcnButtonBlockOuter">
+                      <tr>
+                        <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
+                          <table border="0" cellpadding="0" cellspacing="0" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #F04D52;">
+                            <tbody>
+                            <tr>
+                              <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;">
+                                <%= link_to user_matching_offers_url(@user) do %>
+                                    <div class="mcnButton " title="Aller sur AlloAnim" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Aller sur AlloAnim</div>
+                                <% end %>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table></td>
                 </tr>
               </table>
               <!--[if (gte mso 9)|(IE)]>
