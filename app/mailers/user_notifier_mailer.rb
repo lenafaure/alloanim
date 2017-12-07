@@ -18,7 +18,7 @@ class UserNotifierMailer < ApplicationMailer
     @user = user
     @matches = User.offer_matches(@user)
     @day_of_week = Time.now.utc.wday
-    @offers =  @offers = Offer.all.order(:date).where('date >= ?', DateTime.now.to_date)
+    @offers =  @offers = Offer.all.order(:date).where('date >= ?', DateTime.now.to_date).limit(5)
 
     # Send offers to Users with no matches on Monday and Wednesday
     if (@day_of_week == 1 || @day_of_week == 4)

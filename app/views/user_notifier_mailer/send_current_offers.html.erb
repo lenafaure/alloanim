@@ -639,7 +639,7 @@
 
                             <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                              <h1 style="text-align: center;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="color:#110329"><span style="font-size:19px"><%= @user.first_name %>, voici vos nouveaux matchings sur AlloAnim:</span></span></span></h1>
+                              <h1 style="text-align: center;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="color:#110329"><span style="font-size:19px"><%= @user.first_name %>, voici les offres en cours sur AlloAnim:</span></span></span></h1>
 
                             </td>
                           </tr>
@@ -698,25 +698,7 @@
                             </td>
                           </tr>
                           </tbody>
-                        </table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
-                    <tbody class="mcnButtonBlockOuter">
-                    <tr>
-                      <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #110329;">
-                          <tbody>
-                          <tr>
-                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;">
-                              <%= link_to user_matching_offers_url(@user) do %>
-                                  <div class="mcnButton " title="Voir l'offre" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Voir l'offre</div>
-                              <% end %>
-                            </td>
-                          </tr>
-                          </tbody>
                         </table>
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
                           <tbody class="mcnDividerBlockOuter">
                           <tr>
@@ -747,7 +729,7 @@
                             <tr>
                               <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 16px; padding: 15px;">
                                 <%= link_to user_matching_offers_url(@user) do %>
-                                    <div class="mcnButton " title="Aller sur AlloAnim" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Aller sur AlloAnim</div>
+                                    <div class="mcnButton " title="Aller sur AlloAnim" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Remplir mes disponibilités pour voir les offres</div>
                                 <% end %>
                               </td>
                             </tr>
