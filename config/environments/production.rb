@@ -6,7 +6,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = :smtp
   config.action_mailer.default_url_options = {
-      :host => 'infinite-caverns-67170.herokuapp.com',
+      :host => 'alloanim.herokuapp.com',
       :protocol => 'https'
   }
 
