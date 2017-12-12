@@ -280,4 +280,4 @@ var OfficialHolidays = {
             ]
         }
     ]
-}
+};
