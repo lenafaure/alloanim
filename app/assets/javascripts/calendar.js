@@ -210,11 +210,10 @@ function init() {
     Calendar.prototype.draw_time_slot = function(day, element) {
         var self = this;
         var today_time_slot;
-        var compareDate = day;
-        var startDate   = moment("10/12/2017", "DD/MM/YYYY");
-        var endDate     = moment("20/12/2017", "DD/MM/YYYY");
+        var is_during_holiday = is_holiday(day);
 
-        if (compareDate.isBetween(startDate, endDate)) {
+        console.log(is_during_holiday);
+        if (is_during_holiday) {
             today_time_slot = this.time_slots.find(function(element) {
                 return element.holiday == true && element.weekday == day.day();
             })
@@ -225,7 +224,6 @@ function init() {
         }
 
         var selected_slots = localStorage.getItem('availabilities');
-
 
         if(today_time_slot) {
             today_time_slot.slots.forEach(function(ts)  {
@@ -319,11 +317,38 @@ function init() {
 
 };
 
+function french_holidays() {
+
+    var holidays_array = [];
+    var holidays_records = OfficialHolidays.records;
+
+    for (var i = 0; i < holidays_records.length; i++) {
+        if (holidays_records[i].fields.DESCRIPTION !== "Rentrée scolaire des élèves" && holidays_records[i].fields.DESCRIPTION !== "Vacances d'été" ) {
+            holidays_array.push([holidays_records[i].fields.DTSTART, holidays_records[i].fields.DTEND])
+        }
+    }
+
+    return holidays_array;
+}
+
+function is_holiday(day) {
+
+    var holidays_array = french_holidays();
+    var start_date;
+    var end_date;
+
+    for (var i = 0; i < holidays_array.length; i++) {
+        start_date = holidays_array[i][0];
+        end_date = holidays_array[i][1];
+        if (day.isBetween(start_date, end_date)) {
+            return true;
+        }
+    }
+}
+
 function build_calendar() {
 
-    var time_slots;
-
-    time_slots = [
+    var time_slots = [
         {   weekday: 1,
             slots:
                 [
@@ -408,7 +433,6 @@ function build_calendar() {
             holiday: true
         }
     ];
-
 
     // Populate Localstorage with database entries
     if(document.querySelector('#calendar')) {
