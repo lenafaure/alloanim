@@ -209,11 +209,23 @@ function init() {
 
     Calendar.prototype.draw_time_slot = function(day, element) {
         var self = this;
+        var today_time_slot;
+        var compareDate = day;
+        var startDate   = moment("10/12/2017", "DD/MM/YYYY");
+        var endDate     = moment("20/12/2017", "DD/MM/YYYY");
+
+        if (compareDate.isBetween(startDate, endDate)) {
+            today_time_slot = this.time_slots.find(function(element) {
+                return element.holiday == true && element.weekday == day.day();
+            })
+        } else {
+            today_time_slot = this.time_slots.find(function(element) {
+                return element.holiday == false  && element.weekday == day.day();
+            })
+        }
 
         var selected_slots = localStorage.getItem('availabilities');
-        var today_time_slot = this.time_slots.find(function(element) {
-            return element.weekday == day.day();
-        });
+
 
         if(today_time_slot) {
             today_time_slot.slots.forEach(function(ts)  {
@@ -308,13 +320,17 @@ function init() {
 };
 
 function build_calendar() {
-    var time_slots = [
+
+    var time_slots;
+
+    time_slots = [
         {   weekday: 1,
             slots:
                 [
                     "Interclasse",
                     "Goûter / Etude"
-                ]
+                ],
+            holiday: false
         },
         {
             weekday: 2,
@@ -323,7 +339,8 @@ function build_calendar() {
                     "Interclasse",
                     "TAP",
                     "Goûter / Etude"
-                ]
+                ],
+            holiday: false
         },
         {
             weekday: 3,
@@ -331,14 +348,16 @@ function build_calendar() {
                 [
                     "Interclasse",
                     "Centre de Loisirs"
-                ]
+                ],
+            holiday: false
         },
         {   weekday: 4,
             slots:
                 [
                     "Interclasse",
                     "Goûter / Etude"
-                ]
+                ],
+            holiday: false
         },
         {
             weekday: 5,
@@ -347,7 +366,46 @@ function build_calendar() {
                     "Interclasse",
                     "TAP",
                     "Goûter / Etude"
-                ]
+                ],
+            holiday: false
+        },
+        {   weekday: 1,
+            slots:
+                [
+                    "Centre de Loisirs"
+                ],
+            holiday: true
+        },
+        {
+            weekday: 2,
+            slots:
+                [
+                    "Centre de Loisirs"
+                ],
+            holiday: true
+        },
+        {
+            weekday: 3,
+            slots:
+                [
+                    "Centre de Loisirs"
+                ],
+            holiday: true
+        },
+        {   weekday: 4,
+            slots:
+                [
+                    "Centre de Loisirs"
+                ],
+            holiday: true
+        },
+        {
+            weekday: 5,
+            slots:
+                [
+                    "Centre de Loisirs"
+                ],
+            holiday: true
         }
     ];
 
@@ -371,8 +429,6 @@ function build_calendar() {
 
     var calendar = new Calendar('#calendar', time_slots);
 };
-
-
 
     init();
 });

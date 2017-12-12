@@ -639,7 +639,7 @@
 
                             <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                              <h1 style="text-align: center;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="color:#110329"><span style="font-size:19px"><%= @user.first_name %>, voici les dernières offres en cours sur AlloAnim:</span></span></span></h1>
+                              <h1 style="text-align: center;"><span style="font-family:open sans,helvetica neue,helvetica,arial,sans-serif"><span style="color:#110329"><span style="font-size:19px"><%= @user.first_name.capitalize %>, voici les dernières offres en cours sur AlloAnim:</span></span></span></h1>
 
                             </td>
                           </tr>
@@ -679,7 +679,7 @@
                                       <tbody><tr>
                                         <td valign="top" class="mcnTextContent" style="padding: 18px;color: #110329;font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-size: 14px;font-weight: normal;text-align: center;">
                                           <div style="text-align: center;"><strong><span style="font-size:15px"><%= l offer.date.to_date, format: '%A' %><%= l offer.date.to_date, format: :long %>,</span> <span style="font-size:15px; color:#f04d52"><%= offer.time_slot %></span></strong><br>
-                                            Ecole <%= offer.school.name.titleize %> ( <%= offer.school.address %>)</div>
+                                            Ecole <%= offer.school.name.titleize %> - <%= offer.school.address %></div>
 
                                         </td>
                                       </tr>
