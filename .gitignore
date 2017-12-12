@@ -25,4 +25,3 @@
 
 #Ignore config files
 /config/local_env.yml
-/config/environments/production.rb

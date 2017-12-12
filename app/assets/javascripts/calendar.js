@@ -212,7 +212,6 @@ function init() {
         var today_time_slot;
         var is_during_holiday = is_holiday(day);
 
-        console.log(is_during_holiday);
         if (is_during_holiday) {
             today_time_slot = this.time_slots.find(function(element) {
                 return element.holiday == true && element.weekday == day.day();
