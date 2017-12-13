@@ -49,11 +49,7 @@
             </div>
             <div class="form-group required">
               <%= f.label :circonscription, 'Circonscription', class: 'control-label' %>
-              <%= f.select :circonscription, options_for_select(
-                  [
-                      ["CASPE 6 14", "CASPE 6 14"]
-                  ]
-              ), {include_blank: false}, {class: 'form-control'} %>
+              <%= f.collection_select :circonscription, Circonscription.all, :name, :name, {}, { class: 'form-control' } %>
             </div>
           </div>
         </div>

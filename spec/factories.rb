@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :circonscription do
+    name "MyString"
+  end
   factory :user do
     id '1'
     email 'test@example.com'

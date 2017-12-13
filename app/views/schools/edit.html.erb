@@ -16,14 +16,8 @@
               <%= f.text_field :address, class: 'form-control', placeholder: "Ex: 19 Rue de l'Arbre Sec, 75001 Paris", :required => true %>
             </div>
             <div class="form-group">
-              <%= f.label :circonscription, 'Circonscription', class: 'control-label'%>
-              <%= f.select :circonscription, options_for_select(
-                  [
-                      ["CASPE 6 14", "CASPE 6 14"],
-                      ["CAS 16 17", "CAS 16 17"],
-                      ["CASPE 18", "CASPE 18"]
-                  ]
-              ), {include_blank: false}, {class: 'form-control'} %>
+              <%= f.label :circonscription, 'Circonscription', class: 'control-label' %>
+              <%= f.collection_select :circonscription, Circonscription.all, :name, :name, {}, { class: 'form-control' } %>
             </div>
             <div class="form-group">
               <%= f.label :center_id, 'Responsable du Centre de Loisirs', class: 'control-label'%>
