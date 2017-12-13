@@ -16,6 +16,8 @@ task :school_holidays_update => :environment do
     File.open(holidays_file, 'w') {|f| f.write(
         "var OfficialHolidays = " + page_content
     ) }
+
+    Rake::Task['assets:precompile'].invoke
   end
 
 end
