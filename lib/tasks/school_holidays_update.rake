@@ -8,7 +8,7 @@ task :school_holidays_update => :environment do
     Net::HTTP.get(URI.parse(url))
   end
 
-  if (@day_of_month == 1)
+  if (@day_of_month == 13)
     page_content = open('https://public.opendatasoft.com/api/records/1.0/search/?dataset=calendrier-scolaire-zones-a-b-et-c&rows=1000&facet=DESCRIPTION&facet=zone&refine.zone=C&exclude.DESCRIPTION=Pr%C3%A9rentr%C3%A9e+des+enseignants')
 
     holidays_file = Dir.glob("#{Rails.root}/app/assets/javascripts/school-holidays.js")[0]
