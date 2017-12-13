@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-md-8 col-sm-12 col-md-offset-2 form-flex form-panel_wrapper">
+
+    <%= form_for @circonscription do |f| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="form-heading-title">Créer une nouvelle circonscription</div>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <%= f.label :name, "Nom de la circonscription", class: 'control-label', :required => true %>
+              <%= f.text_field :name, placeholder: 'Ex: CASPE 6 14', class: 'form-control' %>
+            </div>
+
+          </div> <!-- .panel-body -->
+        </div> <!-- .panel -->
+        <%= f.submit t('.submit', default: "Créer la circonscription"), class: 'btn btn-edit-form' %>
+    <% end %> <!-- form -->
+
+  </div>
+</div>

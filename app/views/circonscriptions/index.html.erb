@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col-md-12">
+    <h2>Toutes les circonscriptions (<%= @circonscriptions.count %>)</h2>
+    <div>
+      <% @circonscriptions.each do |circonscription| %>
+          <%= circonscription.name %>
+          <%= link_to 'Modifier', edit_circonscription_path(circonscription) %> | <%= link_to 'Supprimer', circonscription, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br /><br />
+      <% end %>
+    </div>
+  </div>
+</div>
+

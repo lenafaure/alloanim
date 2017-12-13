@@ -1,0 +1,15 @@
+
+<div class="container">
+
+  <div class="col-md-8 col-sm-12 col-md-offset-2 form-flex form-panel_wrapper">
+
+    <p>
+      <strong>Nom:</strong> <%= @circonscription.name %>
+    </p>
+
+    <%= link_to 'Modifier', edit_circonscription_path(@circonscription) %>
+
+    <%= link_to 'Retour à la liste', circonscriptions_path(@circonscription) %>
+
+  </div>
+</div>
