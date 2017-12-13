@@ -1,3 +1,4 @@
+desc 'Sends an email to Users with matches with an overview of their matches'
 
 task :matches_notification => :environment do
 
