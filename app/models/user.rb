@@ -31,7 +31,8 @@ class User < ApplicationRecord
                               .where(user_id: current_user.id)
                               .order(:date)
     offers = Offer.all
-             .where('date >= ?', DateTime.now.to_date)                        .joins(:center)
+             .where('date >= ?', DateTime.now.to_date)
+             .joins(:center)
              .where(centers: {circonscription: current_user.circonscription})
 
 

@@ -49,13 +49,7 @@
             </div>
             <div class="form-group required">
               <%= f.label :diploma, 'Diplôme', class: 'control-label' %>
-              <%= f.select :diploma, options_for_select(
-                  [
-                      ["Bafa", "Bafa"],
-                      ["Bafa en cours", "Bafa en cours"],
-                      ["Aucun diplôme", "Aucun diplôme"]
-                  ]
-              ), {include_blank: false}, {class: 'form-control'} %>
+              <%= f.collection_select :diploma, Diploma.all, :name, :name, {}, { class: 'form-control' } %>
             </div>
             <div class="form-group required">
               <%= f.label :circonscription, 'Circonscription', class: 'control-label' %>
