@@ -22,9 +22,7 @@ class User < ApplicationRecord
     return user_age
   end
 
-
   # Matching Offers & User
-  # Ajouter Matching seulement par circoncription
   def self.offer_matches(current_user)
     user_diploma = current_user.try(:diploma)
     user_availabilities = Availability
@@ -33,7 +31,8 @@ class User < ApplicationRecord
                               .where(user_id: current_user.id)
                               .order(:date)
     offers = Offer.all
-             .where('date >= ?', DateTime.now.to_date)                        .joins(:center).where(centers: {circonscription: current_user.circonscription})
+             .where('date >= ?', DateTime.now.to_date)                        .joins(:center)
+             .where(centers: {circonscription: current_user.circonscription})
 
 
     if offers.exists? && !user_diploma.nil?
@@ -48,7 +47,6 @@ class User < ApplicationRecord
 
         if !check_conditions.empty?
           check_conditions.each do |match|
-            puts match.center.circonscription
             matches.push(match)
           end
         end
