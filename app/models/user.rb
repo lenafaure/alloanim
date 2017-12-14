@@ -32,7 +32,9 @@ class User < ApplicationRecord
                               .select('date', 'time_slot')
                               .where(user_id: current_user.id)
                               .order(:date)
-    offers = Offer.all.where('date >= ?', DateTime.now.to_date)
+    offers = Offer.all
+             .where('date >= ?', DateTime.now.to_date)                        .joins(:center).where(centers: {circonscription: current_user.circonscription})
+
 
     if offers.exists? && !user_diploma.nil?
       offers_diploma = offers.includes(:diplomas).where(diplomas: {name: user_diploma})
@@ -44,9 +46,9 @@ class User < ApplicationRecord
                      .where(date: user_availability.date)
                      .where(time_slot: user_availability.time_slot)
 
-
         if !check_conditions.empty?
           check_conditions.each do |match|
+            puts match.center.circonscription
             matches.push(match)
           end
         end

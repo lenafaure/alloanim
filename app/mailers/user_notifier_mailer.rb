@@ -19,7 +19,12 @@ class UserNotifierMailer < ApplicationMailer
     @user = user
     @matches = User.offer_matches(@user)
     @day_of_week = Time.now.utc.wday
-    @offers = Offer.all.order(:date).where('date >= ?', DateTime.now.to_date).limit(5)
+    @offers = Offer.all
+                  .order(:date)
+                  .where('date >= ?', DateTime.now.to_date)
+                  .joins(:center)
+                  .where(centers: {circonscription: user.circonscription})
+                  .limit(5)
 
     if (@day_of_week == 1 || @day_of_week == 3)
       if (@matches.blank? && @offers.present?)
