@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :slots
   resources :diplomas
   devise_for :centers,
              :path=>'recruteur',

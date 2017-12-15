@@ -1,4 +1,5 @@
 FactoryBot.define do
+
   factory :circonscription do
     name "MyString"
   end

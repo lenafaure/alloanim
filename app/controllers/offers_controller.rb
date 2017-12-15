@@ -64,6 +64,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:date, :time_slot, :offer_number, :school_id, :center_id, :diploma_ids => []);
+      params.require(:offer).permit(:date, :offer_number, :school_id, :center_id, :diploma_ids => [], :slot_ids => []);
     end
 end
