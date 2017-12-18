@@ -14,16 +14,24 @@
               <%= f.label :date, 'Date', class: 'control-label'%>
               <%= f.text_field :date, id: 'offer-date', class: 'form-control', placeholder: 'Date', :required => true %>
             </div>
-            <div class="form-group">
-              <%= f.label :time_slot, 'Plage horaire', class: 'control-label'%>
-              <%= f.select :time_slot, options_for_select(
-                  [
-                      ["Interclasse", "Interclasse"],
-                      ["Centre de Loisirs", "Centre de Loisirs"],
-                      ["Goûter / Etude", "Goûter / Etude"],
-                      ["TAP", "TAP"]
-                  ]
-              ), {include_blank: false}, {class: 'form-control'} %>
+            <div class="form-group required" id="time-slots-choice">
+              <%= f.label :slot, 'Plage horaire', class: 'control-label'%>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Choisir une ou plusieurs plages horaires
+                  <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu">
+                  <button type="button" id="check_all" class="btw"><%="Toute la journée"%></button>
+                  <%= f.collection_check_boxes :slot_ids, Slot.all, :id, :name do |b| %>
+                      <li class="hide-time-slot">
+                        <%= b.check_box %>
+                        <%= b.label %>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
             <div class="form-group required">
               <%= f.label :diploma, 'Diplôme requis', class: 'control-label'%>
@@ -33,7 +41,7 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <%= f.collection_check_boxes :diploma_ids, Diploma.all, :id, :name do |b| %>
+                    <%= f.collection_check_boxes :diploma_ids, Diploma.all, :id, :name, :required => true do |b| %>
                       <li>
                         <%= b.check_box %>
                         <%= b.label %>
@@ -41,23 +49,6 @@
                     <% end %>
                   </ul>
                 </div>
-            </div>
-            <div class="form-group required">
-              <%= f.label :slot, 'Plage horaire', class: 'control-label'%>
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Choisir une ou plusieurs plages horaires
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <%= f.collection_check_boxes :slot_ids, Slot.all, :id, :name do |b| %>
-                      <li>
-                        <%= b.check_box %>
-                        <%= b.label %>
-                      </li>
-                  <% end %>
-                </ul>
-              </div>
             </div>
             <div class="form-group">
               <%= f.label :offer_number, 'Nombre de postes à pourvoir', class: 'control-label'%>
@@ -73,13 +64,64 @@
 
 <script>
     $(function(){
+
+        $('#check_all').on("click", function(event){
+            event.stopPropagation();
+            var cbxs = $('.show-time-slot input[type="checkbox"]');
+            cbxs.prop("checked", !cbxs.prop("checked"));
+        });
+
         $('#offer-date').datepicker({
             dateFormat: 'yy-mm-dd',
             monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
             dayNamesMin: ['D','L','M','M','J','V','S'],
             minDate: 0,
             beforeShowDay: $.datepicker.noWeekends,
-            firstDay: 1
-        })
+            firstDay: 1,
+            onSelect: function(selected, evnt) {
+
+                var today_time_slot;
+                var is_during_holiday = is_holiday(moment(selected));
+                var dropdown = $('#time-slots-choice').find('li label');
+
+                $('input[type="checkbox"]').removeAttr('checked');
+
+                for (i=0; i < dropdown.length; i++) {
+                    $(dropdown[i].closest('li')).removeClass("hide-time-slot").addClass('show-time-slot');
+                }
+
+                if (is_during_holiday) {
+                    today_time_slot = TimeSlots.find(function(element) {
+                        return element.holiday == true && element.weekday == moment(selected).day();
+                    })
+                } else {
+                    today_time_slot = TimeSlots.find(function(element) {
+                        return element.holiday == false  && element.weekday == moment(selected).day();
+                    })
+                }
+
+                time_slots_checkboxes(today_time_slot);
+            }
+        });
+
+    function time_slots_checkboxes(day) {
+
+        var dropdown = $('#time-slots-choice').find('li label');
+        var selected_slots = [];
+
+        day.slots.forEach(function(ts)  {
+          selected_slots.push(ts);
+        });
+
+        for (i=0; i < dropdown.length; i++) {
+            if (selected_slots.indexOf(dropdown[i].innerHTML) == -1) {
+                console.log($(dropdown[i].closest('li')));
+
+                $(dropdown[i].closest('li')).addClass("hide-time-slot").removeClass('show-time-slot');
+            }
+        }
+
+     }
+
     })
 </script>

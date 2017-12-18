@@ -388,7 +388,6 @@ input:-webkit-autofill {
   margin-right: 10px;
 }
 
-
 #user_search {
   display: flex;
   justify-content: space-between;
@@ -552,6 +551,11 @@ input:-webkit-autofill {
   margin: 10px 0;
   font-weight: 500;
 }
+
+.hide-time-slot {
+  display: none;
+}
+
 
 /* end forms */
 

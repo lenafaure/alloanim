@@ -16,9 +16,12 @@
             <div class="offer-content-date">
               <i class="fa fa-calendar-o"></i> <%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %>
             </div>
-            <div class="offer-content-timeslot badge tealish">
-              <i class="fa fa-clock-o fa-lg"></i> <%= offer.time_slot %>
-            </div>
+
+              <% offer.slots.each do |slot|  %>
+                <div class="offer-content-timeslot badge tealish">
+                    <i class="fa fa-clock-o fa-lg"></i> <%= slot.name %>
+                  </div>
+              <% end %>
             <% if offer.date.to_date == DateTime.now.to_date %>
                 <div class="offer-content-urgent badge urgent">
                   <i class="fa fa-exclamation fa-lg"></i> Urgent

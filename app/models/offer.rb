@@ -8,5 +8,4 @@ class Offer < ApplicationRecord
   validates :slots, presence:true
   validates :diplomas, presence:true
   validates :offer_number, presence:true
-
 end

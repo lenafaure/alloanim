@@ -14,16 +14,22 @@
               <%= f.label :date, 'Date', class: 'control-label'%>
               <%= f.text_field :date, id: 'offer-date', class: 'form-control', placeholder: 'Date', :required => true %>
             </div>
-            <div class="form-group">
-              <%= f.label :time_slot, 'Plage horaire', class: 'control-label'%>
-              <%= f.select :time_slot, options_for_select(
-                  [
-                      ["Interclasse", "Interclasse"],
-                      ["Centre de Loisirs", "Centre de Loisirs"],
-                      ["Goûter / Etude", "Goûter / Etude"],
-                      ["TAP", "TAP"]
-                  ]
-              ), {include_blank: false}, {class: 'form-control'} %>
+            <div class="form-group required" id="time-slots-choice">
+              <%= f.label :slot, 'Plage horaire', class: 'control-label'%>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Choisir une ou plusieurs plages horaires
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <%= f.collection_check_boxes :slot_ids, Slot.all, :id, :name do |b| %>
+                      <li class="hide-time-slot">
+                        <%= b.check_box %>
+                        <%= b.label %>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
             <div class="form-group required">
               <%= f.label :diploma, 'Diplôme requis', class: 'control-label'%>

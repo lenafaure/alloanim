@@ -1,3 +1,4 @@
+
 function french_holidays() {
 
     var holidays_array = [];
