@@ -21,9 +21,9 @@
                   Choisir une ou plusieurs plages horaires
                   <span class="caret"></span>
                 </button>
-
                 <ul class="dropdown-menu">
-                  <button type="button" id="check_all" class="btw"><%="Toute la journée"%></button>
+                  <div class="date-choice-warning">Choisir d'abord une date</div>
+                  <button type="button" id="check_all" class="btn btn-small btn-pink"><%="Toute la journée"%></button>
                   <%= f.collection_check_boxes :slot_ids, Slot.all, :id, :name do |b| %>
                       <li class="hide-time-slot">
                         <%= b.check_box %>
@@ -41,8 +41,8 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <%= f.collection_check_boxes :diploma_ids, Diploma.all, :id, :name, :required => true do |b| %>
-                      <li>
+                    <%= f.collection_check_boxes :diploma_ids, Diploma.all, :id, :name do |b| %>
+                      <li class="show-diploma">
                         <%= b.check_box %>
                         <%= b.label %>
                       </li>
@@ -65,10 +65,33 @@
 <script>
     $(function(){
 
+        if(!$('#offer-date').val()){
+            $('#check_all').hide();
+        }
+
         $('#check_all').on("click", function(event){
+            // Check all time-slots for one given date
             event.stopPropagation();
             var cbxs = $('.show-time-slot input[type="checkbox"]');
             cbxs.prop("checked", !cbxs.prop("checked"));
+        });
+
+        $('input[type="submit"]').on('click', function(e) {
+            // Check if at least one of the checboxes is checked before submit
+           if (!$('.dropdown-menu .show-time-slot input[type="checkbox"]:checked').length > 0)
+           {
+               alert('Choisir une plage horaire');
+               return false;
+           }
+           else if (!$('.dropdown-menu .show-diploma input[type="checkbox"]:checked').length > 0)
+          {
+              alert('Choisir un diplôme');
+              return false;
+          }
+           else {
+               return true;
+           }
+
         });
 
         $('#offer-date').datepicker({
@@ -85,6 +108,9 @@
                 var dropdown = $('#time-slots-choice').find('li label');
 
                 $('input[type="checkbox"]').removeAttr('checked');
+
+                $('#check_all').show();
+                $('.date-choice-warning').hide();
 
                 for (i=0; i < dropdown.length; i++) {
                     $(dropdown[i].closest('li')).removeClass("hide-time-slot").addClass('show-time-slot');
@@ -105,6 +131,7 @@
         });
 
     function time_slots_checkboxes(day) {
+        // Show only time slots that corresponds to the day of the week
 
         var dropdown = $('#time-slots-choice').find('li label');
         var selected_slots = [];
@@ -115,8 +142,6 @@
 
         for (i=0; i < dropdown.length; i++) {
             if (selected_slots.indexOf(dropdown[i].innerHTML) == -1) {
-                console.log($(dropdown[i].closest('li')));
-
                 $(dropdown[i].closest('li')).addClass("hide-time-slot").removeClass('show-time-slot');
             }
         }
