@@ -6,9 +6,11 @@ function french_holidays() {
 
     for (var i = 0; i < holidays_records.length; i++) {
         if (holidays_records[i].fields.DESCRIPTION !== "Rentrée scolaire des élèves" && holidays_records[i].fields.DESCRIPTION !== "Vacances d'été" ) {
-            holidays_array.push([holidays_records[i].fields.DTSTART, holidays_records[i].fields.DTEND])
+            holidays_array.push([moment(holidays_records[i].fields.DTSTART).format("YYYY-MM-DD"), moment(holidays_records[i].fields.DTEND).format("YYYY-MM-DD")])
         }
     }
+
+    console.log(holidays_array);
 
     return holidays_array;
 }
@@ -22,6 +24,7 @@ function is_holiday(day) {
     for (var i = 0; i < holidays_array.length; i++) {
         start_date = holidays_array[i][0];
         end_date = holidays_array[i][1];
+        console.log(end_date)
         if (day.isBetween(start_date, end_date)) {
             return true;
         }
