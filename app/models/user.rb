@@ -42,13 +42,14 @@ class User < ApplicationRecord
       matches = []
 
       user_availabilities.each do |user_availability|
+
         check_conditions = offers_diploma
                      .where(date: user_availability.date)
-                     .where(time_slot: user_availability.time_slot)
+                     .includes(:slots).where(slots: {name: user_availability.time_slot})
 
         if !check_conditions.empty?
           check_conditions.each do |match|
-            matches.push(match)
+              matches.push(match)
           end
         end
       end
