@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :rhagent do
+    
+  end
 
   factory :circonscription do
     name "MyString"
