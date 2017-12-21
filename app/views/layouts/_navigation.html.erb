@@ -9,11 +9,11 @@
         <span class="icon-bar"></span>
       </button>
       <div>
-        <% if (user_signed_in? || center_signed_in?) %>
+        <% if (user_signed_in? || center_signed_in? || rhagent_signed_in?) %>
           <% if user_signed_in? %>
             <%= link_to 'AlloAnim', user_matching_offers_path(current_user.id),class: 'navbar-brand' %>
           <% end %>
-          <% if center_signed_in? %>
+          <% if center_signed_in? || rhagent_signed_in? %>
             <%= link_to 'AlloAnim', users_path ,class: 'navbar-brand' %>
           <% end %>
         <% else %>
@@ -27,7 +27,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-     <% if center_signed_in? %>
+     <% if center_signed_in? || rhagent_signed_in? %>
          <ul class="nav navbar-nav">
            <% if can? :read, User %>
                <li>
@@ -41,7 +41,7 @@
     <% end %>
 
      <ul class="nav navbar-nav navbar-right">
-        <% if (user_signed_in? || center_signed_in?) %>
+        <% if (user_signed_in? || center_signed_in? || rhagent_signed_in?) %>
             <% if can? :read, Offer %>
                 <li><%= link_to "Offres en cours", offers_path, method: :get %>
                 </li>
@@ -104,6 +104,18 @@
                 <li><%= link_to 'Déconnexion', destroy_center_session_path, method: :delete %></li>
               </ul>
             </li>
+           <% elsif rhagent_signed_in? %>
+             <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                   <%= current_rhagent.first_name %> <%= current_rhagent.last_name %> (Cellule RH)
+                   <span class="caret"></span>
+                 </a>
+                 <ul class="dropdown-menu">
+                   <li><a href="#"><%= link_to 'Mon Profil', rhagent_path(current_rhagent) %></a></li>
+                   <li role="separator" class="divider"></li>
+                   <li><%= link_to 'Déconnexion', destroy_rhagent_session_path, method: :delete %></li>
+                 </ul>
+               </li>
            <% end %>
         <% end %>
       <% end %>

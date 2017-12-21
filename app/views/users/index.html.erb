@@ -1,3 +1,11 @@
+<% # determine circonscription of current recruiter
+  if center_signed_in?
+    @circonscription = current_center.circonscription
+  elsif rhagent_signed_in?
+    @circonscription = current_rhagent.circonscription
+  end
+%>
+
 <div class="container">
   <div class="col-md-12">
     <h2>Rechercher un animateur disponible:</h2>
@@ -17,20 +25,14 @@
     </div>
   </div>
 
-  <!-- <div class="col-md-3 ">
-    <div class="filters_title">Filtrer la recherche</div>
-    <div class="filters_wrapper">En construction</div>
-  </div> -->
-
   <div class="col-md-12">
     <% if @user_availabilities.exists? %>
-
         <% if request.query_string.present?  %>
         <div class="availability_presence">Animateurs disponibles le <%= l params[:q][:availabilities_date_cont].to_date, format: :long %>, <%= params[:q][:availabilities_time_slot_cont] %> : </div>
         <% end %>
       <% @user_availabilities.each do |user| %>
         <!-- Remove and create namespace -->
-         <% if user.circonscription == current_center.circonscription %>
+         <% if user.circonscription == @circonscription %>
           <div class="user-profile">
             <div class="user-profile-picture"><%= image_tag user.avatar.url(:thumb), class: '' %></div>
             <div class="user-profile-content">

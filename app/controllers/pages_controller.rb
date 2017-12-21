@@ -5,10 +5,9 @@ class PagesController < ApplicationController
       redirect_to user_matching_offers_path(current_user)
     end
 
-    if center_signed_in?
+    if center_signed_in? || rhagent_signed_in?
       redirect_to users_path
     end
   end
-
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220095507) do
+ActiveRecord::Schema.define(version: 20171221141618) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer "user_id"
@@ -94,6 +94,9 @@ ActiveRecord::Schema.define(version: 20171220095507) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "circonscription"
     t.index ["email"], name: "index_rhagents_on_email", unique: true
     t.index ["reset_password_token"], name: "index_rhagents_on_reset_password_token", unique: true
   end

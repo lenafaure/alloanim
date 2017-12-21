@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   resources :users do
     get :matching_offers
   end
-  get '/animateurs' => 'users#manage'
   resources :centers
   resources :rhagents
   resources :availabilities
@@ -41,6 +40,5 @@ Rails.application.routes.draw do
   # root page of the application
 
   root 'pages#home'
-
-  get '/search' => 'pages#search'
+  get '/animateurs' => 'users#manage'
 end
