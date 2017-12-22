@@ -23,6 +23,7 @@ Rails.application.routes.draw do
                  :registrations=>'rhagents/registrations',
                  :sessions=>'rhagents/sessions'
              }
+
   resources :users do
     get :matching_offers
   end

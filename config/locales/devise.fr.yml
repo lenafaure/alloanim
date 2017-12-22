@@ -45,6 +45,7 @@ fr:
       timeout: Votre session est expirée, veuillez vous reconnecter pour continuer.
       unauthenticated: Vous devez vous connecter ou vous enregistrer pour continuer.
       unconfirmed: Vous devez confirmer votre compte par email.
+      not_approved: Votre identité n'a pas encore été vérifiée par AlloAnim.
     mailer:
       confirmation_instructions:
         action: Confirmer mon email
@@ -99,6 +100,7 @@ fr:
       new:
         sign_up: Inscription
       signed_up: Bienvenue ! Vous vous êtes enregistré(e) avec succès.
+      signed_up_but_not_approved: Vous vous êtes enregistré(e) avec succès. Vous allez recevoir sous quelques minutes un email comportant des instructions pour confirmer votre compte.
       signed_up_but_inactive: Vous vous êtes enregistré(e) avec succès. Cependant, nous n’avons pas pu vous connecter car votre compte n’a pas encore été activé.
       signed_up_but_locked: Vous vous êtes enregistré(e) avec succès. Cependant, nous n’avons pas pu vous connecter car votre compte est verrouillé.
       signed_up_but_unconfirmed: Un message avec un lien de confirmation vous a été envoyé par mail. Veuillez suivre ce lien pour activer votre compte.
