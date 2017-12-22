@@ -1,26 +1,32 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+<div class="container">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="col-md-6 col-sm-12 col-md-offset-3">
+    <ul class="nav nav-tabs form-choice-wrapper">
+      <li class="inactive-tab"><%= link_to "Accès REV", new_center_session_path %></li>
+      <li class="active"><a href="#">Accès Cellule RH</a></li>
+    </ul>
+    <div class="multiple-form-wrapper">
+      <h2 class="form-title text-center">Se Connecter (Cellule RH)</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: { role: 'form' }) do |f| %>
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Adresse e-mail' %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Mot de passe' %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+              <div class="checkbox">
+                <%= f.label :remember_me do %>
+                    <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Se souvenir de moi') %>
+                <% end %>
+              </div>
+          <% end %>
+          <%= f.submit  t('.sign_in', default: 'Se connecter'), class: 'btn btn-registration-form' %>
+      <% end %>
+      <div class="forgotten-password text-center"><%= link_to "Mot de passe oublié?", new_rhagent_password_path %></div>
+      <h4 class="sign-links text-center">Vous n'avez pas encore de compte ? <%= link_to "Inscription", new_rhagent_registration_path, method: :get %></h4>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "rhagents/shared/links" %>
+</div>

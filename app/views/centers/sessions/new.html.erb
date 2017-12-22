@@ -1,25 +1,31 @@
 <div class="container">
 
   <div class="col-md-6 col-sm-12 col-md-offset-3">
-    <h2 class="form-title text-center">Se Connecter (Recruteur)</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: { role: 'form' }) do |f| %>
-        <div class="form-group">
-          <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Adresse e-mail' %>
-        </div>
-        <div class="form-group">
-          <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Mot de passe' %>
-        </div>
-        <% if devise_mapping.rememberable? %>
-            <div class="checkbox">
-              <%= f.label :remember_me do %>
-                  <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Se souvenir de moi') %>
-              <% end %>
-            </div>
-        <% end %>
-        <%= f.submit  t('.sign_in', default: 'Se connecter'), class: 'btn btn-registration-form' %>
-    <% end %>
-    <div class="forgotten-password text-center"><%= link_to "Mot de passe oublié?", new_center_password_path %></div>
-    <h4 class="sign-links text-center">Vous n'avez pas encore de compte ? <%= link_to "Inscription", new_center_registration_path, method: :get %></h4>
+    <ul class="nav nav-tabs form-choice-wrapper">
+      <li class="active"><a href="#">Accès REV</a></li>
+      <li class="inactive-tab"><%= link_to "Accès Cellule RH", new_rhagent_session_path %></li>
+    </ul>
+    <div class="multiple-form-wrapper">
+      <h2 class="form-title text-center">Se Connecter (REV)</h2>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: { role: 'form' }) do |f| %>
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Adresse e-mail' %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Mot de passe' %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+              <div class="checkbox">
+                <%= f.label :remember_me do %>
+                    <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Se souvenir de moi') %>
+                <% end %>
+              </div>
+          <% end %>
+          <%= f.submit  t('.sign_in', default: 'Se connecter'), class: 'btn btn-registration-form' %>
+      <% end %>
+      <div class="forgotten-password text-center"><%= link_to "Mot de passe oublié?", new_center_password_path %></div>
+      <h4 class="sign-links text-center">Vous n'avez pas encore de compte ? <%= link_to "Inscription", new_center_registration_path, method: :get %></h4>
+    </div>
   </div>
 
 </div>
