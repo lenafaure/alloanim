@@ -36,6 +36,14 @@
                      Rechercher un animateur
                  <% end %>
                </li>
+               <% if rhagent_signed_in? %>
+                  <li>
+                    <%= link_to animateurs_path, method: :get do %>
+                        <i class="fa fa-lg fa-clock-o"></i>
+                        Valider les animateurs en attente
+                    <% end %>
+                  </li>
+               <% end %>
            <% end %>
          </ul>
     <% end %>
