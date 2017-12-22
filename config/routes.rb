@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :users do
     get :matching_offers
+    patch :approve
   end
   resources :centers
   resources :rhagents

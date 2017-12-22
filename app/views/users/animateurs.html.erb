@@ -1,20 +1,30 @@
-
 <div class="container">
   <div class="col-md-12">
+    <%=link_to "Animateurs en attente de validation", :action => "manage", :approved => "false" %>
     <h2>Tous les Animateurs (<%= @users.count %>)</h2>
     <% @users.each do |animateur| %>
         <div style="border: 1px solid lightslategray; padding: 10px; margin-bottom: 15px;">
           <div style="display: flex">
-            <div>
-              <%= link_to user_path(animateur), target: :_blank do %>
-                <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
-              <% end %>
-              <%= animateur.email %> <br />
-              <%= animateur.circonscription %><br />
+            <div class="manage-anim">
+              <div>
+                <%= link_to user_path(animateur), target: :_blank do %>
+                    <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
+                <% end %>
+                <%= animateur.email %> <br />
+                <%= animateur.soi_number %> <br />
+                <%= link_to 'Modifier', edit_user_path(animateur) %>
+                <%= link_to 'Supprimer', animateur, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+              <div class="approve-btn">
+                <% if animateur.approved %>
+                    <%= link_to 'Mettre en attente de validation', user_approve_path(animateur, approved: false), method: :patch, class: "btn btn-turquoise" %>
+                <% else %>
+                    <%= link_to 'Valider', user_approve_path(animateur, approved: true), method: :patch, class: "btn btn-pink" %>
+                <% end %>
+              </div>
             </div>
           </div>
-          <%= link_to 'Modifier', edit_user_path(animateur) %>
-          <%= link_to 'Supprimer', animateur, method: :delete, data: { confirm: 'Are you sure?' } %>
+
         </div>
     <% end %>
   </div>

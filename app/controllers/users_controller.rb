@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   end
 
   def manage
-    @users = User.all.order('created_at DESC')
+    if params[:approved] == "false"
+      @users = User.where(approved: false).order('created_at DESC')
+    else
+      @users = User.all.order('created_at DESC')
+    end
     render :animateurs
   end
 
@@ -38,6 +42,18 @@ class UsersController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def approve
+    pending_user = User.find(params[:user_id])
+    pending_user.update_attribute :approved, params[:approved]
+    respond_to do |format|
+      if (pending_user.approved == true)
+        format.html { redirect_to animateurs_path, notice: 'Cet animateur a bien été validé' }
+      else
+        format.html { redirect_to animateurs_path, notice: 'Cet animateur a bien été mis en attente de validation' }
       end
     end
   end
