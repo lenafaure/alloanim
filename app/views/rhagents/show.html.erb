@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="col-md-6">
+    <h2>Mes infos</h2>
+    <div><strong><%= @rhagent.first_name %> <%= @rhagent.last_name %></strong></div>
+    <div><%= @rhagent.email %></div>
+    <div><%= @rhagent.circonscription %></div>
+    <%= link_to 'Modifier', edit_rhagent_registration_path(@rhagent) %>
+  </div>
+</div>

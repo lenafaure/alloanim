@@ -14,7 +14,7 @@ class CentersController < ApplicationController
 
   def update
     if @center.update(center_params)
-      redirect_to centers_path(@center), notice: "L'élément a été modifiée avec succès"
+      redirect_to centers_path(@center), notice: "L'élément a été modifié avec succès"
     else
       render :edit
     end
