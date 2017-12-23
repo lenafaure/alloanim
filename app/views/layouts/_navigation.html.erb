@@ -34,14 +34,6 @@
                      Rechercher un animateur
                  <% end %>
                </li>
-               <% if rhagent_signed_in? %>
-                  <li>
-                    <%= link_to animateurs_path, method: :get do %>
-                        <i class="fa fa-lg fa-clock-o"></i>
-                        Valider les animateurs en attente
-                    <% end %>
-                  </li>
-               <% end %>
            <% end %>
          </ul>
     <% end %>
@@ -111,6 +103,12 @@
               </ul>
             </li>
            <% elsif rhagent_signed_in? %>
+             <li class="menu_link btn btn-turquoise btn-slim nav_action">
+               <%= link_to animateurs_path, method: :get do %>
+                   <i class="fa fa-lg fa-clock-o"></i>
+                   Valider les animateurs en attente
+               <% end %>
+             </li>
              <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                    <%= current_rhagent.first_name %> <%= current_rhagent.last_name %> (Cellule RH)

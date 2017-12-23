@@ -7,9 +7,7 @@
   </div>
 
   <div class="col-md-9 col-sm-12 form-flex">
-
     <%= form_for @user do |f| %>
-
         <% if @user.errors.any? %>
             <div class="alert alert-alert">
               <ul>
@@ -42,10 +40,6 @@
               <%= f.label :phone_number, 'Numéro de téléphone', class: 'control-label'%>
               <%= f.text_field :phone_number, class: 'form-control', :required => true %>
               <div class="help-block with-errors"></div>
-            </div>
-            <div class="form-group required">
-              <%= f.label :soi_number, 'Numéro S.O.I', class: 'control-label' %>
-              <%= f.text_field :soi_number, class: 'form-control', :required => true %>
             </div>
             <div class="form-group required">
               <%= f.label :diploma, 'Diplôme', class: 'control-label' %>

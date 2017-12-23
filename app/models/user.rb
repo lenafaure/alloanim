@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, length: {is: 10}, uniqueness: true, on: :update, numericality: {only_integer: true}
   validates :birthday, presence: true, on: :update
   validates :soi_number, presence: true, on: :create, uniqueness: true, length: {is: 7}, numericality: { only_integer: true }
-  validates :circonscription, presence: true, on: :update
+  validates :circonscription, presence: true
   validates :diploma, presence: true, on: :update
 
   has_attached_file :avatar, styles: { medium: "200x200#", thumb: "150x150#" }, default_url: "/assets/profile_default.jpg"
