@@ -6,7 +6,7 @@ class UserNotifierMailer < ApplicationMailer
   def send_matches_notification(user)
     @user = user
     @matches = User.offer_matches(@user)
-    if (@day_of_week != 6 || @day_of_week != 7)
+    if (@day_of_week != 6 && @day_of_week != 7)
       if @matches.present?
         mail( :to => @user.email,
               :Bcc => "christian.bockarie@paris.fr; lena.faure@gmail.com",
