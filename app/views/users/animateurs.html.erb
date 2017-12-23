@@ -20,8 +20,8 @@
                 <%= link_to user_path(animateur), target: :_blank do %>
                     <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
                 <% end %>
-                <% if animateur.confirmed_at != nil %>
-                    <div class="badge ">
+                <% if animateur.confirmed_at == nil %>
+                    <div class="badge">
                       email non confirmé
                     </div>
                     <br />
