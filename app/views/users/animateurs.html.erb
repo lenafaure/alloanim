@@ -21,13 +21,13 @@
                     <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
                 <% end %>
                 <% if animateur.confirmed_at != nil %>
-                    <div class="badge butterscotch">
-                      email confirmé
+                    <div class="badge ">
+                      email non confirmé
                     </div>
                     <br />
                 <% else %>
-                    <div class="badge">
-                      email non confirmé
+                    <div class="badge butterscotch">
+                      email confirmé
                     </div>
                     <br />
                 <% end %>
