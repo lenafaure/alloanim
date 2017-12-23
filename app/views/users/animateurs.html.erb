@@ -20,9 +20,21 @@
                 <%= link_to user_path(animateur), target: :_blank do %>
                     <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
                 <% end %>
+                <% if animateur.confirmed_at != nil %>
+                    <div class="badge butterscotch">
+                      email confirmé
+                    </div>
+                    <br />
+                <% else %>
+                    <div class="badge">
+                      email non confirmé
+                    </div>
+                    <br />
+                <% end %>
                 <%= animateur.email %> <br />
                 <%= animateur.soi_number %> <br />
                 <%= animateur.circonscription %> <br />
+
                 <%= link_to 'Modifier', edit_user_path(animateur) %>
                 <%= link_to 'Supprimer', animateur, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
