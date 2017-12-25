@@ -168,19 +168,19 @@ function init() {
     Calendar.prototype.current_week = function() {
         var clone = this.current.clone();
         while(clone.week() === this.current.week() && clone.day() !== 6) {
-            clone.add('days', 1);
+            clone.add(1, 'days');
             this.draw_day(clone);
         }
     }
 
     Calendar.prototype.next_week = function() {
-        this.current.add('weeks', 1);
+        this.current.add(1, 'weeks');
         this.next = true;
         this.draw_calendar();
     }
 
     Calendar.prototype.prev_week = function() {
-        this.current.subtract('weeks', 1);
+        this.current.subtract(1, 'weeks');
         this.next = false;
         this.draw_calendar();
     }
