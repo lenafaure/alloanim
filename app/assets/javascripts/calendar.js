@@ -145,7 +145,7 @@ function init() {
         var self = this;
         console.log(this);
         console.log(this.week);
-        if(this.week){
+        if(typeof(this.week)!= 'undefined' && this.week != null){
             this.old_week = this.week;
             this.old_week.className = 'week out ' + (self.next ? 'next' : 'prev');
             this.old_week.addEventListener('webkitAnimationEnd', function() {
