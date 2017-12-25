@@ -110,7 +110,6 @@ function init() {
 
         // Draw Week
         this.draw_week();
-        console.log(2);
     }
 
     Calendar.prototype.draw_header = function() {
@@ -137,6 +136,7 @@ function init() {
             this.header.appendChild(right);
             this.header.appendChild(left);
             this.el.appendChild(this.header);
+            console.log(2);
         }
 
         this.title.innerHTML = "Semaine " + this.current.week();
@@ -156,12 +156,14 @@ function init() {
                     self.week.className = 'week in ' + (self.next ? 'next' : 'prev');
                 }, 16);
             });
+            console.log(3);
         }
         else {
             this.week = createElement('div', 'week');
             this.el.appendChild(this.week);
             this.current_week();
             this.week.className = 'week current';
+            console.log(4);
         }
     }
 
