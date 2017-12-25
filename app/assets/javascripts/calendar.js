@@ -143,6 +143,8 @@ function init() {
 
     Calendar.prototype.draw_week = function() {
         var self = this;
+        console.log(this);
+        console.log(this.week);
         if(this.week){
             this.old_week = this.week;
             this.old_week.className = 'week out ' + (self.next ? 'next' : 'prev');
