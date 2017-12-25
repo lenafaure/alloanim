@@ -94,11 +94,6 @@ if (!Array.prototype.find) {
     }
 
 function init() {
-    window.onerror = function (msg, url, lineNo, columnNo, error) {
-        // ... handle error ...
-
-        return false;
-    }
     var today = moment();
 
     function Calendar(selector, time_slots) {
@@ -109,13 +104,13 @@ function init() {
         this.draw_calendar();
     }
 
-
     Calendar.prototype.draw_calendar = function() {
         // Draw Header
         this.draw_header();
 
         // Draw Week
         this.draw_week();
+        console.log(2);
     }
 
     Calendar.prototype.draw_header = function() {
@@ -181,6 +176,7 @@ function init() {
     Calendar.prototype.next_week = function() {
         this.current.add(1, 'weeks');
         this.next = true;
+        console.log(1);
         this.draw_calendar();
     }
 
