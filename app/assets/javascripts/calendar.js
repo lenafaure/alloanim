@@ -148,7 +148,7 @@ function init() {
         if(typeof(this.week)!= 'undefined' && this.week != null){
             this.old_week = this.week;
             this.old_week.className = 'week out ' + (self.next ? 'next' : 'prev');
-            this.old_week.addEventListener('webkitAnimationEnd', function() {
+            this.old_week.addEventListener('webkitAnimationEnd oAnimationEnd msAnimationEnd animationend', function() {
                 self.old_week.parentNode.removeChild(self.old_week);
                 self.week = createElement('div', 'week');
                 self.current_week();
