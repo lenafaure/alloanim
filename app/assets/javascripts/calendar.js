@@ -136,7 +136,6 @@ function init() {
             this.header.appendChild(right);
             this.header.appendChild(left);
             this.el.appendChild(this.header);
-            console.log(2);
         }
 
         this.title.innerHTML = "Semaine " + this.current.week();
@@ -152,11 +151,11 @@ function init() {
                 self.week = createElement('div', 'week');
                 self.current_week();
                 self.el.appendChild(self.week);
-                window.setTimeout(function() {
+
                     self.week.className = 'week in ' + (self.next ? 'next' : 'prev');
-                }, 16);
+                console.log(3);
+
             });
-            console.log(3);
         }
         else {
             this.week = createElement('div', 'week');
