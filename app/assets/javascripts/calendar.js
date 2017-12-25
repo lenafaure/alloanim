@@ -143,8 +143,6 @@ function init() {
 
     Calendar.prototype.draw_week = function() {
         var self = this;
-        console.log(this);
-        console.log(this.week);
         if(typeof(this.week)!= 'undefined' && this.week != null){
             this.old_week = this.week;
             this.old_week.className = 'week out ' + (self.next ? 'next' : 'prev');
@@ -154,18 +152,12 @@ function init() {
             self.el.appendChild(self.week);
 
             self.week.className = 'week in ' + (self.next ? 'next' : 'prev');
-            console.log(3);
-            this.old_week.addEventListener('webkitAnimationEnd oAnimationEnd msAnimationEnd animationend', function() {
-
-
-            });
         }
         else {
             this.week = createElement('div', 'week');
             this.el.appendChild(this.week);
             this.current_week();
             this.week.className = 'week current';
-            console.log(4);
         }
     }
 
@@ -180,7 +172,6 @@ function init() {
     Calendar.prototype.next_week = function() {
         this.current.add(1, 'weeks');
         this.next = true;
-        console.log(1);
         this.draw_calendar();
     }
 
