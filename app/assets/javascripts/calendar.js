@@ -94,6 +94,11 @@ if (!Array.prototype.find) {
     }
 
 function init() {
+    window.onerror = function (msg, url, lineNo, columnNo, error) {
+        // ... handle error ...
+
+        return false;
+    }
     var today = moment();
 
     function Calendar(selector, time_slots) {

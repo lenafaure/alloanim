@@ -10,8 +10,6 @@ function french_holidays() {
         }
     }
 
-    console.log(holidays_array);
-
     return holidays_array;
 }
 
@@ -24,7 +22,6 @@ function is_holiday(day) {
     for (var i = 0; i < holidays_array.length; i++) {
         start_date = holidays_array[i][0];
         end_date = holidays_array[i][1];
-        console.log(end_date)
         if (day.isBetween(start_date, end_date)) {
             return true;
         }
