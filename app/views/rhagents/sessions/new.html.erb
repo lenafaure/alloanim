@@ -4,10 +4,10 @@
   <div class="col-md-6 col-sm-12 col-md-offset-3">
     <ul class="nav nav-tabs form-choice-wrapper">
       <li class="inactive-tab"><%= link_to "Accès REV", new_center_session_path %></li>
-      <li class="active"><a href="#">Accès Cellule RH</a></li>
+      <li class="active"><a href="#">Accès Cellule Remplacement</a></li>
     </ul>
     <div class="multiple-form-wrapper">
-      <h2 class="form-title text-center">Se Connecter (Cellule RH)</h2>
+      <h2 class="form-title text-center">Se Connecter (Cellule Remplacement)</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: { role: 'form' }) do |f| %>
           <div class="form-group">
             <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Adresse e-mail' %>

@@ -11,11 +11,7 @@ class UsersController < ApplicationController
   end
 
   def manage
-    if params[:approved] == "false"
-      @users = User.where(approved: false).order('created_at DESC')
-    else
-      @users = User.all.order('created_at DESC')
-    end
+    @users = User.all.order('approved ASC')
     render :animateurs
   end
 

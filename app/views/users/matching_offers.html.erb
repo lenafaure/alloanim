@@ -2,7 +2,7 @@
   <div class="col-md-10 col-md-offset-1">
     <% if @matches.present? %>
 
-      <h2>Mes matchings (<%= @matches.count %>)</h2>
+      <h2>Mes offres (<%= @matches.count %>)</h2>
 
       <% @matches.each do |offer| %>
       <div class="offer">
@@ -84,7 +84,7 @@
 
     <% else %>
 
-      <h2>Mes matchings (0)</h2>
+      <h2>Mes offres (0)</h2>
       <div class="availability_presence">Vous n'avez pas encore de matching avec des offres de vacation!</div>
       <div class="availability_presence">Remplissez vite vos disponibilités pour voir vos matchings et permettre aux Centres de Loisirs de vous contacter: </div>
       <%= link_to user_path(current_user, :anchor => "calendar"), method: :get do %>

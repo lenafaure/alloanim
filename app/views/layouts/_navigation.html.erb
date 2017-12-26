@@ -53,7 +53,7 @@
                 </li>
                 <li class="menu_link">
                   <%= link_to (user_matching_offers_path(current_user.id)) do %>
-                    Mes matchings
+                    Mes offres
                       <% if @matches.present? %>
                         <span class="badge notification-badge"> <%= @matches.count %></span>
                       <% else %>
@@ -111,7 +111,7 @@
              </li>
              <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                   <%= current_rhagent.first_name %> <%= current_rhagent.last_name %> (Cellule RH)
+                   <%= current_rhagent.first_name %> <%= current_rhagent.last_name %> (Cellule Remplacement)
                    <span class="caret"></span>
                  </a>
                  <ul class="dropdown-menu">

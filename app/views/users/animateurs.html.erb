@@ -35,8 +35,6 @@
                 <%= animateur.soi_number %> <br />
                 <%= animateur.circonscription %> <br />
 
-                <%= link_to 'Modifier', edit_user_path(animateur) %>
-                <%= link_to 'Supprimer', animateur, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
               <div class="approve-btn">
                 <% if animateur.approved %>
