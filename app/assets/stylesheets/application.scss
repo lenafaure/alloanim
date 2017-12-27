@@ -13,6 +13,6 @@
  *= require devise_bootstrap_views
  *= require font-awesome
  *= require bootstrap-multiselect
- *= require_directory .
+ *= require_tree .
  *= require_self
  */
