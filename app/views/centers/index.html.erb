@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-6">Offres:
               <% center.offers.each do |offer| %>
-                  <div><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %> - <%= offer.time_slot %></div>
+                  <div><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></div>
               <% end %>
             </div>
           <div class="col-md-12">

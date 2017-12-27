@@ -7,10 +7,16 @@ ActiveAdmin.register Offer do
     selectable_column
     id_column
     column :date
-    column :created_at
     column :center_id do |deal|
       if deal.center.full_name.present?
         deal.center.full_name
+      else
+        status_tag('Empty')
+      end
+    end
+    column :center_id do |deal|
+      if deal.center.circonscription.present?
+        deal.center.circonscription
       else
         status_tag('Empty')
       end
