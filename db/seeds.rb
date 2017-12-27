@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Slot.create([{ name: 'Interclasse' }, { name: 'Centre de Loisirs' }, { name: 'Goûter / Etude' }, { name: 'TAP' }])
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

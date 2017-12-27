@@ -36,6 +36,9 @@ gem 'ransack'
 gem 'jquery-ui-rails'
 # AWS for image storing on Heroku
 gem 'aws-sdk', '< 2.0'
+# Admin dashboard
+gem 'activeadmin'
+gem 'active_bootstrap_skin'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -16,5 +16,5 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require bootstrap-multiselect
-//= require_tree .
+//= require_directory .
 
