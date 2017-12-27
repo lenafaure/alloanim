@@ -13,12 +13,14 @@ controller do
     redirect_to edit_admin_user_path(@user), :notice => "Ce compte a bien été modifié"
   end
 end
+
 index do
   selectable_column
   id_column
-  column :email
   column :first_name
   column :last_name
+  column :soi_number
+  column :circonscription
   column :created_at
   column :approved
   actions
@@ -26,7 +28,8 @@ end
 
 form do |f|
   f.inputs do
-    f.input :soi_number
+    f.input :first_name
+    f.input :circonscription, :label => 'Circonscription', :as => :select, :collection => Circonscription.all.map{|u| ["#{u.name}"]}
     f.input :approved
   end
   f.actions

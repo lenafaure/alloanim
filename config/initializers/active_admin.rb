@@ -6,6 +6,8 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "AlloAnim"
 
+  config.display_name_methods = [:admin_display_name, :display_name]
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

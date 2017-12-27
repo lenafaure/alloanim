@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
               <%= f.label :center_id, 'Responsable du Centre de Loisirs', class: 'control-label'%>
-              <%= f.collection_select :center_id, Center.all, :id, :rev_full_name, {}, { class: 'form-control' } %>
+              <%= f.collection_select :center_id, Center.all, :id, :full_name, {}, { class: 'form-control' } %>
             </div>
           </div> <!-- .panel-body -->
           </div> <!-- .panel -->

@@ -12,7 +12,7 @@ class Center < ApplicationRecord
   validates :phone_number, presence: true, length: {is: 10}, uniqueness: true, numericality: {only_integer: true}
   validates :circonscription, presence: true
 
-  def rev_full_name
+  def full_name
     "#{first_name} #{last_name}"
   end
 

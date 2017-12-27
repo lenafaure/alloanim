@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # before any action performed by this controller, verify if the user is authenticated
-  devise_group :person, contains: [:user, :center, :rhagent]
+  devise_group :person, contains: [:user, :center, :rhagent, :admin_user]
   #testing
   before_action :authenticate_person!, :except => [:pages, :home]
   before_action :matching_notification, :except => [:pages, :home]
