@@ -1,46 +1,81 @@
 ActiveAdmin.register User do
-  menu label: "Animateurs"
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-permit_params :password, :email, :first_name, :last_name, :birthday, :soi_number, :phone_number, :circonscription, :diploma, :approved
+  menu parent: "Utilisateurs", label: "Animateurs"
 
-controller do
-  def update
-    @user = User.find(params[:id])
-    @user.assign_attributes(permitted_params[:user])
-    @user.save(validate: false)
-    redirect_to edit_admin_user_path(@user), :notice => "Ce compte a bien été modifié"
+  permit_params :password, :email, :first_name, :last_name, :birthday, :soi_number, :phone_number, :circonscription, :diploma, :approved
+
+  controller do
+    def update
+      @user = User.find(params[:id])
+      @user.assign_attributes(permitted_params[:user])
+      @user.save(validate: false)
+      redirect_to edit_admin_user_path(@user), :notice => "Ce compte a bien été modifié"
+    end
   end
-end
 
-index do
-  selectable_column
-  id_column
-  column :first_name
-  column :last_name
-  column :soi_number
-  column :circonscription
-  column :created_at
-  column :approved
-  actions
-end
-
-form do |f|
-  f.inputs do
-    f.input :first_name
-    f.input :circonscription, :label => 'Circonscription', :as => :select, :collection => Circonscription.all.map{|u| ["#{u.name}"]}
-    f.input :approved
+  index :title => 'Animateurs' do
+    selectable_column
+    id_column
+    column "Prénom", :first_name
+    column  :last_name
+    column "Numéro SOI", :soi_number
+    column :circonscription
+    column "Date de création", :created_at
+    column "Validé", :approved
+    actions
   end
-  f.actions
-end
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+
+  show do
+    attributes_table  do
+      row "Prénom" do
+        user.first_name
+      end
+      row "Nom" do
+        user.last_name
+      end
+      row :email
+      row "Numéro SOI" do
+        user.soi_number
+      end
+      row "Numéro de téléphone" do
+        user.phone_number
+      end
+      row :circonscription
+      row "Date de niassnace" do
+        user.birthday
+      end
+      row "Diplôme" do
+        user.diploma
+      end
+      row "Validé" do
+        user.approved
+      end
+    end
+    panel "Details", only: :show do
+      attributes_table_for user do
+        row :created_at
+        row :confirmed_at
+        row :confirmation_token
+        row :confirmation_sent_at
+        row :unconfirmed_email
+        row :updated_at
+        row :last_sign_in_ip
+      end
+    end
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :first_name, :label => "Prénom"
+      f.input :last_name, :label => "Nom"
+      f.input :email
+      f.input :phone_number, :label => "Numéro de téléphone"
+      f.input :soi_number, :label => "Numéro SOI"
+      f.input :circonscription, :label => 'Circonscription', :as => :select, :collection => Circonscription.all.map{|u| ["#{u.name}"]}
+      f.input :birthday, :label => "Date de naissance"
+      f.input :diploma, :label => "Diplôme"
+      f.input :approved, :label => "Validé"
+    end
+    f.actions
+  end
 
 end

@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def current_ability
     if user_signed_in?
       @current_ability ||= Ability.new(current_user)
-    else
+    elsif center_signed_in? || rhagent_signed_in?
       @current_ability ||= CenterAbility.new(current_center)
     end
   end

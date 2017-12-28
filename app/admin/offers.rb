@@ -1,21 +1,28 @@
 ActiveAdmin.register Offer do
-  menu label: "Offres"
+  menu parent: "Objets", label: "Offres"
 
   permit_params :date, :offer_number, :school_id, :center_id, :diploma_ids => [], :slot_ids => []
 
-  index do
+  index :title => 'Offres' do
     selectable_column
     id_column
-    column :date
-    column :center_id do |deal|
+    column "Date", :date
+    column "REV", :center_id do |deal|
       if deal.center.full_name.present?
         deal.center.full_name
       else
         status_tag('Empty')
       end
     end
-    column :center_id do |deal|
-      if deal.center.circonscription.present?
+    column "Ecole", :school_id do |deal|
+      if deal.school.present?
+        deal.school.name
+      else
+        status_tag('Empty')
+      end
+    end
+    column "Circonscription", :center_id do |deal|
+      if deal.center.present?
         deal.center.circonscription
       else
         status_tag('Empty')
@@ -25,16 +32,19 @@ ActiveAdmin.register Offer do
   end
 
   show do
-    panel "Tranches horaires" do
+    attributes_table  do
+      row "Date" do
+        offer.date
+      end
       table_for offer.slots do
         column :name
       end
     end
-
-  end
-  sidebar "User Information", only: [:show, :edit] do
-    attributes_table_for offer do
-      row :date
+    panel "Details", only: :show do
+      attributes_table_for offer do
+        row :created_at
+        row :updated_at
+      end
     end
   end
 

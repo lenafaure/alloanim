@@ -13,6 +13,8 @@ module Accessible
         redirect_to(animateurs_path) && return
     elsif current_user
       redirect_to(user_path(current_user)) && return
+    elsif current_admin_user
+      redirect_to(admin_dashboard_path) && return
     end
   end
 end

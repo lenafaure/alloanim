@@ -24,8 +24,7 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    active_bootstrap_skin (0.1.4)
-      bootstrap-sass (~> 3.3.6)
+    active_admin_theme (1.0.3)
     activeadmin (1.2.0)
       arbre (>= 1.1.1)
       coffee-rails
@@ -307,7 +306,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_bootstrap_skin
+  active_admin_theme
   activeadmin
   aws-sdk (< 2.0)
   bootstrap-multiselect-rails

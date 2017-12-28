@@ -1,7 +1,6 @@
 class RhagentsController < ApplicationController
   before_action :set_rhagent, only: [:show, :edit, :update, :destroy]
 
-
   def show
   end
 
