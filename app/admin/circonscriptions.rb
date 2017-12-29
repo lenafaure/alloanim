@@ -1,4 +1,5 @@
 ActiveAdmin.register Circonscription do
+  actions :index, :show, :destroy
   menu parent: "Objets", label: "Circonscription"
 
   permit_params :name

@@ -115,7 +115,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = 'dashboard#index'
+  config.root_to = 'users#index'
 
   # == Admin Comments
   #
@@ -285,7 +285,7 @@ ActiveAdmin.setup do |config|
   # By default, the footer shows the current Active Admin version. You can
   # override the content of the footer here.
   #
-  # config.footer = 'my custom footer text'
+  config.footer = "Admin App Powered by AlloAnim"
 
   # == Sorting
   #

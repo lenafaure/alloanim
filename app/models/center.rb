@@ -16,4 +16,14 @@ class Center < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def active_for_authentication?
+    super && approved?
+  end
+
+  def inactive_message
+    if !approved?
+      :not_approved
+    end
+  end
+
 end

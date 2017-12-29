@@ -1,4 +1,5 @@
 ActiveAdmin.register Diploma do
+  actions :index, :show, :destroy
   menu parent: "Objets", label: "Diplômes"
 
   permit_params :name

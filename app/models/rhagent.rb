@@ -9,4 +9,14 @@ class Rhagent < ApplicationRecord
   validates :last_name, presence:true, length: {maximum: 50}
   validates :circonscription, presence: true
 
+  def active_for_authentication?
+    super && approved?
+  end
+
+  def inactive_message
+    if !approved?
+      :not_approved
+    end
+  end
+
 end

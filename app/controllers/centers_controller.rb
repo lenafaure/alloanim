@@ -34,7 +34,7 @@ class CentersController < ApplicationController
   end
 
   def center_params
-    params.require(:center).permit(:first_name, :last_name, :email, :circonscription, :phone_number)
+    params.require(:center).permit(:first_name, :last_name, :email, :circonscription, :phone_number, :approved)
   end
 
 end

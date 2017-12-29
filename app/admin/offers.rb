@@ -1,4 +1,5 @@
 ActiveAdmin.register Offer do
+  actions :index, :show, :destroy
   menu parent: "Objets", label: "Offres"
 
   permit_params :date, :offer_number, :school_id, :center_id, :diploma_ids => [], :slot_ids => []
@@ -37,7 +38,16 @@ ActiveAdmin.register Offer do
         offer.date
       end
       table_for offer.slots do
-        column :name
+        column "Plages horaires", :name
+      end
+      row "REV" do
+        offer.center.full_name
+      end
+      row "Ecole" do
+        offer.school.name
+      end
+      row "Circonscription" do
+        offer.center.circonscription
       end
     end
     panel "Details", only: :show do
@@ -48,18 +58,5 @@ ActiveAdmin.register Offer do
     end
   end
 
-
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
 
 end

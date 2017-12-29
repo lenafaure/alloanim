@@ -26,7 +26,7 @@ class RhagentsController < ApplicationController
   end
 
   def rhagent_params
-    params.require(:rhagent).permit(:first_name, :last_name, :email, :circonscription)
+    params.require(:rhagent).permit(:first_name, :last_name, :email, :circonscription, :approved)
   end
 
 end

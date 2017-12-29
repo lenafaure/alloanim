@@ -1,7 +1,16 @@
 ActiveAdmin.register Rhagent do
   menu parent: "Utilisateurs", label: "Celulle Remplacement"
 
-  permit_params :password, :email, :first_name, :last_name, :phone_number, :circonscription
+  permit_params :password, :email, :first_name, :last_name, :phone_number, :circonscription, :approved
+
+  controller do
+    def update
+      @rhagent = Rhagent.find(params[:id])
+      @rhagent.assign_attributes(permitted_params[:rhagent])
+      @rhagent.save(validate: false)
+      redirect_to edit_admin_rhagent_path(@rhagent), :notice => "Ce compte a bien été modifié"
+    end
+  end
 
   index :title => 'Cellule Remplacement' do
     selectable_column
@@ -10,6 +19,7 @@ ActiveAdmin.register Rhagent do
     column "Nom", :last_name
     column :circonscription
     column "Date de création", :created_at
+    column "Validé", :approved
     actions
   end
 
@@ -23,6 +33,9 @@ ActiveAdmin.register Rhagent do
       end
       row :email
       row :circonscription
+      row "Validé" do
+        rhagent.approved
+      end
     end
     panel "Details", only: :show do
       attributes_table_for rhagent do
@@ -43,6 +56,7 @@ ActiveAdmin.register Rhagent do
       f.input :last_name, :label => "Nom"
       f.input :email
       f.input :circonscription, :label => 'Circonscription', :as => :select, :collection => Circonscription.all.map{|u| ["#{u.name}"]}
+      f.input :approved, :label => "Validé"
     end
     f.actions
   end
