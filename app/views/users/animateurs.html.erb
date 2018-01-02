@@ -18,7 +18,7 @@
             <div class="manage-anim">
               <div>
                 <%= link_to user_path(animateur), target: :_blank do %>
-                    <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
+                    <strong><%= animateur.first_name.titleize %> <%= animateur.last_name.upcase %></strong><br />
                 <% end %>
                 <% if animateur.approved == false %>
                     <div class="label label-danger label-as-badge">
