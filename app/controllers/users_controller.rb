@@ -82,7 +82,7 @@ class UsersController < ApplicationController
 
   def search
     @search = User.ransack(params[:q])
-    @user_availabilities = @search.result(distinct: true).includes(:availabilities).order('last_name ASC').where.not(phone_number: [nil, ""], diploma: [nil, ""])
+    @user_availabilities = @search.result(distinct: true).includes(:availabilities).order('last_name ASC').where('approved = ?', true).where.not(phone_number: [nil, ""], diploma: [nil, ""])
   end
 
 end
