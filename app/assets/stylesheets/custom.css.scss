@@ -590,6 +590,22 @@ input:-webkit-autofill {
   display: none;
 }
 
+.manage-anim-wrapper {
+  border: 1px solid lightslategray;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.manage-anim {
+  display: flex;
+  justify-content: space-around;
+}
+
+.approve-btn {
+  margin-left: auto;
+  align-self: center;
+}
+
 
 /* end forms */
 

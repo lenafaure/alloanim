@@ -13,21 +13,21 @@
     <h2>Tous les Animateurs <%= @circonscription %> (<%= @count_users.count%>)</h2>
     <% @users.each do |animateur| %>
         <% if animateur.circonscription == @circonscription %>
-          <div style="border: 1px solid lightslategray; padding: 10px; margin-bottom: 15px;">
-          <div style="display: flex">
+          <div class="manage-anim-wrapper">
+          <div>
             <div class="manage-anim">
               <div>
                 <%= link_to user_path(animateur), target: :_blank do %>
                     <strong><%= animateur.first_name %> <%= animateur.last_name %></strong><br />
                 <% end %>
-                <% if animateur.confirmed_at == nil %>
-                    <div class="badge">
-                      email non confirmé
+                <% if animateur.approved == false %>
+                    <div class="label label-danger label-as-badge">
+                      non validé
                     </div>
                     <br />
                 <% else %>
-                    <div class="badge butterscotch">
-                      email confirmé
+                    <div class="label label-success label-as-badge">
+                      validé
                     </div>
                     <br />
                 <% end %>
