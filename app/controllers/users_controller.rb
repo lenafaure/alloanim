@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update] # probably want to keep using this
+  before_action :set_user, only: [:show, :edit, :update]
   before_action :search, only: [:index]
   skip_before_action :completed_profile, only: [:edit, :update]
   load_and_authorize_resource
-
 
   # GET /users
   # GET /users.json
@@ -33,7 +32,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: "L'animateur a été modifié avec succès." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -69,16 +68,13 @@ class UsersController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:password, :email, :first_name, :last_name, :birthday, :soi_number, :phone_number, :circonscription, :diploma, :approved)
   end
-
 
   def search
     @search = User.ransack(params[:q])
