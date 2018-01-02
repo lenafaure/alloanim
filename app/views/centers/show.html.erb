@@ -53,7 +53,7 @@
               <% if offer.filled %>
               <%= link_to 'Offre Pourvue / Remettre en ligne', offer_mark_as_filled_path(offer, filled: false), class: "btn btn-small btn-pink", method: :patch %>
               <% else %>
-                  <%= link_to 'Marquer commme pourvue', offer_mark_as_filled_path(offer, filled: true), class: "btn btn-small btn-turquoise", method: :patch %>
+                  <%= link_to 'Marquer commme pourvue', offer_mark_as_filled_path(offer, filled: true), class: "btn btn-small btn-violet", method: :patch %>
               <% end %>
               <br/>
             <%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
