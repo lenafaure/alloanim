@@ -1,5 +1,6 @@
 class DiplomasController < ApplicationController
   before_action :set_diploma, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /diplomas
   # GET /diplomas.json

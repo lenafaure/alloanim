@@ -1,5 +1,6 @@
 class RhagentsController < ApplicationController
   before_action :set_rhagent, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def show
   end

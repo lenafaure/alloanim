@@ -1,5 +1,6 @@
 class CirconscriptionsController < ApplicationController
   before_action :set_circonscription, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /circonscriptions
   # GET /circonscriptions.json
