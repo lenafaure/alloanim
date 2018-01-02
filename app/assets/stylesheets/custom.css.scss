@@ -14,6 +14,7 @@ $light-pink: lighten($main-pink, 5%);
 $main-violet: #110329;
 $light-violet: lighten($main-violet, 5%);
 $tealish: #20bed1;
+$success-green: #4bb543;
 $butterscotch: rgb(252, 197, 78);
 $urgent: #d9534f;
 $main-turquoise: darkturquoise;
@@ -155,6 +156,10 @@ input:-webkit-autofill {
 
 .urgent {
   background-color: $urgent;
+}
+
+.success {
+  background-color: $success-green;
 }
 
 /* Avatars */
@@ -604,6 +609,14 @@ input:-webkit-autofill {
 .approve-btn {
   margin-left: auto;
   align-self: center;
+}
+
+.center-offers-wrapper .badge {
+  display: block;
+  margin-bottom: 3px;
+  text-align: center;
+  padding: 7px;
+  border-radius: 4px;
 }
 
 

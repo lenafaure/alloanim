@@ -38,9 +38,9 @@
               </div>
               <div class="approve-btn">
                 <% if animateur.approved %>
-                    <%= link_to 'Mettre en attente de validation', user_approve_path(animateur, approved: false), method: :patch, class: "btn btn-turquoise" %>
+                    <%= link_to 'Mettre en attente de validation', user_approve_path(animateur, approved: false), method: :patch, class: "btn btn-violet" %>
                 <% else %>
-                    <%= link_to 'Valider', user_approve_path(animateur, approved: true), method: :patch, class: "btn btn-pink" %>
+                    <%= link_to 'Valider', user_approve_path(animateur, approved: true), method: :patch, class: "btn btn-turquoise" %>
                 <% end %>
               </div>
             </div>
