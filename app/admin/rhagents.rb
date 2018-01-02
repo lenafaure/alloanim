@@ -46,6 +46,7 @@ ActiveAdmin.register Rhagent do
         row :confirmation_sent_at
         row :unconfirmed_email
         row :updated_at
+        row :last_sign_in_at
         row :last_sign_in_ip
       end
     end
