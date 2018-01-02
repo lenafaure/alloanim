@@ -7,7 +7,6 @@ class RhagentAbility
     can :read, School
     can :manage, User
     can :show, Rhagent, :id => rhagent.id
-    can :manage, Rhagent
     cannot :manage, Circonscription
     cannot :manage, Diploma
     cannot :manage, Center

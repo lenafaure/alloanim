@@ -41,7 +41,7 @@ ActiveAdmin.register User do
         user.phone_number
       end
       row :circonscription
-      row "Date de niassnace" do
+      row "Date de naissance" do
         user.birthday
       end
       row "Diplôme" do
