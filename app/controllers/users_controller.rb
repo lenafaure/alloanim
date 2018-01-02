@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def manage
-    @users = User.all.order('approved ASC')
+    @users = User.all.order('approved ASC').order('created_at DESC')
     render :animateurs
   end
 

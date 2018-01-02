@@ -28,19 +28,36 @@
         <th>Date</th>
         <th>Créneau</th>
         <th>Diplôme requis</th>
+        <th>Actions</th>
       </tr>
       </thead>
       <% @center.offers.order("date desc").each do |offer| %>
           <tr>
             <td><%= offer.school.name %></td>
             <td><%= l offer.date.to_date, format: '%A' %> <%= l offer.date.to_date, format: :long %></td>
-            <td><%= offer.time_slot %></td>
             <td>
-              <% offer.diplomas.each do |diploma|  %>
-                <%= diploma.name %>
+              <% offer.slots.each do |slot|  %>
+                  <div class="offer-content-timeslot badge tealish">
+                    <i class="fa fa-clock-o fa-lg"></i> <%= slot.name %>
+                  </div>
               <% end %>
             </td>
-            <td><%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <% offer.diplomas.each do |diploma|  %>
+                  <div class="offer-tags-diploma <%= diploma.name != "Aucun diplôme" ? "badge butterscotch" : "badge" %>">
+                    <i class="fa fa-graduation-cap fa-lg"></i><%= diploma.name %>
+                  </div>
+              <% end %>
+            </td>
+            <td>
+              <% if offer.filled %>
+              <%= link_to 'Offre Pourvue / Remettre en ligne', offer_mark_as_filled_path(offer, filled: false), class: "btn btn-small btn-pink", method: :patch %>
+              <% else %>
+                  <%= link_to 'Marquer commme pourvue', offer_mark_as_filled_path(offer, filled: true), class: "btn btn-small btn-turquoise", method: :patch %>
+              <% end %>
+              <br/>
+            <%= link_to 'Supprimer', offer, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
           </tr>
       <% end %>
       </tbody>

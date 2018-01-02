@@ -35,7 +35,9 @@ Rails.application.routes.draw do
   resources :rhagents
   resources :availabilities
   resources :circonscriptions
-  resources :offers
+  resources :offers do
+    patch :mark_as_filled
+  end
   resources :schools
   resources :slots
   resources :diplomas

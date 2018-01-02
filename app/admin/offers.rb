@@ -2,7 +2,7 @@ ActiveAdmin.register Offer do
   actions :index, :show, :destroy
   menu parent: "Objets", label: "Offres"
 
-  permit_params :date, :offer_number, :school_id, :center_id, :diploma_ids => [], :slot_ids => []
+  permit_params :date, :offer_number, :filled, :school_id, :center_id, :diploma_ids => [], :slot_ids => []
 
   index :title => 'Offres' do
     selectable_column
@@ -29,6 +29,7 @@ ActiveAdmin.register Offer do
         status_tag('Empty')
       end
     end
+    column "Pourvue", :filled
     actions
   end
 

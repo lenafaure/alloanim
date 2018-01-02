@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228124018) do
+ActiveRecord::Schema.define(version: 20180102081844) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20171228124018) do
     t.datetime "updated_at", null: false
     t.integer "center_id"
     t.integer "school_id"
+    t.boolean "filled", default: false
     t.index ["center_id"], name: "index_offers_on_center_id"
     t.index ["school_id"], name: "index_offers_on_school_id"
   end

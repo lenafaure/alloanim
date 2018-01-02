@@ -5,7 +5,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.all.order(:date).where('date >= ?', DateTime.now.to_date)
+    @offers = Offer.all.order(:date).where('date >= ?', DateTime.now.to_date).where('filled = ?', false)
   end
 
   # GET /offers/1
@@ -46,6 +46,18 @@ class OffersController < ApplicationController
     end
   end
 
+  def mark_as_filled
+    pending_offer = Offer.find(params[:offer_id])
+    pending_offer.update_attribute :filled, params[:filled]
+    respond_to do |format|
+      if (pending_offer.filled == true)
+        format.html { redirect_to center_path(current_center), notice: 'Cette offre a bien été marquée comme pourvue' }
+      else
+        format.html { redirect_to center_path(current_center), notice: 'Cette offre a bien été remise en ligne' }
+      end
+    end
+  end
+
   # DELETE /offers/1
   # DELETE /offers/1.json
   def destroy
@@ -64,6 +76,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:date, :offer_number, :school_id, :center_id, :diploma_ids => [], :slot_ids => []);
+      params.require(:offer).permit(:date, :offer_number, :filled, :school_id, :center_id, :diploma_ids => [], :slot_ids => []);
     end
 end
