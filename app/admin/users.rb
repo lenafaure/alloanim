@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  actions :index, :show, :edit, :destroy
   menu parent: "Utilisateurs", label: "Animateurs"
 
   permit_params :password, :email, :first_name, :last_name, :birthday, :soi_number, :phone_number, :circonscription, :diploma, :approved

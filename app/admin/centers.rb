@@ -1,4 +1,5 @@
 ActiveAdmin.register Center do
+  actions :index, :show, :edit, :destroy
   menu parent: "Utilisateurs", label: "REV"
 
   permit_params :password, :email, :first_name, :last_name, :phone_number, :circonscription, :approved

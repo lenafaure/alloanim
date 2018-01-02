@@ -1,7 +1,8 @@
 ActiveAdmin.register Rhagent do
+  actions :index, :show, :edit, :destroy
   menu parent: "Utilisateurs", label: "Celulle Remplacement"
 
-  permit_params :password, :email, :first_name, :last_name, :phone_number, :circonscription, :approved
+  permit_params :password, :email, :first_name, :last_name, :circonscription, :approved
 
   controller do
     def update
