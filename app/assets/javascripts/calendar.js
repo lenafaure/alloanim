@@ -1,6 +1,7 @@
 /**
- * Created by lenafaure on 20/09/2017.
+ * Weekly Calendar for user availabilities
  */
+
 $( document ).on('turbolinks:load', function(){
 
 // Array polyfill for IE: find

@@ -1,6 +1,9 @@
+/**
+ * JSON Time slots and function for determining if day is during french holidays
+ */
 
 function french_holidays() {
-
+    // See school-holidays.js file (data retrieved from OpenDataGouv.fr)
     var holidays_array = [];
     var holidays_records = OfficialHolidays.records;
 
