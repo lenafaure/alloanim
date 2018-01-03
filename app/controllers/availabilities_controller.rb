@@ -1,5 +1,5 @@
 class AvailabilitiesController < ApplicationController
-
+  # User Availablilities
   before_action :authenticate_user!
 
   def index
@@ -7,14 +7,13 @@ class AvailabilitiesController < ApplicationController
   end
 
   def show
-
   end
 
   def create
-    # drop records before saving new set
+    # Drop records before saving new set
     Availability.where(user_id: current_user.id).destroy_all
 
-    # retrieve availabilities array from localStorage
+    # Retrieve availabilities array from localStorage
     @availabilities = params[:availability]
 
     @availabilities.each do |index, availability|

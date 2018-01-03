@@ -31,18 +31,16 @@ Rails.application.routes.draw do
     get :matching_offers
     patch :approve
   end
+  resources :offers do
+    patch :mark_as_filled
+  end
   resources :centers
   resources :rhagents
   resources :availabilities
   resources :circonscriptions
-  resources :offers do
-    patch :mark_as_filled
-  end
   resources :schools
   resources :slots
   resources :diplomas
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # root page of the application
 

@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
 
   # before any action performed by this controller, verify if the user is authenticated
   devise_group :person, contains: [:user, :center, :rhagent, :admin_user]
-  #testing
   before_action :authenticate_person!, :except => [:pages, :home]
   before_action :matching_notification, :except => [:pages, :home]
   before_action :completed_profile
 
+  # Display matching notifications in navigation
   def matching_notification
      if user_signed_in?
         @matches = User.offer_matches(current_user)
@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Prevent user sign in if profile not complete
   def completed_profile
     if user_signed_in?
       if (current_user.soi_number.blank? || current_user.phone_number.blank? || current_user.diploma.blank?)

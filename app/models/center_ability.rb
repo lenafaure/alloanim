@@ -1,4 +1,5 @@
 class CenterAbility
+  # Defines authorisations for Center
   include CanCan::Ability
 
   def initialize(center)

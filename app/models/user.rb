@@ -28,13 +28,14 @@ class User < ApplicationRecord
     end
   end
 
+  # Calculate user's age
   def self.age(current_user)
     user_birthdate = current_user.birthday
     user_age = Time.current.year - user_birthdate.year
     return user_age
   end
 
-  # Matching Offers & User
+  # Matching Offers & User availabilities
   def self.offer_matches(current_user)
     user_diploma = current_user.try(:diploma)
     user_availabilities = Availability

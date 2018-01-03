@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # User = Animateur
   before_action :set_user, only: [:show, :edit, :update]
   before_action :search, only: [:index]
   skip_before_action :completed_profile, only: [:edit, :update]
@@ -24,7 +25,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-
   end
 
   # # PATCH/PUT /users/1
@@ -41,6 +41,7 @@ class UsersController < ApplicationController
     end
   end
 
+  # Function for approving user manually (by Rhagent)
   def approve
     pending_user = User.find(params[:user_id])
     pending_user.update_attribute :approved, params[:approved]
@@ -61,10 +62,10 @@ class UsersController < ApplicationController
     end
   end
 
+  # Displays matching offers for this users
   def matching_offers
     @user = User.find(params[:user_id])
     @matches = User.offer_matches(@user)
-    #UserNotifierMailer.send_matches_notifications(@user).deliver
   end
 
   private
@@ -76,6 +77,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:password, :email, :first_name, :last_name, :birthday, :soi_number, :phone_number, :circonscription, :diploma, :approved)
   end
 
+  # Displays results on /users page
   def search
     @search = User.ransack(params[:q])
     @user_availabilities = @search.result(distinct: true).includes(:availabilities).order('last_name ASC').where('approved = ?', true).where.not(phone_number: [nil, ""], diploma: [nil, ""])

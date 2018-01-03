@@ -2,7 +2,7 @@ class UserNotifierMailer < ApplicationMailer
   default :from => "AlloAnim <alloanim@futur.paris>"
   @day_of_week = Time.now.utc.wday
 
-  # Send notifications daily when user has matches
+  # Send daily notifications when user has matches, except on weekends
   def send_matches_notification(user)
     @user = user
     @matches = User.offer_matches(@user)
@@ -17,7 +17,7 @@ class UserNotifierMailer < ApplicationMailer
     end
   end
 
-  # Send offers to Users with no matches on Monday and Wednesday
+  # Send offers to users with no matches on Monday and Wednesday
   def send_current_offers(user)
     @user = user
     @matches = User.offer_matches(@user)

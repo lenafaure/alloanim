@@ -1,4 +1,5 @@
 class SlotsController < ApplicationController
+  # Slots = tranches horaires
   before_action :set_slot, only: [:show, :edit, :update, :destroy]
 
   # GET /slots
@@ -62,12 +63,10 @@ class SlotsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_slot
       @slot = Slot.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def slot_params
       params.fetch(:slot, {})
     end

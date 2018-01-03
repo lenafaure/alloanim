@@ -1,8 +1,9 @@
-[![AlloAnim](http://img.youtube.com/vi/AoMaZQC6JKw/0.jpg)](https://www.youtube.com/watch?v=AoMaZQC6JKw)
-
 # AlloAnim
 
 A Web application that helps the City of Paris find available after-school staff.
+
+[![AlloAnim](http://img.youtube.com/vi/AoMaZQC6JKw/0.jpg)](https://www.youtube.com/watch?v=AoMaZQC6JKw)
+
 
 ## Getting Started
 
@@ -34,29 +35,15 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
+
+Rake tasks - Scheduler
+
+migrate seed
+
+Configure emails
 
 ## Built With
 

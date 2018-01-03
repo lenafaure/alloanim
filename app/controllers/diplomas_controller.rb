@@ -63,12 +63,10 @@ class DiplomasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_diploma
       @diploma = Diploma.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def diploma_params
       params.require(:diploma).permit(:name)
     end

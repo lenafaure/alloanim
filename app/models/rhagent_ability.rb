@@ -1,4 +1,5 @@
 class RhagentAbility
+  # Defines authorisations for Rhagent
   include CanCan::Ability
 
   def initialize(rhagent)

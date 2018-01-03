@@ -27,7 +27,6 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.center = current_center
-
       if @offer.save
          redirect_to offers_url, notice: "L'Offre a été créée avec succès"
       else
@@ -46,6 +45,7 @@ class OffersController < ApplicationController
     end
   end
 
+  # Mark an offer as filled
   def mark_as_filled
     pending_offer = Offer.find(params[:offer_id])
     pending_offer.update_attribute :filled, params[:filled]
@@ -69,12 +69,10 @@ class OffersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_offer
       @offer = Offer.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
       params.require(:offer).permit(:date, :offer_number, :filled, :school_id, :center_id, :diploma_ids => [], :slot_ids => []);
     end

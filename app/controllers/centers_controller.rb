@@ -1,4 +1,5 @@
 class CentersController < ApplicationController
+  # Center = REV User
   before_action :set_center, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 

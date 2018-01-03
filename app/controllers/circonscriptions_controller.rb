@@ -63,12 +63,10 @@ class CirconscriptionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_circonscription
       @circonscription = Circonscription.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def circonscription_params
       params.require(:circonscription).permit(:name)
     end

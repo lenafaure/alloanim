@@ -136,10 +136,11 @@ input:-webkit-autofill {
 .badge {
   border-radius: 2px;
   padding: 5px 15px;
-  font-size: 12px;
+  font-size: 14px;
   color: #fff;
   font-weight: 700;
   white-space: normal;
+  vertical-align: top;
 }
 
 .tealish {
@@ -609,14 +610,6 @@ input:-webkit-autofill {
 .approve-btn {
   margin-left: auto;
   align-self: center;
-}
-
-.center-offers-wrapper .badge {
-  display: block;
-  margin-bottom: 3px;
-  text-align: center;
-  padding: 7px;
-  border-radius: 4px;
 }
 
 
