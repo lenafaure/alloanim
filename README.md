@@ -68,7 +68,7 @@ Live app: [alloanim.futur.paris](http://alloanim.futur.paris/)
   - Ruby version 2.4.1
   - Rails 5.1.4
 
-### Installing
+## Installing
 
 **1. Clone the app**
 
