@@ -132,7 +132,7 @@ Install [Sendgrid](https://elements.heroku.com/addons/sendgrid) and [Heroku Sche
 
 Set up these exact three tasks with daily frequency at the following times: 
 
-
+![rake tasks](https://raw.githubusercontent.com/lenafaure/alloanim/master/Heroku%20Scheduler.png)
 
 
 ## Authors
