@@ -67,6 +67,14 @@ Live app: [alloanim.futur.paris](http://alloanim.futur.paris/)
   - Sqlite3
   - Ruby version 2.4.1
   - Rails 5.1.4
+  
+## Main Gems 
+
+- Devise
+- ActiveAdmin
+- CanCanCan
+- PaperClip
+
 
 ## Installing
 
