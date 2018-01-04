@@ -96,20 +96,21 @@ rake db:setup
 rake db:migrate
 ```
 
-Fill the database with predetermined data:
+Fill the database with predetermined data (Be sure to run this command only **once**):
 ```
 rake db:seed
 ```
-!Be sure to run this command only **once**
+
 
 Lets run the App:
 ```
 rails server
 ```
 
-Then browse to [http://localhost:3000](http://localhost:3000) to view the app in all its glory. Wait where is that “Hello World!” moment? Time to create the admin account so we can create some posts…
+Then browse to [http://localhost:3000](http://localhost:3000) to view the app. 
 
 **3. Log in as Admin**
+
 Navigate to the Admin dashboard and enter the following email and password:
 
 admin@example.com / password
