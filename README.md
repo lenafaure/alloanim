@@ -75,7 +75,6 @@ Live app: [alloanim.futur.paris](http://alloanim.futur.paris/)
 - CanCanCan
 - PaperClip
 
-
 ## Installing
 
 **1. Clone the app**
