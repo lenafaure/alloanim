@@ -227,6 +227,16 @@ input:-webkit-autofill {
   margin-top: 2px;
 }
 
+.menu_link_join a {
+  color: $main-violet !important;
+  text-decoration: underline;
+}
+
+.menu_link_join a:hover {
+  color: $main-pink !important;
+  text-decoration: underline !important;
+}
+
 .home_page .menu_link a {
   color: $main-violet !important;
 }

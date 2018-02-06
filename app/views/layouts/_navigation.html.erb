@@ -66,7 +66,8 @@
 
         <% end %>
         <% if (!user_signed_in? && !center_signed_in? && !rhagent_signed_in?) %>
-           <li class="menu-btn btn btn-slim btn-violet"><%= link_to 'Je suis Animateur', user_session_path, method: :get %></li>
+           <li class="menu_link_join"><a href="https://api-site-cdn.paris.fr/images/88717" target="_blank">Comment postuler</a> </li>
+           <li class="menu-btn btn btn-slim btn-violet"><%= link_to 'Je suis Animateur de Paris', user_session_path, method: :get %></li>
           <li class="menu-btn btn btn-slim btn-pink"><%= link_to 'Je cherche un Animateur', center_session_path, method: :get %></li>
         <% else %>
           <% if user_signed_in? %>
